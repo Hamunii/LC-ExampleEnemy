@@ -1,0 +1,7 @@
+{
+    "name": "ExampleEnemy",
+    "version_number": "0.1.2",
+    "website_url": "https://github.com/Hamunii/LC-ExampleEnemy",
+    "description": "This mod adds an Example Enemy to Lethal Company!",
+    "dependencies": ["BepInEx-BepInExPack-5.4.2100", "Evaisa-LethalLib-0.13.2"]
+}

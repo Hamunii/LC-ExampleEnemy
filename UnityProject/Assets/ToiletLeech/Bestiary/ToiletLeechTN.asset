@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e80ae96b3eb9177eea5c8f9dadbcda1, type: 3}
+  m_Name: ToiletLeechTN
+  m_EditorClassIdentifier: 
+  displayText: 'Toilet Leech
+
+
+    Sigurd''s danger level: 30%
+
+
+    Scientific name:
+    Hirudinea Toiletus
+
+
+    Toilet Leech is a large species of leech that seem have
+    evolved to gain a toilet as its torso. We are unsure how this could have happened,
+    especially since toilets are invented by humans and are very different from crabs.
+    It''s also a complete mystery how they learned to sing.
+
+
+    Toilet Leeches
+    appear to be lacking in intelligence, and they just wander around in the lands
+    outside, bopping their heads along their beat. However, they are aware of their
+    surroundings and will attack when you are too close. They seem to like attacking
+    from in front of you rather than from back, though they will still ram through
+    you if you have your back against them.
+
+
+    The Toilet Leech! The Toilet Leech
+    is real! - Sigurd'
+  terminalEvent: 
+  clearPreviousText: 1
+  maxCharactersToType: 35
+  buyItemIndex: -1
+  isConfirmationNode: 0
+  buyRerouteToMoon: -1
+  displayPlanetInfo: -1
+  lockedInDemo: 0
+  shipUnlockableID: -1
+  buyUnlockable: 0
+  returnFromStorage: 0
+  itemCost: 0
+  creatureFileID: 7013
+  creatureName: TLeech
+  storyLogFileID: -1
+  overrideOptions: 0
+  acceptAnything: 0
+  terminalOptions: []
+  playClip: {fileID: 0}
+  playSyncedClip: 2
+  displayTexture: {fileID: 0}
+  displayVideo: {fileID: 32900000, guid: d2497e7aef1c8cd3eb8c03e57932f1b3, type: 3}
+  loadImageSlowly: 1
+  persistentImage: 0

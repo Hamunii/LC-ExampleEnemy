@@ -1,0 +1,95 @@
+name: "🐛 Bug Report"
+description: "File a bug report (e.g.: Something is broken or not working.)"
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Remember, including as much information as possible will help us to solve your issue quickly.
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Installation Method
+      description: How did you install this mod?
+      options:
+        - Thunderstore App
+        - r2modman / r2mm
+        - Manual Download
+        - "Friend told me to extract it"
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-do
+    attributes:
+      label: What did you do?
+      description: Tell us what you did to make this happen.
+      placeholder: Tell us what you did!
+      value: |
+        1. I joined a game my friend was hosting
+        2. We landed on Experimentation
+        3. I died
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game-version
+    attributes:
+      label: Version
+      description: What version of the game are you running?
+      options:
+        - v49
+        - v45
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os-version
+    attributes:
+      label: What OS are you running?
+      options:
+        - Windows 10
+        - Windows 11
+        - Linux
+        - Mac
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: List of mods used
+      description: Please copy and paste your mod list. ![HOW](/Hamunii/LC-ExampleEnemy/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-show-modlist.png?raw=true)
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks. If you're not sure what to include, just paste the whole thing! ![HOW](/Hamunii/LC-ExampleEnemy/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-copy-game-log.png?raw=true)
+      render: PowerShell
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

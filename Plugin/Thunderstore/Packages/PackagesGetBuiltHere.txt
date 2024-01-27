@@ -1,0 +1,8 @@
+Use the python script to generate your Thunderstore packages.
+
+These are zip files that contain the following:
+- manifest.json
+- icon.png
+- README.mod
+- CHANGELOG.md (optional)
+- the mod itself (optional)
