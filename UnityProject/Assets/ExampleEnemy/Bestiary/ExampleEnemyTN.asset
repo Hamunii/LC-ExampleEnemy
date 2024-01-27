@@ -10,34 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e80ae96b3eb9177eea5c8f9dadbcda1, type: 3}
-  m_Name: ToiletLeechTN
+  m_Name: ExampleEnemyTN
   m_EditorClassIdentifier: 
-  displayText: 'Toilet Leech
+  displayText: 'Example Enemy
 
 
-    Sigurd''s danger level: 30%
+    Sigurd''s danger level: ?%
 
 
     Scientific name:
-    Hirudinea Toiletus
+    Enemius Examplus
 
 
-    Toilet Leech is a large species of leech that seem have
-    evolved to gain a toilet as its torso. We are unsure how this could have happened,
-    especially since toilets are invented by humans and are very different from crabs.
-    It''s also a complete mystery how they learned to sing.
-
-
-    Toilet Leeches
-    appear to be lacking in intelligence, and they just wander around in the lands
-    outside, bopping their heads along their beat. However, they are aware of their
-    surroundings and will attack when you are too close. They seem to like attacking
-    from in front of you rather than from back, though they will still ram through
-    you if you have your back against them.
-
-
-    The Toilet Leech! The Toilet Leech
-    is real! - Sigurd'
+    The Example Enemy! The Example Enemy is real! - Sigurd'
   terminalEvent: 
   clearPreviousText: 1
   maxCharactersToType: 35
@@ -50,8 +35,8 @@ MonoBehaviour:
   buyUnlockable: 0
   returnFromStorage: 0
   itemCost: 0
-  creatureFileID: 7013
-  creatureName: TLeech
+  creatureFileID: 7014
+  creatureName: Example Enemy
   storyLogFileID: -1
   overrideOptions: 0
   acceptAnything: 0

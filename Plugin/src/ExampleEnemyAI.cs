@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ExampleEnemy {
 
-    // You may be wondering, how does the Toilet Leech enemy know it is from class ExampleEnemy?
+    // You may be wondering, how does the Example Enemy know it is from class ExampleEnemyAI?
     // Well, we give it a reference to to this class in the Unity project where we make the asset bundle.
     // Asset bundles cannot contain scripts, so our script lives here. It is important to get the
     // reference right, or else it will not find this file. See the guide for more information.
@@ -25,7 +25,7 @@ namespace ExampleEnemy {
         Vector3 StalkPos;
         System.Random enemyRandom;
         bool isDeadAnimationDone;
-        enum TLBehavior {
+        enum State {
             SearchingForPlayer,
             StickingInFrontOfPlayer,
             HeadSwingAttackInProgress,
@@ -40,7 +40,7 @@ namespace ExampleEnemy {
         public override void Start()
         {
             base.Start();
-            LogIfDebugBuild("Toilet Leech Spawned");
+            LogIfDebugBuild("Example Enemy Spawned");
             timeSinceHittingLocalPlayer = 0;
             creatureAnimator.SetTrigger("startWalk");
             timeSinceNewRandPos = 0;
@@ -49,7 +49,7 @@ namespace ExampleEnemy {
             isDeadAnimationDone = false;
             // NOTE: Add your behavior states in your enemy script in Unity, where you can configure fun stuff
             // like a voice clip or an sfx clip to play when changing to that specific behavior state.
-            currentBehaviourStateIndex = (int)TLBehavior.SearchingForPlayer;
+            currentBehaviourStateIndex = (int)State.SearchingForPlayer;
         }
 
         public override void Update(){
@@ -87,14 +87,14 @@ namespace ExampleEnemy {
             KeepSearchingForPlayerUnlessInRange(25, ref scoutingSearchRoutine);
 
             switch(currentBehaviourStateIndex) {
-                case (int)TLBehavior.SearchingForPlayer:
+                case (int)State.SearchingForPlayer:
                     agent.speed = 3f;
                     break;
-                case (int)TLBehavior.StickingInFrontOfPlayer:
+                case (int)State.StickingInFrontOfPlayer:
                     agent.speed = 5f;
                     StickingInFrontOfPlayer();
                     break;
-                case (int)TLBehavior.HeadSwingAttackInProgress:
+                case (int)State.HeadSwingAttackInProgress:
                     // We don't care about doing anything here
                     break;
                 default:
@@ -110,7 +110,7 @@ namespace ExampleEnemy {
                 if(routine.inProgress){
                     LogIfDebugBuild("Start Target Player");
                     StopSearch(routine);
-                    SwitchToBehaviourClientRpc((int)TLBehavior.StickingInFrontOfPlayer);
+                    SwitchToBehaviourClientRpc((int)State.StickingInFrontOfPlayer);
                 }
             }
             else
@@ -118,7 +118,7 @@ namespace ExampleEnemy {
                 if(!routine.inProgress){
                     LogIfDebugBuild("Stop Target Player");
                     StartSearch(transform.position, routine);
-                    SwitchToBehaviourClientRpc((int)TLBehavior.SearchingForPlayer);
+                    SwitchToBehaviourClientRpc((int)State.SearchingForPlayer);
                 }
             }
         }
@@ -146,7 +146,7 @@ namespace ExampleEnemy {
         }
 
         IEnumerator SwingAttack(){
-            SwitchToBehaviourClientRpc((int)TLBehavior.HeadSwingAttackInProgress);
+            SwitchToBehaviourClientRpc((int)State.HeadSwingAttackInProgress);
             StalkPos = targetPlayer.transform.position;
             SetDestinationToPosition(StalkPos);
             yield return new WaitForSeconds(0.5f);
@@ -157,10 +157,10 @@ namespace ExampleEnemy {
             yield return new WaitForSeconds(0.24f);
             SwingAttackHitClientRpc();
             // In case the player has already gone away, we just yield break (basically same as return, but for IEnumerator)
-            if(currentBehaviourStateIndex != (int)TLBehavior.HeadSwingAttackInProgress){
+            if(currentBehaviourStateIndex != (int)State.HeadSwingAttackInProgress){
                 yield break;
             }
-            SwitchToBehaviourClientRpc((int)TLBehavior.StickingInFrontOfPlayer);
+            SwitchToBehaviourClientRpc((int)State.StickingInFrontOfPlayer);
         }
 
         public override void OnCollideWithPlayer(Collider other)
@@ -171,7 +171,7 @@ namespace ExampleEnemy {
             PlayerControllerB playerControllerB = MeetsStandardPlayerCollisionConditions(other);
             if (playerControllerB != null)
             {
-                LogIfDebugBuild("Toilet Leech Collision with Player!");
+                LogIfDebugBuild("Example Enemy Collision with Player!");
                 timeSinceHittingLocalPlayer = 0f;
                 playerControllerB.DamagePlayer(20);
             }

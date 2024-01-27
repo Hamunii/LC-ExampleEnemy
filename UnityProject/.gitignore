@@ -70,3 +70,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Idk why this wasn't on the list
+.vscode/
+
+# Assemblies
+*.dll*
+
+# We allow these dll files because we have the right to redistribute them
+!/[Aa]ssets/Plugins/ExampleEnemy.dll*
+!/[Aa]ssets/Plugins/LethalLib.dll*

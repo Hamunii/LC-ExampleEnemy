@@ -307,10 +307,10 @@ MonoBehaviour:
   maxRange: 15
   minRange: 1
   requiresLineOfSight: 1
-  headerText: Toilet Leech
+  headerText: Example Enemy
   subText: 
   scrapValue: 0
-  creatureScanID: 7013
+  creatureScanID: 7014
   nodeType: 1
 --- !u!65 &3116860192255969040
 BoxCollider:
@@ -704,7 +704,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3a1e2332a3393d644ad5771fda990784,
         type: 3}
       propertyPath: m_Name
-      value: toilet-leech-obj-1
+      value: ExampleEnemyObj
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a1e2332a3393d644ad5771fda990784,
         type: 3}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4653223892326777022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1426366322, guid: 28e79a089a03c01f58f1cfe588cb1942, type: 3}
+  m_Script: {fileID: 2106200333, guid: e0a89e6f23bd69e40ab1b6cd831745f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: {fileID: 11400000, guid: 133b201488d7fb6cfbcd46e1309fc155, type: 2}

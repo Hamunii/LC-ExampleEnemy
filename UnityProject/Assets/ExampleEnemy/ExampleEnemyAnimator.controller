@@ -215,7 +215,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToiletLeechAnimator
+  m_Name: ExampleEnemyAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: startWalk
