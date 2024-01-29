@@ -43,7 +43,7 @@ if not os.path.exists(dllDestination):
 
 # Locate the game's data folder
 gameFilesPath = None
-expectedGamePaths = ['C:/Program Files (x86)/Steam/steamapps/common/Lethal Company', f'{os.path.expanduser('~')}/.local/share/Steam/steamapps/common/Lethal Company']
+expectedGamePaths = ['C:/Program Files (x86)/Steam/steamapps/common/Lethal Company', f'{os.path.expanduser("~")}/.local/share/Steam/steamapps/common/Lethal Company']
 for path in expectedGamePaths:
     if os.path.exists(path):
       gameFilesPath = path

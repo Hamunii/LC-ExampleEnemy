@@ -4,7 +4,7 @@ This repository contains the full source code for the Example Enemy for Lethal C
 
 ## Setting Up The Project For Development
 
-## Setup Script
+### Setup Script
 
 After copying this repo for yourself, run [SETUP-PROJECT.py](/SETUP-PROJECT.py) from the command line like this: `python SETUP-PROJECT.py` (Or you can run it from your file manager on Linux). Note that you will have to have Python installed.  
 - First, the setup project will copy DLL files over to `UnityProject/Assets/Plugins` directory so we can build our Asset Bundles without any errors.
