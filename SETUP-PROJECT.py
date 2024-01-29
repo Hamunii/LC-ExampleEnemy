@@ -102,7 +102,7 @@ print(color.green + f'Done copying game DLLs to {unityProjectPath}/{unityPlugins
 #######################################################################################
 # This is non-game dll territory
 r2modmanPath = None
-expectedr2modmanPaths = [f'{os.path.expanduser('~')}/AppData/Roaming/r2modmanPlus-local/LethalCompany/profiles', f'{os.path.expanduser('~')}/.config/r2modmanPlus-local/LethalCompany/profiles']
+expectedr2modmanPaths = [f'{os.path.expanduser("~")}/AppData/Roaming/r2modmanPlus-local/LethalCompany/profiles', f'{os.path.expanduser("~")}/.config/r2modmanPlus-local/LethalCompany/profiles']
 for path in expectedr2modmanPaths:
     if os.path.exists(path):
       r2modmanPath = path
