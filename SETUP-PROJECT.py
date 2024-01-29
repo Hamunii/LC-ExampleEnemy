@@ -5,8 +5,7 @@ from sys import platform
 from inspect import getsourcefile
 
 # This is an automated script for copying required dll files into this project.
-# Supports both Windows* and Linux.
-# *not tested on Windows
+# Supports both Windows and Linux.
 #
 # Also, this script got kinda out of hand towards the end. I won't waste more time on this though, it works anyways.
 # Feel free to contribute to this script

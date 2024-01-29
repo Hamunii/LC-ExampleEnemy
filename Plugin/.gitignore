@@ -48,7 +48,8 @@ UpgradeLog.htm
 *.blend1
 
 # Thunderstore Packages
-/Thunderstore/Packages/*.zip
+/Thunderstore/Packages/*
 
 # Exclude stuff
 !/dlls/LethalLib.dll
+!/Thunderstore/Packages/*.txt

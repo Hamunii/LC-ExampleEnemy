@@ -1,18 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+		<!-- This is the most likely to work in Unity games, for the most part; you can ignore it. -->
     <TargetFramework>netstandard2.1</TargetFramework>
+		<!-- This is the name of your mod. This will be used by tcli when building our Thunderstore package. -->
     <AssemblyName>ExampleEnemy</AssemblyName>
+		<!-- This assembly description doesn't show up on Thunderstore. -->
+    <!-- Configure description for Thunderstore at ./Thunderstore/thunderstore.toml -->
     <Description>Example Enemy for Lethal Company.</Description>
+		<!-- This is the version of your plugin. This will be used by tcli when building our Thunderstore package. -->
     <Version>1.0.0</Version>
+		<!-- This is required for BepInEx to load us properly. -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<!-- This allows you to use C#11 features, for the most part. -->
     <LangVersion>latest</LangVersion>
-    <Company>Hamunii</Company>
+
     <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
+	  <!-- Embed Debug symbols in our DLL (otherwise it's in a separate .pdb file). This will show the line an error happens at when running our mod. -->
     <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <PropertyGroup>
+	  <!-- Your Thunderstore Team name. This will be used by tcli when building our Thunderstore package. -->
+    <ThunderstoreTeam>Hamunii</ThunderstoreTeam>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,14 +38,15 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <!-- Get references to DLL files. -->
   <ItemGroup>
     <Reference Include="UnityEngine"><HintPath>../dlls/UnityEngine.CoreModule.dll</HintPath></Reference>
     <Reference Include="Assembly-CSharp"><HintPath>../dlls/Assembly-CSharp.dll</HintPath></Reference>
     <Reference Include="Unity.Netcode.Runtime"><HintPath>../dlls/Unity.Netcode.Runtime.dll</HintPath></Reference>
 	  <Reference Include="LethalLib"><HintPath>../dlls/LethalLib.dll</HintPath></Reference>
-
   </ItemGroup>
 
+  <!-- Allows us to use Rpc methods. See https://github.com/EvaisaDev/UnityNetcodePatcher -->
   <ItemGroup>
     <PackageReference Include="Evaisa.NetcodePatcher.MSBuild" Version="3.*" PrivateAssets="all" />
   </ItemGroup>
@@ -41,5 +54,9 @@
     <NetcodePatch Include="$(TargetPath)" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties manifest_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <!-- Build our Thunderstore package when making a release build. This does not publish our package. -->
+  <!-- For more information about tcli, see https://github.com/thunderstore-io/thunderstore-cli/wiki -->
+  <Target Name="PackThunderstore" DependsOnTargets="NetcodePatch" AfterTargets="PostBuildEvent" Condition="$(Configuration) == 'Release'">
+    <Exec Command="dotnet tcli build --config-path &quot;$(ProjectDir)Thunderstore/thunderstore.toml&quot; --package-version $(Version) --package-name $(AssemblyName) --package-namespace $(ThunderstoreTeam)"  />
+  </Target>
 </Project>
