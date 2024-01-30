@@ -10,6 +10,7 @@ using System.IO;
 
 namespace ExampleEnemy {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInDependency(LethalLib.Plugin.ModGUID)] 
     public class Plugin : BaseUnityPlugin {
         public static Harmony _harmony;
         public static EnemyType ExampleEnemy;
