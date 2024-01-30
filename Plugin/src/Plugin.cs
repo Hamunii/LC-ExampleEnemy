@@ -11,6 +11,7 @@ using System.IO;
 namespace ExampleEnemy {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     [BepInDependency(LethalLib.Plugin.ModGUID)] 
+    [BepInDependency(TestingLib.Plugin.ModGUID, BepInDependency.DependencyFlags.SoftDependency)] 
     public class Plugin : BaseUnityPlugin {
         public static Harmony _harmony;
         public static EnemyType ExampleEnemy;
@@ -44,6 +45,13 @@ namespace ExampleEnemy {
                     }
                 }
             }
+
+            #if DEBUG
+            TestingLib.Patch.DebugMenu();
+            TestingLib.Macro.OnPlayerSpawn.ToggleTestRoom();
+            TestingLib.Macro.OnPlayerSpawn.TeleportSelf(TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Outside);
+            TestingLib.Macro.OnPlayerSpawn.SpawnEnemyInFrontOfSelf(ExampleEnemy);
+            #endif
         }
     }
 

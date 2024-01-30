@@ -52,4 +52,5 @@ UpgradeLog.htm
 
 # Exclude stuff
 !/dlls/LethalLib.dll
+!/dlls/TestingLib.dll
 !/Thunderstore/Packages/*.txt

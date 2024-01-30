@@ -25,6 +25,10 @@ namespace ExampleEnemy {
         Vector3 StalkPos;
         System.Random enemyRandom;
         bool isDeadAnimationDone;
+        // We visualize our pathfinding with a line in debug builds of our mod.
+        #if DEBUG
+        LineRenderer line;
+        #endif
         enum State {
             SearchingForPlayer,
             StickingInFrontOfPlayer,
@@ -50,6 +54,11 @@ namespace ExampleEnemy {
             // NOTE: Add your behavior states in your enemy script in Unity, where you can configure fun stuff
             // like a voice clip or an sfx clip to play when changing to that specific behavior state.
             currentBehaviourStateIndex = (int)State.SearchingForPlayer;
+            // Add the line renderer component for visualization
+            #if DEBUG
+            line = gameObject.AddComponent<LineRenderer>();
+            line.widthMultiplier = 0.2f;
+            #endif
         }
 
         public override void Update(){
@@ -101,6 +110,10 @@ namespace ExampleEnemy {
                     LogIfDebugBuild("This Behavior State doesn't exist!");
                     break;
             }
+            // If Debug build, we visualize our enemy's pathfinding.
+            #if DEBUG
+            StartCoroutine(TestingLib.Enemy.DrawPathIEnumerator(line, agent.path, transform));
+            #endif
         }
 
         void KeepSearchingForPlayerUnlessInRange(float range, ref AISearchRoutine routine){

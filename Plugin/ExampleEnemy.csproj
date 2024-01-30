@@ -44,6 +44,8 @@
     <Reference Include="Assembly-CSharp"><HintPath>../dlls/Assembly-CSharp.dll</HintPath></Reference>
     <Reference Include="Unity.Netcode.Runtime"><HintPath>../dlls/Unity.Netcode.Runtime.dll</HintPath></Reference>
 	  <Reference Include="LethalLib"><HintPath>../dlls/LethalLib.dll</HintPath></Reference>
+    <!-- Used in Debug builds, not in Release builds. -->
+	  <Reference Include="TestingLib"><HintPath>../dlls/TestingLib.dll</HintPath></Reference>
   </ItemGroup>
 
   <!-- Allows us to use Rpc methods. See https://github.com/EvaisaDev/UnityNetcodePatcher -->

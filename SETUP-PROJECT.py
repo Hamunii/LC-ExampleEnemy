@@ -212,6 +212,7 @@ userFile = f"""<?xml version="1.0" encoding="utf-8"?>
       <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(TestDir)$(AssemblyName)-DEV/"/>
       <!-- We will copy the asset bundle named "modassets" over -->
       <Copy SourceFiles="../UnityProject/AssetBundles/StandaloneWindows/modassets" DestinationFolder="$(TestDir)$(AssemblyName)-DEV/"/>
+      <Copy SourceFiles="./dlls/TestingLib.dll" DestinationFolder="$(TestDir)$(AssemblyName)-DEV/"/>
       <Exec Command="echo '[csproj.user] Mod files copied to $(TestDir)$(AssemblyName)-DEV/'" />
    </Target>
 </Project>"""
