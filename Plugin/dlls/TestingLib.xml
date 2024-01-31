@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestingLib</name>
+    </assembly>
+    <members>
+        <member name="T:TestingLib.Enemy">
+            <summary>
+            Helpful methods for making debugging of enemies easier.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Enemy.DrawPath(UnityEngine.LineRenderer,UnityEngine.AI.NavMeshPath,UnityEngine.Transform)">
+            <summary>
+            Draws the NavMeshAgent's pathfinding. Should be used in `DoAIInterval()`. Do note that you need to add line renderer in your enemy prefab.
+            </summary>
+            <param name="line"></param>
+            <param name="path"></param>
+            <param name="fromPosition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TestingLib.Macro">
+            <summary>
+            Contains macros for things to happen at certain moments. 
+            </summary>
+        </member>
+        <member name="T:TestingLib.Macro.OnPlayerSpawn">
+            <summary>
+            Macros that happen as soon as the player spawns. 
+            </summary>
+        </member>
+        <member name="T:TestingLib.Macro.OnPlayerSpawn.TeleportLocation">
+            <summary>
+            Specify the Teleport Location in the test level.
+            </summary>
+        </member>
+        <member name="F:TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Inside">
+            <summary>
+            Teleports you inside the testing maze.
+            </summary>
+        </member>
+        <member name="F:TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Outside">
+            <summary>
+            Teleports you outside in the testing level.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Macro.OnPlayerSpawn.ToggleTestRoom">
+            <summary>
+            Toggles the testing level from the debug menu.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Macro.OnPlayerSpawn.TeleportSelf(TestingLib.Macro.OnPlayerSpawn.TeleportLocation)">
+            <summary>
+            Teleports you to the location specified in the test level.
+            </summary>
+            <param name="location"></param>
+        </member>
+        <member name="M:TestingLib.Macro.OnPlayerSpawn.SpawnEnemyInFrontOfSelf(System.String)">
+            <summary>
+            Will find the enemy by name, and spawn it. Limitation: will only spawn one enemy.
+            <br/><br/>
+            Previously was somewhat broken: enemy might have appeared invisible. No idea if I fixed it or not.
+            </summary>
+            <param name="enemyName"></param>
+        </member>
+        <member name="T:TestingLib.Patch">
+            <summary>
+            This module contains methods to patch methods and variables in the game.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.isEditor">
+            <summary>
+            Patches the game to think it is running in Unity Editor, allowing us to use the in-game debug menu.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.SkipSpawnPlayerAnimation">
+            <summary>
+            Skips the spawn player animation so you can start moving and looking around as soon as you spawn.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Plugin">
+            <summary>
+            Plugin class.
+            </summary>
+        </member>
+        <member name="F:TestingLib.Plugin.ModGUID">
+            <summary>
+            The Mod GUID of TestingLib.
+            </summary>
+        </member>
+    </members>
+</doc>

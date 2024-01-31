@@ -112,7 +112,7 @@ namespace ExampleEnemy {
             }
             // If Debug build, we visualize our enemy's pathfinding.
             #if DEBUG
-            StartCoroutine(TestingLib.Enemy.DrawPathIEnumerator(line, agent.path, transform));
+            StartCoroutine(TestingLib.Enemy.DrawPath(line, agent.path, transform));
             #endif
         }
 
