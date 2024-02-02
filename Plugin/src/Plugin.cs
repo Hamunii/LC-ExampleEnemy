@@ -47,13 +47,17 @@ namespace ExampleEnemy {
             }
 
             #if DEBUG
-            TestingLib.Patch.isEditor();
-            TestingLib.Patch.SkipSpawnPlayerAnimation();
-            TestingLib.Macro.OnPlayerSpawn.ToggleTestRoom();
-            TestingLib.Macro.OnPlayerSpawn.TeleportSelf(TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Outside);
-            TestingLib.Macro.OnPlayerSpawn.SpawnEnemyInFrontOfSelf(ExampleEnemy.enemyName);
+            TestingLib.Patch.All();
+            TestingLib.OnEvent.PlayerSpawn_20ms_delay += OnEvent_PlayerSpawn_20ms_delay;
             #endif
         }
+        #if DEBUG
+        private void OnEvent_PlayerSpawn_20ms_delay()
+        {
+            TestingLib.Tools.TeleportSelf(TestingLib.Tools.TeleportLocation.Outside);
+            TestingLib.Tools.SpawnEnemyInFrontOfSelf(ExampleEnemy.enemyName);
+        }
+        #endif
     }
 
     public static class Assets {

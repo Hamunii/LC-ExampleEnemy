@@ -54,6 +54,10 @@ namespace ExampleEnemy {
             // NOTE: Add your behavior states in your enemy script in Unity, where you can configure fun stuff
             // like a voice clip or an sfx clip to play when changing to that specific behavior state.
             currentBehaviourStateIndex = (int)State.SearchingForPlayer;
+            // If we don't start a search at start, our AI doesn't move if it spawns so close to the player
+            // that it tries to chase them. This is because of our check for if a search routine already exists,
+            // which it doesn't unless we do it already here.
+            StartSearch(transform.position, scoutingSearchRoutine);
             // Add the line renderer component for visualization
             #if DEBUG
             line = gameObject.AddComponent<LineRenderer>();

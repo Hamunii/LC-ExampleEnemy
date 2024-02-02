@@ -18,64 +18,120 @@
             <param name="fromPosition"></param>
             <returns></returns>
         </member>
-        <member name="T:TestingLib.Macro">
+        <member name="T:TestingLib.Instances">
             <summary>
-            Contains macros for things to happen at certain moments. 
+            Contains instances of some things in the game. 
             </summary>
         </member>
-        <member name="T:TestingLib.Macro.OnPlayerSpawn">
+        <member name="F:TestingLib.Instances.QMM_Instance">
             <summary>
-            Macros that happen as soon as the player spawns. 
+            Instance of Quick Menu Manager.
             </summary>
         </member>
-        <member name="T:TestingLib.Macro.OnPlayerSpawn.TeleportLocation">
+        <member name="T:TestingLib.OnEvent">
+            <summary>
+            Contains Events that can be subscribed to.
+            </summary>
+        </member>
+        <member name="E:TestingLib.OnEvent.PlayerSpawn">
+            <summary>
+            Event for when player spawns.
+            </summary>
+        </member>
+        <member name="E:TestingLib.OnEvent.PlayerSpawn_20ms_delay">
+            <summary>
+            Event 20 milliseconds after when player spawns.
+            <br/><br/>
+            <b>Why:</b> Sometimes, what feels like a chance of 1/8, enemies don't get rendered until player steps on the ship.<br/>
+            This is if we teleport from the ship immediately, and that causes the game to sometimes not register that the player ever stood on the ship.
+            So as a hacky workaround for now, we are waiting 20 ms to make sure the game has registered that the player is on the ship.
+            <br/><br/>
+            If you can find the part in the game's code which causes this (and how to make it think the player was on the ship), please open an issue or a pull request.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Patch">
+            <summary>
+            Contains patching methods that can be run at any time or are time sensitive.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Patch.AnyTime">
+            <summary>
+            Contains patching methods that can be run at any time.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.AnyTime.IsEditor">
+            <summary>
+            Patches the game to think it is running in Unity Editor, allowing us to use the in-game debug menu.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.AnyTime.InfiniteSprint">
+            <summary>
+            Patches the game to allow infinite sprinting by always setting SprintMeter to full.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.AnyTime.SkipSpawnPlayerAnimation">
+            <summary>
+            Skips the spawn player animation so you can start moving and looking around as soon as you spawn.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Patch.TimeSensitive">
+            <summary>
+            Contains patching methods that can't be run at any moment, mostly too early.
+            <br/><br/>
+            Every method in this class has information on when it can/should be run.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.TimeSensitive.ToggleTestRoom">
+            <summary>
+            Toggles the testing level from the debug menu.
+            <br/><br/>
+            Should be ran on <c>OnEvent.PlayerSpawn</c> or later.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Patch.All">
+            <summary>
+            Patches all methods in <c>Patch.AnyTime</c> and <c>Patch.TimeSensitive</c>:
+            <br/>
+            <br/><c>IsEditor()</c>
+            <br/><c>InfiniteSprint()</c>
+            <br/><c>SkipSpawnPlayerAnimation()</c>
+            <br/><c>ToggleTestRoom()</c> // runs on <c>OnEvent.PlayerSpawn</c>
+            </summary>
+        </member>
+        <member name="T:TestingLib.Tools">
+            <summary>
+            Contains helpful methods for testing.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Tools.TeleportLocation">
             <summary>
             Specify the Teleport Location in the test level.
             </summary>
         </member>
-        <member name="F:TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Inside">
+        <member name="F:TestingLib.Tools.TeleportLocation.Inside">
             <summary>
             Teleports you inside the testing maze.
             </summary>
         </member>
-        <member name="F:TestingLib.Macro.OnPlayerSpawn.TeleportLocation.Outside">
+        <member name="F:TestingLib.Tools.TeleportLocation.Outside">
             <summary>
             Teleports you outside in the testing level.
             </summary>
         </member>
-        <member name="M:TestingLib.Macro.OnPlayerSpawn.ToggleTestRoom">
-            <summary>
-            Toggles the testing level from the debug menu.
-            </summary>
-        </member>
-        <member name="M:TestingLib.Macro.OnPlayerSpawn.TeleportSelf(TestingLib.Macro.OnPlayerSpawn.TeleportLocation)">
+        <member name="M:TestingLib.Tools.TeleportSelf(TestingLib.Tools.TeleportLocation)">
             <summary>
             Teleports you to the location specified in the test level.
             </summary>
             <param name="location"></param>
         </member>
-        <member name="M:TestingLib.Macro.OnPlayerSpawn.SpawnEnemyInFrontOfSelf(System.String)">
+        <member name="M:TestingLib.Tools.SpawnEnemyInFrontOfSelf(System.String)">
             <summary>
-            Will find the enemy by name, and spawn it. Limitation: will only spawn one enemy.
+            Will find the enemy by name, and spawn it.
             <br/><br/>
-            Previously was somewhat broken: enemy might have appeared invisible. No idea if I fixed it or not.
+            <b>Warning:</b> Enemy might sometimes appear invisible if ran from <c>OnEvent.PlayerSpawn</c>.<br/>
+            Consider running from <c>OnEvent.PlayerSpawn_20ms_delay</c> instead (temporary fix).
             </summary>
             <param name="enemyName"></param>
-        </member>
-        <member name="T:TestingLib.Patch">
-            <summary>
-            This module contains methods to patch methods and variables in the game.
-            </summary>
-        </member>
-        <member name="M:TestingLib.Patch.isEditor">
-            <summary>
-            Patches the game to think it is running in Unity Editor, allowing us to use the in-game debug menu.
-            </summary>
-        </member>
-        <member name="M:TestingLib.Patch.SkipSpawnPlayerAnimation">
-            <summary>
-            Skips the spawn player animation so you can start moving and looking around as soon as you spawn.
-            </summary>
         </member>
         <member name="T:TestingLib.Plugin">
             <summary>
