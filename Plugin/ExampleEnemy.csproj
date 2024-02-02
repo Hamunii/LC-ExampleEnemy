@@ -49,12 +49,17 @@
   </ItemGroup>
 
   <!-- Allows us to use Rpc methods. See https://github.com/EvaisaDev/UnityNetcodePatcher -->
+  <!-- This MSBuild option does not work in Visual Studio, using cli option for now
   <ItemGroup>
     <PackageReference Include="Evaisa.NetcodePatcher.MSBuild" Version="3.*" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <NetcodePatch Include="$(TargetPath)" />
   </ItemGroup>
+  -->
+  <Target Name="NetcodePatch" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet netcode-patch &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')" />
+  </Target>
 
   <!-- Build our Thunderstore package when making a release build. This does not publish our package. -->
   <!-- For more information about tcli, see https://github.com/thunderstore-io/thunderstore-cli/wiki -->

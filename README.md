@@ -1,6 +1,6 @@
 # Example Enemy
 
-This repository contains the full source code for the Example Enemy for Lethal Company, including the Unity project which can be used to build its asset bundle. The guide part of this project can be found (once it is up) at https://lethal.wiki/dev/apis/lethallib/custom-enemies/overview.
+This repository contains the full source code for the Example Enemy for Lethal Company, including the Unity project which can be used to build its asset bundle. The guide part of this project can be found at https://lethal.wiki/dev/apis/lethallib/custom-enemies/overview.
 
 ## Setting Up The Project For Development
 
@@ -19,6 +19,8 @@ You need to install the following dependencies for this mod to work in the game 
 
 - [LethalLib](https://thunderstore.io/c/lethal-company/p/Evaisa/LethalLib/) for registering and adding our enemy.
     - LethalLib depends on [HookGenPatcher](https://thunderstore.io/c/lethal-company/p/Evaisa/HookGenPatcher/).
+
+And lastly, in the `Plugin` directory where our plugin code is, run `dotnet tool restore` on the commandline to install the rest of the dependencies.
 
  That should be all the required setup for this project, and now you can move to coding AI or making your own 3D models for your custom enemy. Good luck!
 
@@ -45,6 +47,6 @@ Renaming a mod can easily break things if you don't update every instance of it.
 
 EvaisaDev - https://github.com/EvaisaDev/LethalCompanyUnityTemplate  
 EvaisaDev - https://github.com/EvaisaDev/LethalLib  
-EvaisaDev - csproj.user template & reference tcli usage in LethalLib
-AlbinoGeek - Issue template & help with csproj
+EvaisaDev - csproj.user template & reference tcli usage in LethalLib  
+AlbinoGeek - Issue template & help with csproj  
 ...and everyone who has helped with this project!
