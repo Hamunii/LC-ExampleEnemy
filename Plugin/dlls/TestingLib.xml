@@ -4,6 +4,31 @@
         <name>TestingLib</name>
     </assembly>
     <members>
+        <member name="T:TestingLib.Helper">
+            <summary>
+            Methods that can be helpful, but do nothing by themselves.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Helper.ListAllEnemies">
+            <summary>
+            Lists all enemies in current level.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Helper.ListAllItems">
+            <summary>
+            Lists all items.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Instances">
+            <summary>
+            Contains instances of some things in the game. 
+            </summary>
+        </member>
+        <member name="F:TestingLib.Instances.QMM_Instance">
+            <summary>
+            Instance of Quick Menu Manager.
+            </summary>
+        </member>
         <member name="T:TestingLib.Enemy">
             <summary>
             Helpful methods for making debugging of enemies easier.
@@ -18,16 +43,6 @@
             <param name="fromPosition"></param>
             <returns></returns>
         </member>
-        <member name="T:TestingLib.Instances">
-            <summary>
-            Contains instances of some things in the game. 
-            </summary>
-        </member>
-        <member name="F:TestingLib.Instances.QMM_Instance">
-            <summary>
-            Instance of Quick Menu Manager.
-            </summary>
-        </member>
         <member name="T:TestingLib.OnEvent">
             <summary>
             Contains Events that can be subscribed to.
@@ -36,17 +51,6 @@
         <member name="E:TestingLib.OnEvent.PlayerSpawn">
             <summary>
             Event for when player spawns.
-            </summary>
-        </member>
-        <member name="E:TestingLib.OnEvent.PlayerSpawn_20ms_delay">
-            <summary>
-            Event 20 milliseconds after when player spawns.
-            <br/><br/>
-            <b>Why:</b> Sometimes, what feels like a chance of 1/8, enemies don't get rendered until player steps on the ship.<br/>
-            This is if we teleport from the ship immediately, and that causes the game to sometimes not register that the player ever stood on the ship.
-            So as a hacky workaround for now, we are waiting 20 ms to make sure the game has registered that the player is on the ship.
-            <br/><br/>
-            If you can find the part in the game's code which causes this (and how to make it think the player was on the ship), please open an issue or a pull request.
             </summary>
         </member>
         <member name="T:TestingLib.Patch">
@@ -74,6 +78,13 @@
             Skips the spawn player animation so you can start moving and looking around as soon as you spawn.
             </summary>
         </member>
+        <member name="M:TestingLib.Patch.AnyTime.OnDeathHeal">
+            <summary>
+            Instead of dying, set health to full instead.
+            <br/><br/>
+            This helps with testing taking damage from your enemy, without death being a concern.
+            </summary>
+        </member>
         <member name="T:TestingLib.Patch.TimeSensitive">
             <summary>
             Contains patching methods that can't be run at any moment, mostly too early.
@@ -95,6 +106,7 @@
             <br/><c>IsEditor()</c>
             <br/><c>InfiniteSprint()</c>
             <br/><c>SkipSpawnPlayerAnimation()</c>
+            <br/><c>OnDeathHeal()</c>
             <br/><c>ToggleTestRoom()</c> // runs on <c>OnEvent.PlayerSpawn</c>
             </summary>
         </member>
@@ -127,11 +139,40 @@
         <member name="M:TestingLib.Tools.SpawnEnemyInFrontOfSelf(System.String)">
             <summary>
             Will find the enemy by name, and spawn it.
-            <br/><br/>
-            <b>Warning:</b> Enemy might sometimes appear invisible if ran from <c>OnEvent.PlayerSpawn</c>.<br/>
-            Consider running from <c>OnEvent.PlayerSpawn_20ms_delay</c> instead (temporary fix).
             </summary>
             <param name="enemyName"></param>
+        </member>
+        <member name="M:TestingLib.Tools.GiveItemToSelf(System.String)">
+            <summary>
+            Give an item to yourself.
+            <br/><br/>
+            <b>Bug:</b> Grab text appears on screen when holding object, until dropped and picked up again.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Lookup">
+            <summary>
+            Contains things to look up.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Lookup.Item">
+            <summary>
+            Names of items.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Lookup.EnemyInside">
+            <summary>
+            Names of inside enemies.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Lookup.EnemyOutside">
+            <summary>
+            Names of outside enemies.
+            </summary>
+        </member>
+        <member name="T:TestingLib.Lookup.EnemyDaytime">
+            <summary>
+            Names of Daytime Enemies.
+            </summary>
         </member>
         <member name="T:TestingLib.Plugin">
             <summary>

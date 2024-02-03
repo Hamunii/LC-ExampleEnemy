@@ -48,12 +48,14 @@ namespace ExampleEnemy {
 
             #if DEBUG
             TestingLib.Patch.All();
-            TestingLib.OnEvent.PlayerSpawn_20ms_delay += OnEvent_PlayerSpawn_20ms_delay;
+            TestingLib.OnEvent.PlayerSpawn += OnEvent_PlayerSpawn;
             #endif
         }
         #if DEBUG
-        private void OnEvent_PlayerSpawn_20ms_delay()
+        private void OnEvent_PlayerSpawn()
         {
+            TestingLib.Tools.GiveItemToSelf(TestingLib.Lookup.Item.Shovel);
+            TestingLib.Tools.GiveItemToSelf(TestingLib.Lookup.Item.Shotgun);
             TestingLib.Tools.TeleportSelf(TestingLib.Tools.TeleportLocation.Outside);
             TestingLib.Tools.SpawnEnemyInFrontOfSelf(ExampleEnemy.enemyName);
         }
