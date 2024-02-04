@@ -47,7 +47,7 @@ namespace ExampleEnemy {
             }
 
             #if DEBUG
-            TestingLib.Patch.All();
+            TestingLib.Tools.RunAllPatchAndExecuteMethods();
             TestingLib.OnEvent.PlayerSpawn += OnEvent_PlayerSpawn;
             #endif
         }

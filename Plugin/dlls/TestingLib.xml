@@ -34,14 +34,25 @@
             Helpful methods for making debugging of enemies easier.
             </summary>
         </member>
-        <member name="M:TestingLib.Enemy.DrawPath(UnityEngine.LineRenderer,UnityEngine.AI.NavMeshPath,UnityEngine.Transform)">
+        <member name="M:TestingLib.Enemy.DrawPath(UnityEngine.LineRenderer,UnityEngine.AI.NavMeshAgent)">
             <summary>
             Draws the NavMeshAgent's pathfinding. Should be used in `DoAIInterval()`. Do note that you need to add line renderer in your enemy prefab.
             </summary>
             <param name="line"></param>
-            <param name="path"></param>
-            <param name="fromPosition"></param>
+            <param name="agent"></param>
             <returns></returns>
+        </member>
+        <member name="T:TestingLib.Execute">
+            <summary>
+            Contains actions that can be executed.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Execute.ToggleTestRoom">
+            <summary>
+            Toggles the testing level from the debug menu.
+            <br/><br/>
+            Should be ran on <c>OnEvent.PlayerSpawn</c> or later.
+            </summary>
         </member>
         <member name="T:TestingLib.OnEvent">
             <summary>
@@ -51,63 +62,53 @@
         <member name="E:TestingLib.OnEvent.PlayerSpawn">
             <summary>
             Event for when player spawns.
+            <br/><br/>
+            Called on <c>On.GameNetcodeStuff.PlayerControllerB.SpawnPlayerAnimation</c>.
             </summary>
         </member>
         <member name="T:TestingLib.Patch">
             <summary>
-            Contains patching methods that can be run at any time or are time sensitive.
+            Contains methods that patch various things in the game.
             </summary>
         </member>
-        <member name="T:TestingLib.Patch.AnyTime">
-            <summary>
-            Contains patching methods that can be run at any time.
-            </summary>
-        </member>
-        <member name="M:TestingLib.Patch.AnyTime.IsEditor">
+        <member name="M:TestingLib.Patch.IsEditor">
             <summary>
             Patches the game to think it is running in Unity Editor, allowing us to use the in-game debug menu.
             </summary>
         </member>
-        <member name="M:TestingLib.Patch.AnyTime.InfiniteSprint">
+        <member name="M:TestingLib.Patch.InfiniteSprint">
             <summary>
             Patches the game to allow infinite sprinting by always setting SprintMeter to full.
             </summary>
         </member>
-        <member name="M:TestingLib.Patch.AnyTime.SkipSpawnPlayerAnimation">
+        <member name="M:TestingLib.Patch.SkipSpawnPlayerAnimation">
             <summary>
             Skips the spawn player animation so you can start moving and looking around as soon as you spawn.
             </summary>
         </member>
-        <member name="M:TestingLib.Patch.AnyTime.OnDeathHeal">
+        <member name="M:TestingLib.Patch.OnDeathHeal">
             <summary>
             Instead of dying, set health to full instead.
             <br/><br/>
             This helps with testing taking damage from your enemy, without death being a concern.
             </summary>
         </member>
-        <member name="T:TestingLib.Patch.TimeSensitive">
+        <member name="M:TestingLib.Patch.MovementCheat">
             <summary>
-            Contains patching methods that can't be run at any moment, mostly too early.
+            Allows jumping at any moment and by performing a double jump, the movement will become much<br/>
+            faster and a lot more responsive, and running will also increase jump height and gravity.<br/>
             <br/><br/>
-            Every method in this class has information on when it can/should be run.
+            <b>Note:</b> This completely overrides PlayerControllerB's <c>Jump_performed()</c> method.
             </summary>
         </member>
-        <member name="M:TestingLib.Patch.TimeSensitive.ToggleTestRoom">
+        <member name="M:TestingLib.Patch.InfiniteCredits">
             <summary>
-            Toggles the testing level from the debug menu.
-            <br/><br/>
-            Should be ran on <c>OnEvent.PlayerSpawn</c> or later.
+            Credits get always set to <c>100 000 000</c>.
             </summary>
         </member>
-        <member name="M:TestingLib.Patch.All">
+        <member name="M:TestingLib.Patch.InfiniteShotgunAmmo">
             <summary>
-            Patches all methods in <c>Patch.AnyTime</c> and <c>Patch.TimeSensitive</c>:
-            <br/>
-            <br/><c>IsEditor()</c>
-            <br/><c>InfiniteSprint()</c>
-            <br/><c>SkipSpawnPlayerAnimation()</c>
-            <br/><c>OnDeathHeal()</c>
-            <br/><c>ToggleTestRoom()</c> // runs on <c>OnEvent.PlayerSpawn</c>
+            Skips the check for ammo when using the shotgun.
             </summary>
         </member>
         <member name="T:TestingLib.Tools">
@@ -145,13 +146,25 @@
         <member name="M:TestingLib.Tools.GiveItemToSelf(System.String)">
             <summary>
             Give an item to yourself.
-            <br/><br/>
-            <b>Bug:</b> Grab text appears on screen when holding object, until dropped and picked up again.
+            </summary>
+        </member>
+        <member name="M:TestingLib.Tools.RunAllPatchAndExecuteMethods">
+            <summary>
+            Runs all methods in <c>TestingLib.Patch</c> and <c>TestingLib.Execute</c>:
+            <br/>
+            <br/><c>Patch.IsEditor()</c>
+            <br/><c>Patch.SkipSpawnPlayerAnimation()</c>
+            <br/><c>Patch.OnDeathHeal()</c>
+            <br/><c>Patch.MovementCheat()</c>
+            <br/><c>Patch.InfiniteSprint()</c>
+            <br/><c>Patch.InfiniteCredits()</c>
+            <br/><c>Patch.InfiniteShotgunAmmo()</c>
+            <br/><c>Execute.ToggleTestRoom()</c> // runs on <c>OnEvent.PlayerSpawn</c>
             </summary>
         </member>
         <member name="T:TestingLib.Lookup">
             <summary>
-            Contains things to look up.
+            Get the names of items and enemies in the vanilla game without having to look them up.
             </summary>
         </member>
         <member name="T:TestingLib.Lookup.Item">
@@ -171,7 +184,7 @@
         </member>
         <member name="T:TestingLib.Lookup.EnemyDaytime">
             <summary>
-            Names of Daytime Enemies.
+            Names of daytime Enemies.
             </summary>
         </member>
         <member name="T:TestingLib.Plugin">
