@@ -68,11 +68,11 @@ MonoBehaviour:
   PowerLevel: 1
   MaxCount: 2
   numberSpawned: 2
-  isOutsideEnemy: 1
-  isDaytimeEnemy: 1
+  isOutsideEnemy: 0
+  isDaytimeEnemy: 0
   normalizedTimeInDayToLeave: 0.5
   stunTimeMultiplier: 4
-  doorSpeedMultiplier: 1
+  doorSpeedMultiplier: 0.25
   stunGameDifficultyMultiplier: 1
   canBeStunned: 1
   canDie: 1

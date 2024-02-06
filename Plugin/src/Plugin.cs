@@ -26,7 +26,7 @@ namespace ExampleEnemy {
             
             // Network Prefabs need to be registered first. See https://docs-multiplayer.unity3d.com/netcode/current/basics/object-spawning/
             NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemy.enemyPrefab);
-			RegisterEnemy(ExampleEnemy, 100, LevelTypes.All, SpawnType.Outside, tlTerminalNode, tlTerminalKeyword);
+			RegisterEnemy(ExampleEnemy, 100, LevelTypes.All, SpawnType.Default, tlTerminalNode, tlTerminalKeyword);
             
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
