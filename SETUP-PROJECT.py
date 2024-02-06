@@ -138,7 +138,7 @@ if r2modmanPath is not None:
       if not gotCoreFiles:
          gotCoreFiles = copyDLLs(f'{r2modmanPath}/{dir}/BepInEx/core', f'{unityProjectPath}/{unityPluginsRelative}', neededCoreDlls)
       if not gotMMHOOKFiles:
-         gotMMHOOKFiles = copyDLLs(f'{r2modmanPath}/{dir}/Plugins/MMHOOK', f'{unityProjectPath}/{unityPluginsRelative}', neededMMHOOKDlls)
+         gotMMHOOKFiles = copyDLLs(f'{r2modmanPath}/{dir}/BepInEx/Plugins/MMHOOK', f'{unityProjectPath}/{unityPluginsRelative}', neededMMHOOKDlls)
 
 # Testing against non-r2modman installation if the mods exist there
 if not gotCoreFiles:
