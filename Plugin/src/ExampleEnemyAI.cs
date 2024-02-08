@@ -17,7 +17,6 @@ namespace ExampleEnemy {
         #pragma warning disable 0649
         public Transform turnCompass;
         public Transform attackArea;
-        public AISearchRoutine scoutingSearchRoutine;
         #pragma warning restore 0649
         float timeSinceHittingLocalPlayer;
         float timeSinceNewRandPos;
@@ -57,7 +56,7 @@ namespace ExampleEnemy {
             // If we don't start a search at start, our AI doesn't move if it spawns so close to the player
             // that it tries to chase them. This is because of our check for if a search routine already exists,
             // which it doesn't unless we do it already here.
-            StartSearch(transform.position, scoutingSearchRoutine);
+            StartSearch(transform.position);
             // Add the line renderer component for visualization
             #if DEBUG
             line = gameObject.AddComponent<LineRenderer>();
@@ -79,7 +78,7 @@ namespace ExampleEnemy {
             }
             timeSinceHittingLocalPlayer += Time.deltaTime;
             timeSinceNewRandPos += Time.deltaTime;
-            if(targetPlayer != null && PlayerIsTargetable(targetPlayer) && !scoutingSearchRoutine.inProgress){
+            if(targetPlayer != null && PlayerIsTargetable(targetPlayer) && !currentSearch.inProgress){
                 turnCompass.LookAt(targetPlayer.gameplayCamera.transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0f, turnCompass.eulerAngles.y, 0f)), 4f * Time.deltaTime);
             }
@@ -91,53 +90,67 @@ namespace ExampleEnemy {
 
         public override void DoAIInterval()
         {
+            
             base.DoAIInterval();
             if (isEnemyDead || StartOfRound.Instance.allPlayersDead) {
                 return;
-            }
-            // Sets scoutingSearchRoutine.inProgress to True if serching, False if found player
-            // Will set targetPlayer to the closest player
-            KeepSearchingForPlayerUnlessInRange(25, ref scoutingSearchRoutine);
+            };
 
             switch(currentBehaviourStateIndex) {
                 case (int)State.SearchingForPlayer:
                     agent.speed = 3f;
+                    if (FoundClosestPlayerInRange(25f)){
+                        LogIfDebugBuild("Start Target Player");
+                        StopSearch(currentSearch);
+                        SwitchToBehaviourClientRpc((int)State.StickingInFrontOfPlayer);
+                    }
                     break;
+
                 case (int)State.StickingInFrontOfPlayer:
                     agent.speed = 5f;
+                    // Keep targetting closest player, unless they are over 20 units away and we can't see them.
+                    if (!TargetClosestPlayerInAnyCase() || (Vector3.Distance(transform.position, targetPlayer.transform.position) > 20 && !HasLineOfSightToPosition(targetPlayer.transform.position))){
+                        LogIfDebugBuild("Stop Target Player");
+                        StartSearch(transform.position);
+                        SwitchToBehaviourClientRpc((int)State.SearchingForPlayer);
+                        return;
+                    }
                     StickingInFrontOfPlayer();
                     break;
+
                 case (int)State.HeadSwingAttackInProgress:
                     // We don't care about doing anything here
                     break;
+                    
                 default:
                     LogIfDebugBuild("This Behavior State doesn't exist!");
                     break;
             }
-            // If Debug build, we visualize our enemy's pathfinding.
             #if DEBUG
-            StartCoroutine(TestingLib.Enemy.DrawPath(line, agent));
+            TestingLib.Enemy.DrawPath(line, agent);
             #endif
         }
 
-        void KeepSearchingForPlayerUnlessInRange(float range, ref AISearchRoutine routine){
-            TargetClosestPlayer();
-            if (targetPlayer != null && Vector3.Distance(transform.position, targetPlayer.transform.position) <= range)
+        bool FoundClosestPlayerInRange(float range){
+            TargetClosestPlayer(bufferDistance: 1.5f, requireLineOfSight: true);
+            if(targetPlayer == null) return false;
+            return targetPlayer != null && Vector3.Distance(transform.position, targetPlayer.transform.position) < range;
+        }
+        
+        bool TargetClosestPlayerInAnyCase(){
+            mostOptimalDistance = 2000f;
+            targetPlayer = null;
+            for (int i = 0; i < StartOfRound.Instance.connectedPlayersAmount + 1; i++)
             {
-                if(routine.inProgress){
-                    LogIfDebugBuild("Start Target Player");
-                    StopSearch(routine);
-                    SwitchToBehaviourClientRpc((int)State.StickingInFrontOfPlayer);
+                tempDist = Vector3.Distance(transform.position, StartOfRound.Instance.allPlayerScripts[i].transform.position);
+                if (tempDist < mostOptimalDistance)
+                {
+                    mostOptimalDistance = tempDist;
+                    targetPlayer = StartOfRound.Instance.allPlayerScripts[i];
                 }
             }
-            else
-            {
-                if(!routine.inProgress){
-                    LogIfDebugBuild("Stop Target Player");
-                    StartSearch(transform.position, routine);
-                    SwitchToBehaviourClientRpc((int)State.SearchingForPlayer);
-                }
-            }
+            if(targetPlayer == null) return false;
+            return true;
         }
 
         void StickingInFrontOfPlayer(){
@@ -158,7 +171,7 @@ namespace ExampleEnemy {
                     positionRandomness = new Vector3(enemyRandom.Next(-2, 2), 0, enemyRandom.Next(-2, 2));
                     StalkPos = targetPlayer.transform.position - Vector3.Scale(new Vector3(-5, 0, -5), targetPlayer.transform.forward) + positionRandomness;
                 }
-                SetDestinationToPosition(StalkPos);
+                SetDestinationToPosition(StalkPos, checkForPath: false);
             }
         }
 
@@ -171,7 +184,7 @@ namespace ExampleEnemy {
                 yield break;
             }
             DoAnimationClientRpc("swingAttack");
-            yield return new WaitForSeconds(0.24f);
+            yield return new WaitForSeconds(0.35f);
             SwingAttackHitClientRpc();
             // In case the player has already gone away, we just yield break (basically same as return, but for IEnumerator)
             if(currentBehaviourStateIndex != (int)State.HeadSwingAttackInProgress){
@@ -206,7 +219,10 @@ namespace ExampleEnemy {
                     // Our death sound will be played through creatureVoice when KillEnemy() is called.
                     // KillEnemy() will also attempt to call creatureAnimator.SetTrigger("KillEnemy"),
                     // so we don't need to call a death animation ourselves.
+
                     StopCoroutine(SwingAttack());
+                    // We need to stop our search coroutine, because the game does not do that by default.
+                    StopCoroutine(searchCoroutine);
                     KillEnemyOnOwnerClient();
                 }
             }

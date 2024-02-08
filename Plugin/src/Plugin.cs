@@ -27,7 +27,7 @@ namespace ExampleEnemy {
             
             // Network Prefabs need to be registered first. See https://docs-multiplayer.unity3d.com/netcode/current/basics/object-spawning/
             NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemy.enemyPrefab);
-			RegisterEnemy(ExampleEnemy, 100, LevelTypes.All, SpawnType.Outside, tlTerminalNode, tlTerminalKeyword);
+			RegisterEnemy(ExampleEnemy, 100, LevelTypes.All, SpawnType.Default, tlTerminalNode, tlTerminalKeyword);
             
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
@@ -56,7 +56,7 @@ namespace ExampleEnemy {
         {
             TestingLib.Tools.GiveItemToSelf(TestingLib.Lookup.Item.Shovel);
             TestingLib.Tools.GiveItemToSelf(TestingLib.Lookup.Item.Shotgun);
-            TestingLib.Tools.TeleportSelf(TestingLib.Tools.TeleportLocation.Outside);
+            TestingLib.Tools.TeleportSelf(TestingLib.Tools.TeleportLocation.Inside);
             TestingLib.Tools.SpawnEnemyInFrontOfSelf(ExampleEnemy.enemyName);
         }
         #endif
