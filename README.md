@@ -36,7 +36,7 @@ Renaming a mod can easily break things if you don't update every instance of it.
 - rename `csproj` files
 - rename solution file, with its references to your new csproj filename
 - When renaming [ExampleEnemyAI.cs](/Plugin/src/ExampleEnemyAI.cs) and its class, make sure to compile your mod DLL and place it in `./UnityProject/Assets/Plugins` and add your new AI class as a component to your enemy prefab. If the class doesn't appear as an option, make sure your mod DLL doesn't have any errors in the Unity editor console. If your mod depends on other mods, also add their DLL files to the `Plugins` folder.
-    - You might have to reapply all your configuration settings for the AI script. You need to be very careful to not miss a configuration option, for example the enemy's `AISearchRoutine` variable could be uncofigured and the enemy's pathfiniding will appear broken.
+    - You might have to reapply all your configuration settings for the AI script. You need to be very careful to not miss a configuration option, as missing something can break the enemy's behavior or lead to errors.
 - If your IDE complains about invalid references, try restarting it. If this does not fix it, you probably have forgotten to rename something.
 
 > [!TIP]  
@@ -47,6 +47,6 @@ Renaming a mod can easily break things if you don't update every instance of it.
 
 EvaisaDev - https://github.com/EvaisaDev/LethalCompanyUnityTemplate  
 EvaisaDev - https://github.com/EvaisaDev/LethalLib  
-EvaisaDev - csproj.user template & reference tcli usage in LethalLib  
+Lordfirespeed - csproj.user template & reference tcli usage in LethalLib  
 AlbinoGeek - Issue template & help with csproj  
 ...and everyone who has helped with this project!
