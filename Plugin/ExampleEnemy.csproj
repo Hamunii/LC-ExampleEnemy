@@ -12,7 +12,7 @@
     <Version>1.0.0</Version>
 		<!-- This is required for BepInEx to load us properly. -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<!-- This allows you to use C#11 features, for the most part. -->
+		<!-- This allows us to use C#11 features, for the most part. -->
     <LangVersion>latest</LangVersion>
 
     <Configurations>Debug;Release</Configurations>

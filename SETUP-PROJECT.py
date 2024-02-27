@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import os
 import shutil
-from sys import platform
+from subprocess import run
 from inspect import getsourcefile
+from contextlib import chdir
 
 # This is an automated script for copying required dll files into this project.
 # Supports both Windows and Linux.
@@ -165,22 +166,32 @@ if not gotMMHOOKFiles:
    "1) Install https://thunderstore.io/c/lethal-company/p/Evaisa/HookGenPatcher/\n"
    "2) Run the game once to generate the folder and its contents\n"
    "3) Run this script again\n"
-   f"{color.yellow}Or if you have a separate installation of the game for testing which has the MMHOOK directory,\ninput the full path of the Lethal Company folder: (otherwise press enter)" + color.reset)
-   userInputGamePath = input()
-   if os.path.exists(userInputGamePath):
-      gameFilesPath = userInputGamePath
-      if os.path.exists(f'{gameFilesPath}/BepInEx/Plugins/MMHOOK'):
-         print(color.lightblue + f'Game installation with MMHOOK found: {gameFilesPath}' + color.reset)
-         gotMMHOOKFiles = copyDLLs(f'{gameFilesPath}/BepInEx/Plugins/MMHOOK', f'{unityProjectPath}/{unityPluginsRelative}', neededMMHOOKDlls)
+   f"{color.yellow}Or if you have a separate installation of the game for testing which has the MMHOOK directory,\ninput the full path of the MMHOOK folder: (otherwise press enter)" + color.reset)
+   userInputMMHOOKPath = input()
+   if os.path.exists(userInputMMHOOKPath):
+      gameFilesPath = userInputMMHOOKPath
+      print(color.lightblue + f'MMHOOK directory found: {gameFilesPath}' + color.reset)
+      gotMMHOOKFiles = copyDLLs(f'{userInputMMHOOKPath}', f'{unityProjectPath}/{unityPluginsRelative}', neededMMHOOKDlls)
 
 if not gotMMHOOKFiles:
    print(color.red + "Could not find location.")
    exitProgram()
 
 #######################################################################################
+# Run `dotnet tool restore`
+
+print(color.lightblue + f'Part 2 of 3 complete!{color.purple}\nRunning `dotnet tool restore`')
+with chdir(f'{thisPath}/Plugin/'):
+   try:
+      print(color.lightcyan + f'We are in: {os.getcwd()}{color.purple}')
+      run(["dotnet", "tool", "restore"]) 
+   except:
+      print(color.red + f'Error: failed to run command.')
+
+#######################################################################################
 # Generate .csproj.user file
 
-print(color.lightblue + f'Part 1 of 2 complete!{color.purple}\n> Next you will have to provide a path to where we will copy your mod files each time your build it.\n'
+print(color.lightblue + f'Part 3 of 3 complete!{color.purple}\n> Next you will have to provide a path to where we will copy your mod files each time your build it.\n'
       
       f'{color.orange}Examples:\n'
       '     r2modman: /home/user/.config/r2modmanPlus-local/LethalCompany/profiles/testing/BepInEx/plugins\n'
