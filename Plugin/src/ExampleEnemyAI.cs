@@ -66,6 +66,7 @@ namespace ExampleEnemy {
             }
             timeSinceHittingLocalPlayer += Time.deltaTime;
             timeSinceNewRandPos += Time.deltaTime;
+            
             var state = currentBehaviourStateIndex;
             if(targetPlayer != null && (state == (int)State.StickingInFrontOfPlayer || state == (int)State.HeadSwingAttackInProgress)){
                 turnCompass.LookAt(targetPlayer.gameplayCamera.transform.position);
