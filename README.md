@@ -2,6 +2,9 @@
 
 This repository contains the full source code for the Example Enemy for Lethal Company, including the Unity project which can be used to build its asset bundle. The guide part of this project can be found at https://lethal.wiki/dev/apis/lethallib/custom-enemies/overview.
 
+> [!NOTE]
+> The wiki page might be slightly out of date regarding how the Example Enemy prefab is constructed.
+
 ## Setting Up The Project For Development
 
 ### Setup Script

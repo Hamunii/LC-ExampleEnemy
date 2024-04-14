@@ -8,21 +8,21 @@ namespace ExampleEnemy.Configuration {
     {
         // For more info on custom configs, see https://lethal.wiki/dev/intermediate/custom-configs
         public ConfigEntry<int> SpawnWeight;
-        public PluginConfig(BaseUnityPlugin plugin)
+        public PluginConfig(ConfigFile cfg)
         {
-            SpawnWeight = plugin.Config.Bind("ExampleEnemy", "Spawn weight", 20,
+            SpawnWeight = cfg.Bind("General", "Spawn weight", 20,
                 "The spawn chance weight for ExampleEnemy, relative to other existing enemies.\n" +
                 "Goes up from 0, lower is more rare, 100 and up is very common.");
             
-            ClearUnusedEntries(plugin);
+            ClearUnusedEntries(cfg);
         }
 
-        private void ClearUnusedEntries(BaseUnityPlugin plugin) {
+        private void ClearUnusedEntries(ConfigFile cfg) {
             // Normally, old unused config entries don't get removed, so we do it with this piece of code. Credit to Kittenji.
-            PropertyInfo orphanedEntriesProp = plugin.Config.GetType().GetProperty("OrphanedEntries", BindingFlags.NonPublic | BindingFlags.Instance);
-            var orphanedEntries = (Dictionary<ConfigDefinition, string>)orphanedEntriesProp.GetValue(plugin.Config, null);
+            PropertyInfo orphanedEntriesProp = cfg.GetType().GetProperty("OrphanedEntries", BindingFlags.NonPublic | BindingFlags.Instance);
+            var orphanedEntries = (Dictionary<ConfigDefinition, string>)orphanedEntriesProp.GetValue(cfg, null);
             orphanedEntries.Clear(); // Clear orphaned entries (Unbinded/Abandoned entries)
-            plugin.Config.Save(); // Save the config file to save these changes
+            cfg.Save(); // Save the config file to save these changes
         }
     }
 }
