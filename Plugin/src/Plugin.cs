@@ -22,7 +22,7 @@ namespace ExampleEnemy {
             Logger = base.Logger;
 
             // If you don't want your mod to use a configuration file, you can remove this line, Configuration.cs, and other references.
-            BoundConfig = new PluginConfig(this);
+            BoundConfig = new PluginConfig(base.Config);
 
             // This should be ran before Network Prefabs are registered.
             InitializeNetworkBehaviours();
@@ -42,11 +42,36 @@ namespace ExampleEnemy {
             var ExampleEnemy = ModAssets.LoadAsset<EnemyType>("ExampleEnemy");
             var ExampleEnemyTN = ModAssets.LoadAsset<TerminalNode>("ExampleEnemyTN");
             var ExampleEnemyTK = ModAssets.LoadAsset<TerminalKeyword>("ExampleEnemyTK");
-            
+
+            // Optionally, we can list which levels we want to add our enemy to, while also specifying the spawn weight for each.
+            /*
+            var ExampleEnemyLevelRarities = new Dictionary<Levels.LevelTypes, int> {
+                {Levels.LevelTypes.ExperimentationLevel, 10},
+                {Levels.LevelTypes.AssuranceLevel, 40},
+                {Levels.LevelTypes.VowLevel, 20},
+                {Levels.LevelTypes.OffenseLevel, 30},
+                {Levels.LevelTypes.MarchLevel, 20},
+                {Levels.LevelTypes.RendLevel, 50},
+                {Levels.LevelTypes.DineLevel, 25},
+                // {Levels.LevelTypes.TitanLevel, 33},
+                // {Levels.LevelTypes.All, 30},     // Affects unset values, with lowest priority (gets overridden by Levels.LevelTypes.Modded)
+                {Levels.LevelTypes.Modded, 60},     // Affects values for modded moons that weren't specified
+            };
+            // We can also specify custom level rarities
+            var ExampleEnemyCustomLevelRarities = new Dictionary<string, int> {
+                {"EGyptLevel", 50},
+                {"46 Infernis", 69},    // Either LLL or LE(C) name can be used, LethalLib will handle both
+            };
+            */
+
             // Network Prefabs need to be registered. See https://docs-multiplayer.unity3d.com/netcode/current/basics/object-spawning/
             // LethalLib registers prefabs on GameNetworkManager.Start.
             NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemy.enemyPrefab);
-			Enemies.RegisterEnemy(ExampleEnemy, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, Enemies.SpawnType.Default, ExampleEnemyTN, ExampleEnemyTK);
+
+            // For different ways of registering your enemy, see https://github.com/EvaisaDev/LethalLib/blob/main/LethalLib/Modules/Enemies.cs
+            Enemies.RegisterEnemy(ExampleEnemy, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, ExampleEnemyTN, ExampleEnemyTK);
+            // For using our rarity tables, we can use the following:
+            // Enemies.RegisterEnemy(ExampleEnemy, ExampleEnemyLevelRarities, ExampleEnemyCustomLevelRarities, ExampleEnemyTN, ExampleEnemyTK);
             
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }

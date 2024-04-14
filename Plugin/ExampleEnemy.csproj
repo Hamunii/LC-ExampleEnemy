@@ -21,7 +21,9 @@
   <PropertyGroup>
 	  <!-- Embed Debug symbols in our DLL (otherwise it's in a separate .pdb file). This will show the line an error happens at when running our mod. -->
     <DebugType>embedded</DebugType>
-  </PropertyGroup>
+    <!-- Remove full build path from Debug symbols, e.g. /home/user/Programming/Lethal_Company/MyProject/src/Plugin.cs:line 27 becomes ./src/Plugin.cs:line 27 -->
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+</PropertyGroup>
   <PropertyGroup>
 	  <!-- Your Thunderstore Team name. This will be used by tcli when building our Thunderstore package. -->
     <ThunderstoreTeam>Hamunii</ThunderstoreTeam>
