@@ -46,6 +46,13 @@ TagManager:
   - Rock
   - PlaceableObject
   - SpawnDenialPoint
+  - PlayerBody
+  - PlayerBody1
+  - PlayerBody2
+  - PlayerBody3
+  - PlayerRagdoll1
+  - PlayerRagdoll2
+  - PlayerRagdoll3
   layers:
   - Default
   - TransparentFX
@@ -76,7 +83,7 @@ TagManager:
   - PlaceableShipObjects
   - PlacementBlocker
   - Railing
-  - 
+  - DecalStickableSurface
   - 
   - 
   m_SortingLayers:

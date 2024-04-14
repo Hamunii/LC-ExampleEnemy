@@ -11,7 +11,7 @@ using UnityEngine.Animations.Rigging;
 public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass60_0
+	private sealed class _003C_003Ec__DisplayClass64_0
 	{
 		public PlayerControllerB killPlayer;
 
@@ -24,7 +24,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CKillPlayer_003Ed__60 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CKillPlayer_003Ed__64 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -34,7 +34,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 
 		public int playerId;
 
-		private _003C_003Ec__DisplayClass60_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass64_0 _003C_003E8__1;
 
 		private Quaternion _003CrotateTo_003E5__2;
 
@@ -59,7 +59,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CKillPlayer_003Ed__60(int _003C_003E1__state)
+		public _003CKillPlayer_003Ed__64(int _003C_003E1__state)
 		{
 		}
 
@@ -86,7 +86,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CenterChaseMode_003Ed__45 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CenterChaseMode_003Ed__49 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -113,7 +113,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CenterChaseMode_003Ed__45(int _003C_003E1__state)
+		public _003CenterChaseMode_003Ed__49(int _003C_003E1__state)
 		{
 		}
 
@@ -205,7 +205,18 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 
 	private float timeSinceHittingOtherEnemy;
 
+	private float coweringMeter;
+
+	private bool coweringOnFloor;
+
+	private bool coweringOnFloorDebounce;
+
 	ThreatType IVisibleThreat.type => default(ThreatType);
+
+	int IVisibleThreat.SendSpecialBehaviour(int id)
+	{
+		return 0;
+	}
 
 	int IVisibleThreat.GetThreatLevel(Vector3 seenByPosition)
 	{
@@ -253,7 +264,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CenterChaseMode_003Ed__45))]
+	[IteratorStateMachine(typeof(_003CenterChaseMode_003Ed__49))]
 	private IEnumerator enterChaseMode()
 	{
 		return null;
@@ -293,7 +304,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	{
 	}
 
-	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
 	{
 	}
 
@@ -320,7 +331,7 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CKillPlayer_003Ed__60))]
+	[IteratorStateMachine(typeof(_003CKillPlayer_003Ed__64))]
 	private IEnumerator KillPlayer(int playerId)
 	{
 		return null;
@@ -349,6 +360,10 @@ public class MouthDogAI : EnemyAI, INoiseListener, IVisibleThreat
 	}
 
 	public override void KillEnemy(bool destroy = false)
+	{
+	}
+
+	public override void ReceiveLoudNoiseBlast(Vector3 position, float angle)
 	{
 	}
 

@@ -2,76 +2,76 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!126 &1
 NavMeshProjectSettings:
-  serializedVersion: 2
   m_ObjectHideFlags: 0
+  serializedVersion: 2
   areas:
   - name: Walkable
     cost: 1
   - name: Not Walkable
     cost: 1
   - name: Jump
+    cost: 2
+  - name: 
     cost: 1
-  - name: PlayerLineOfSight
+  - name: 
     cost: 1
-  - name: PlayerShip
+  - name: 
     cost: 1
-  - name: SmallSpace
+  - name: 
     cost: 1
-  - name: MediumSpace
+  - name: 
     cost: 1
-  - name: Climb
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
+  - name: 
     cost: 1
-  - name:
-    cost: 1
-  - name:
+  - name: 
     cost: 1
   m_LastAgentTypeID: -887442657
   m_Settings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -84,9 +84,7 @@ NavMeshProjectSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    buildHeightMesh: 0
-    maxJobWorkers: 0
-    preserveTilesOutsideBounds: 0
+    accuratePlacement: 0
     debug:
       m_Flags: 0
   m_SettingNames:

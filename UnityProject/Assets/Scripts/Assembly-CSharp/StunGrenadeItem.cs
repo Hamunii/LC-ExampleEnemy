@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using GameNetcodeStuff;
+using Unity.Netcode;
 using UnityEngine;
 
 public class StunGrenadeItem : GrabbableObject
 {
 	[CompilerGenerated]
-	private sealed class _003CpullPinAnimation_003Ed__24 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CpullPinAnimation_003Ed__35 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -36,7 +37,7 @@ public class StunGrenadeItem : GrabbableObject
 		}
 
 		[DebuggerHidden]
-		public _003CpullPinAnimation_003Ed__24(int _003C_003E1__state)
+		public _003CpullPinAnimation_003Ed__35(int _003C_003E1__state)
 		{
 		}
 
@@ -69,10 +70,27 @@ public class StunGrenadeItem : GrabbableObject
 
 	public string playerAnimation;
 
+	[Space(5f)]
+	public bool explodeOnCollision;
+
+	public bool dontRequirePullingPin;
+
+	public float chanceToExplode;
+
+	public bool spawnDamagingShockwave;
+
+	private bool explodeOnThrow;
+
+	private bool gotExplodeOnThrowRPC;
+
+	private bool hasCollided;
+
 	[Space(3f)]
 	public bool pinPulled;
 
 	public bool inPullingPinAnimation;
+
+	public string throwString;
 
 	private Coroutine pullPinCoroutine;
 
@@ -94,6 +112,8 @@ public class StunGrenadeItem : GrabbableObject
 
 	public Ray grenadeThrowRay;
 
+	private int stunGrenadeMask;
+
 	public float explodeTimer;
 
 	public bool hasExploded;
@@ -114,6 +134,16 @@ public class StunGrenadeItem : GrabbableObject
 	{
 	}
 
+	[ServerRpc(RequireOwnership = false)]
+	public void SetExplodeOnThrowServerRpc()
+	{
+	}
+
+	[ClientRpc]
+	public void SetExplodeOnThrowClientRpc(bool explode)
+	{
+	}
+
 	private void SetControlTipForGrenade()
 	{
 	}
@@ -122,13 +152,21 @@ public class StunGrenadeItem : GrabbableObject
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CpullPinAnimation_003Ed__24))]
+	[IteratorStateMachine(typeof(_003CpullPinAnimation_003Ed__35))]
 	private IEnumerator pullPinAnimation()
 	{
 		return null;
 	}
 
 	public override void Update()
+	{
+	}
+
+	public override void Start()
+	{
+	}
+
+	public override void OnHitGround()
 	{
 	}
 

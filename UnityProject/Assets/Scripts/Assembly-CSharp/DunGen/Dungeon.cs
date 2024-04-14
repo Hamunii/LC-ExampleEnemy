@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using DunGen.Graph;
 using UnityEngine;
 
@@ -20,109 +19,21 @@ namespace DunGen
 
 		private readonly List<DoorwayConnection> connections;
 
-		public Bounds Bounds
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Bounds);
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public Bounds Bounds { get; protected set; }
 
-		public DungeonFlow DungeonFlow
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public DungeonFlow DungeonFlow { get; protected set; }
 
-		public ReadOnlyCollection<Tile> AllTiles
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<Tile> AllTiles { get; private set; }
 
-		public ReadOnlyCollection<Tile> MainPathTiles
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<Tile> MainPathTiles { get; private set; }
 
-		public ReadOnlyCollection<Tile> BranchPathTiles
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<Tile> BranchPathTiles { get; private set; }
 
-		public ReadOnlyCollection<GameObject> Doors
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<GameObject> Doors { get; private set; }
 
-		public ReadOnlyCollection<DoorwayConnection> Connections
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<DoorwayConnection> Connections { get; private set; }
 
-		public DungeonGraph ConnectionGraph
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DungeonGraph ConnectionGraph { get; private set; }
 
 		internal void AddAdditionalDoor(Door door)
 		{

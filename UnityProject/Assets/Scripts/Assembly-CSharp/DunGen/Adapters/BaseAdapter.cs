@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DunGen.Adapters
@@ -9,18 +8,7 @@ namespace DunGen.Adapters
 
 		protected DungeonGenerator dungeonGenerator;
 
-		public virtual bool RunDuringAnalysis
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public virtual bool RunDuringAnalysis { get; set; }
 
 		protected virtual void OnEnable()
 		{

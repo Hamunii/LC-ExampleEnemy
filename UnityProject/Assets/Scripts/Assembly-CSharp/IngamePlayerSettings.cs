@@ -130,18 +130,7 @@ public class IngamePlayerSettings : MonoBehaviour
 
 	public bool encounteredErrorDuringSave;
 
-	public static IngamePlayerSettings Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static IngamePlayerSettings Instance { get; private set; }
 
 	private void Awake()
 	{

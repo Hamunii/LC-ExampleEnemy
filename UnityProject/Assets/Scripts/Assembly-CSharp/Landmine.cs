@@ -227,7 +227,7 @@ public class Landmine : NetworkBehaviour, IHittable
 	{
 	}
 
-	public static void SpawnExplosion(Vector3 explosionPosition, bool spawnExplosionEffect = false, float killRange = 1f, float damageRange = 1f)
+	public static void SpawnExplosion(Vector3 explosionPosition, bool spawnExplosionEffect = false, float killRange = 1f, float damageRange = 1f, int nonLethalDamage = 50, float physicsForce = 0f, GameObject overridePrefab = null)
 	{
 	}
 
@@ -236,7 +236,7 @@ public class Landmine : NetworkBehaviour, IHittable
 		return false;
 	}
 
-	bool IHittable.Hit(int force, Vector3 hitDirection, PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	bool IHittable.Hit(int force, Vector3 hitDirection, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
 	{
 		return false;
 	}

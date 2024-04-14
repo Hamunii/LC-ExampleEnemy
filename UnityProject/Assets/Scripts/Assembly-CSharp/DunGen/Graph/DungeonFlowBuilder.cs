@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace DunGen.Graph
 {
@@ -11,18 +10,7 @@ namespace DunGen.Graph
 
 		private float currentPosition;
 
-		public DungeonFlow Flow
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DungeonFlow Flow { get; private set; }
 
 		public DungeonFlowBuilder(DungeonFlow flow)
 		{

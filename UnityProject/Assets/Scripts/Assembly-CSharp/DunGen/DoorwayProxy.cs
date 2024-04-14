@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DunGen
@@ -7,96 +6,19 @@ namespace DunGen
 	{
 		public bool Used => false;
 
-		public TileProxy TileProxy
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public TileProxy TileProxy { get; private set; }
 
-		public int Index
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int Index { get; private set; }
 
-		public DoorwaySocket Socket
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwaySocket Socket { get; private set; }
 
-		public Doorway DoorwayComponent
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Doorway DoorwayComponent { get; private set; }
 
-		public Vector3 LocalPosition
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Vector3);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Vector3 LocalPosition { get; private set; }
 
-		public Quaternion LocalRotation
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Quaternion);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Quaternion LocalRotation { get; private set; }
 
-		public DoorwayProxy ConnectedDoorway
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwayProxy ConnectedDoorway { get; private set; }
 
 		public Vector3 Forward => default(Vector3);
 

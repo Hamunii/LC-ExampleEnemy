@@ -81,18 +81,7 @@ namespace DigitalRuby.ThunderAndLightning
 
 			private readonly System.Random random;
 
-			public float VolumeMultiplier
-			{
-				[CompilerGenerated]
-				get
-				{
-					return 0f;
-				}
-				[CompilerGenerated]
-				set
-				{
-				}
-			}
+			public float VolumeMultiplier { get; set; }
 
 			public LightningBoltHandler(ThunderAndLightningScript script)
 			{
@@ -184,18 +173,7 @@ namespace DigitalRuby.ThunderAndLightning
 
 		public float SkyboxExposureOriginal => 0f;
 
-		public bool EnableLightning
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public bool EnableLightning { get; set; }
 
 		private void Start()
 		{

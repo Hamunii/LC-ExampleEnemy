@@ -9,7 +9,7 @@ using UnityEngine;
 public class EntranceTeleport : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CplayMusicOnDelay_003Ed__20 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CplayMusicOnDelay_003Ed__21 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -36,7 +36,7 @@ public class EntranceTeleport : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CplayMusicOnDelay_003Ed__20(int _003C_003E1__state)
+		public _003CplayMusicOnDelay_003Ed__21(int _003C_003E1__state)
 		{
 		}
 
@@ -96,6 +96,8 @@ public class EntranceTeleport : NetworkBehaviour
 
 	private bool checkedForFirstTime;
 
+	public float timeAtLastUse;
+
 	private void Awake()
 	{
 	}
@@ -109,7 +111,7 @@ public class EntranceTeleport : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CplayMusicOnDelay_003Ed__20))]
+	[IteratorStateMachine(typeof(_003CplayMusicOnDelay_003Ed__21))]
 	private IEnumerator playMusicOnDelay()
 	{
 		return null;

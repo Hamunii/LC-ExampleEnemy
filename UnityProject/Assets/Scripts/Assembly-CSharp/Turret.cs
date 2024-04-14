@@ -235,7 +235,7 @@ public class Turret : NetworkBehaviour, IHittable
 	{
 	}
 
-	bool IHittable.Hit(int force, Vector3 hitDirection, PlayerControllerB playerWhoHit, bool playHitSFX)
+	bool IHittable.Hit(int force, Vector3 hitDirection, PlayerControllerB playerWhoHit, bool playHitSFX, int hitID = -1)
 	{
 		return false;
 	}

@@ -229,7 +229,7 @@ public class CrawlerAI : EnemyAI
 	{
 	}
 
-	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
 	{
 	}
 }

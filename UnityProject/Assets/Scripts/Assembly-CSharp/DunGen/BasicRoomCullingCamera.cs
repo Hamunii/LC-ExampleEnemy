@@ -140,18 +140,7 @@ namespace DunGen
 
 		protected Dictionary<Door, List<RendererData>> doorRendererVisibilities;
 
-		public bool IsReady
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public bool IsReady { get; protected set; }
 
 		protected virtual void Awake()
 		{

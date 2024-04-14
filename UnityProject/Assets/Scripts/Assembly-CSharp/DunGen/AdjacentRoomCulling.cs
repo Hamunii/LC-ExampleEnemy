@@ -130,18 +130,7 @@ namespace DunGen
 
 		private List<Tile> searchedTiles;
 
-		public bool Ready
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public bool Ready { get; protected set; }
 
 		protected Transform targetTransform => null;
 

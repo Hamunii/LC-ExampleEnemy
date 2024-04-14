@@ -15,8 +15,6 @@ public class SettingsOption : MonoBehaviour
 
 	public Sprite disabledImage;
 
-	private bool askedForConfirmation;
-
 	[Header("Key rebinding")]
 	public InputActionReference rebindableAction;
 

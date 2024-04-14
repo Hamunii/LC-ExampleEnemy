@@ -12,7 +12,7 @@ using UnityEngine.Rendering.HighDefinition;
 public class ForestGiantAI : EnemyAI, IVisibleThreat
 {
 	[CompilerGenerated]
-	private sealed class _003CEatPlayerAnimation_003Ed__65 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CEatPlayerAnimation_003Ed__76 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -51,7 +51,7 @@ public class ForestGiantAI : EnemyAI, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CEatPlayerAnimation_003Ed__65(int _003C_003E1__state)
+		public _003CEatPlayerAnimation_003Ed__76(int _003C_003E1__state)
 		{
 		}
 
@@ -151,7 +151,24 @@ public class ForestGiantAI : EnemyAI, IVisibleThreat
 
 	public Transform handBone;
 
+	public Transform deathFallPosition;
+
+	public AudioClip giantFall;
+
+	public AudioClip giantCry;
+
+	public AudioSource giantBurningAudio;
+
+	public GameObject burningParticlesContainer;
+
+	private float timeAtStartOfBurning;
+
 	ThreatType IVisibleThreat.type => default(ThreatType);
+
+	int IVisibleThreat.SendSpecialBehaviour(int id)
+	{
+		return 0;
+	}
 
 	int IVisibleThreat.GetThreatLevel(Vector3 seenByPosition)
 	{
@@ -181,6 +198,22 @@ public class ForestGiantAI : EnemyAI, IVisibleThreat
 	float IVisibleThreat.GetVisibility()
 	{
 		return 0f;
+	}
+
+	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
+	{
+	}
+
+	public override void KillEnemy(bool destroy = false)
+	{
+	}
+
+	public override void AnimationEventA()
+	{
+	}
+
+	public override void HitFromExplosion(float distance)
+	{
 	}
 
 	public override void Start()
@@ -269,7 +302,7 @@ public class ForestGiantAI : EnemyAI, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CEatPlayerAnimation_003Ed__65))]
+	[IteratorStateMachine(typeof(_003CEatPlayerAnimation_003Ed__76))]
 	private IEnumerator EatPlayerAnimation(PlayerControllerB playerBeingEaten, Vector3 enemyPosition, int enemyYRot)
 	{
 		return null;
@@ -289,10 +322,6 @@ public class ForestGiantAI : EnemyAI, IVisibleThreat
 
 	[ServerRpc]
 	public void DetectPlayerVoiceServerRpc(Vector3 noisePosition)
-	{
-	}
-
-	public override void KillEnemy(bool destroy = false)
 	{
 	}
 }

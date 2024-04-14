@@ -94,31 +94,9 @@ namespace DunGen
 			}
 		}
 
-		public static Type ProBuilderMeshType
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static Type ProBuilderMeshType { get; private set; }
 
-		public static PropertyInfo ProBuilderPositionsProperty
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static PropertyInfo ProBuilderPositionsProperty { get; private set; }
 
 		static UnityUtil()
 		{

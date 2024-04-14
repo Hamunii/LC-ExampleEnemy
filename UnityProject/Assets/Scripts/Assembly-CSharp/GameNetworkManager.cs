@@ -379,31 +379,9 @@ public class GameNetworkManager : MonoBehaviour
 
 	private string previousLogErrorString;
 
-	public static GameNetworkManager Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static GameNetworkManager Instance { get; private set; }
 
-	public Lobby? currentLobby
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public Lobby? currentLobby { get; private set; }
 
 	private void LogCallback(string condition, string stackTrace, LogType type)
 	{

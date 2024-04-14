@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DigitalRuby.ThunderAndLightning
@@ -138,18 +137,7 @@ namespace DigitalRuby.ThunderAndLightning
 			}
 		}
 
-		public List<Vector3> Points
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public List<Vector3> Points { get; set; }
 
 		static LightningBoltParameters()
 		{

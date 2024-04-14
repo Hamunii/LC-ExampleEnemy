@@ -35,12 +35,20 @@ public class UnlockableItem
 	[Space(3f)]
 	public bool hasBeenUnlockedByPlayer;
 
-	[Space(5f)]
+	[Space(3f)]
 	public Material suitMaterial;
 
+	public GameObject headCostumeObject;
+
+	public GameObject lowerTorsoCostumeObject;
+
+	[Space(3f)]
 	public bool alreadyUnlocked;
 
 	public bool unlockedInChallengeFile;
 
 	public bool spawnPrefab;
+
+	[Header("Misc.")]
+	public AudioClip jumpAudio;
 }

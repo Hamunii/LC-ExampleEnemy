@@ -16,6 +16,8 @@ public class Item : ScriptableObject
 
 	public bool twoHandedAnimation;
 
+	public bool disableHandsOnWall;
+
 	public bool canBeGrabbedBeforeGameStart;
 
 	[Space(3f)]

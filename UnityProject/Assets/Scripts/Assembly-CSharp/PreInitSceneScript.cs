@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class PreInitSceneScript : MonoBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CloadSceneDelayed_003Ed__22 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CloadSceneDelayed_003Ed__21 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -37,7 +37,7 @@ public class PreInitSceneScript : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CloadSceneDelayed_003Ed__22(int _003C_003E1__state)
+		public _003CloadSceneDelayed_003Ed__21(int _003C_003E1__state)
 		{
 		}
 
@@ -64,7 +64,7 @@ public class PreInitSceneScript : MonoBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CrestartGameDueToCorruptedFile_003Ed__27 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CrestartGameDueToCorruptedFile_003Ed__26 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -91,7 +91,7 @@ public class PreInitSceneScript : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CrestartGameDueToCorruptedFile_003Ed__27(int _003C_003E1__state)
+		public _003CrestartGameDueToCorruptedFile_003Ed__26(int _003C_003E1__state)
 		{
 		}
 
@@ -140,8 +140,6 @@ public class PreInitSceneScript : MonoBehaviour
 
 	public TextMeshProUGUI headerText;
 
-	private bool clickedDeleteFiles;
-
 	public GameObject FileCorruptedPanel;
 
 	public GameObject FileCorruptedDialoguePanel;
@@ -172,7 +170,7 @@ public class PreInitSceneScript : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CloadSceneDelayed_003Ed__22))]
+	[IteratorStateMachine(typeof(_003CloadSceneDelayed_003Ed__21))]
 	private IEnumerator loadSceneDelayed(bool online)
 	{
 		return null;
@@ -194,7 +192,7 @@ public class PreInitSceneScript : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CrestartGameDueToCorruptedFile_003Ed__27))]
+	[IteratorStateMachine(typeof(_003CrestartGameDueToCorruptedFile_003Ed__26))]
 	private IEnumerator restartGameDueToCorruptedFile()
 	{
 		return null;

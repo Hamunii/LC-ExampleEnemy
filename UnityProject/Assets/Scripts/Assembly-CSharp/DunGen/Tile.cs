@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using DunGen.Tags;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -59,18 +58,7 @@ namespace DunGen
 			}
 		}
 
-		public Dungeon Dungeon
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			internal set
-			{
-			}
-		}
+		public Dungeon Dungeon { get; internal set; }
 
 		internal void AddTriggerVolume()
 		{

@@ -434,98 +434,21 @@ namespace DunGen
 
 		private Dictionary<TileProxy, InjectedTile> injectedTiles;
 
-		public RandomStream RandomStream
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public RandomStream RandomStream { get; protected set; }
 
 		public Vector3 UpVector => default(Vector3);
 
-		public GenerationStatus Status
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(GenerationStatus);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public GenerationStatus Status { get; private set; }
 
-		public GenerationStats GenerationStats
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public GenerationStats GenerationStats { get; private set; }
 
-		public int ChosenSeed
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			protected set
-			{
-			}
-		}
+		public int ChosenSeed { get; protected set; }
 
-		public Dungeon CurrentDungeon
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Dungeon CurrentDungeon { get; private set; }
 
-		public bool IsGenerating
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public bool IsGenerating { get; private set; }
 
-		public bool IsAnalysis
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public bool IsAnalysis { get; set; }
 
 		public event GenerationStatusDelegate OnGenerationStatusChanged
 		{

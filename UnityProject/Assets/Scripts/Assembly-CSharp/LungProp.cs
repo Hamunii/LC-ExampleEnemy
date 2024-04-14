@@ -8,7 +8,7 @@ using UnityEngine;
 public class LungProp : GrabbableObject
 {
 	[CompilerGenerated]
-	private sealed class _003CDisconnectFromMachinery_003Ed__13 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CDisconnectFromMachinery_003Ed__14 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -39,7 +39,7 @@ public class LungProp : GrabbableObject
 		}
 
 		[DebuggerHidden]
-		public _003CDisconnectFromMachinery_003Ed__13(int _003C_003E1__state)
+		public _003CDisconnectFromMachinery_003Ed__14(int _003C_003E1__state)
 		{
 		}
 
@@ -89,11 +89,13 @@ public class LungProp : GrabbableObject
 
 	private Color emissiveColor;
 
+	public EnemyType radMechEnemyType;
+
 	public override void EquipItem()
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CDisconnectFromMachinery_003Ed__13))]
+	[IteratorStateMachine(typeof(_003CDisconnectFromMachinery_003Ed__14))]
 	private IEnumerator DisconnectFromMachinery()
 	{
 		return null;

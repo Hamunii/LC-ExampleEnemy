@@ -59,18 +59,7 @@ namespace DigitalRuby.ThunderAndLightning
 
 			private MeshRenderer meshRendererBolt;
 
-			public GameObject GameObject
-			{
-				[CompilerGenerated]
-				get
-				{
-					return null;
-				}
-				[CompilerGenerated]
-				private set
-				{
-				}
-			}
+			public GameObject GameObject { get; private set; }
 
 			public Material MaterialGlow
 			{
@@ -98,44 +87,11 @@ namespace DigitalRuby.ThunderAndLightning
 
 			public MeshRenderer MeshRendererBolt => null;
 
-			public int Tag
-			{
-				[CompilerGenerated]
-				get
-				{
-					return 0;
-				}
-				[CompilerGenerated]
-				set
-				{
-				}
-			}
+			public int Tag { get; set; }
 
-			public Action<LightningCustomTransformStateInfo> CustomTransform
-			{
-				[CompilerGenerated]
-				get
-				{
-					return null;
-				}
-				[CompilerGenerated]
-				set
-				{
-				}
-			}
+			public Action<LightningCustomTransformStateInfo> CustomTransform { get; set; }
 
-			public Transform Transform
-			{
-				[CompilerGenerated]
-				get
-				{
-					return null;
-				}
-				[CompilerGenerated]
-				private set
-				{
-				}
-			}
+			public Transform Transform { get; private set; }
 
 			public bool Empty => false;
 
@@ -395,46 +351,13 @@ namespace DigitalRuby.ThunderAndLightning
 
 		private static readonly List<Light> lightCache;
 
-		public float MinimumDelay
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float MinimumDelay { get; private set; }
 
-		public bool HasGlow
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public bool HasGlow { get; private set; }
 
 		public bool IsActive => false;
 
-		public CameraMode CameraMode
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(CameraMode);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public CameraMode CameraMode { get; private set; }
 
 		public void SetupLightningBolt(LightningBoltDependencies dependencies)
 		{

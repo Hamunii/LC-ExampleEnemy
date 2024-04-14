@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace DunGen.Analysis
 {
@@ -7,187 +6,33 @@ namespace DunGen.Analysis
 	{
 		private readonly List<GenerationStats> statsSet;
 
-		public int TargetIterationCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int TargetIterationCount { get; private set; }
 
-		public int IterationCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int IterationCount { get; private set; }
 
-		public NumberSetData MainPathRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData MainPathRoomCount { get; private set; }
 
-		public NumberSetData BranchPathRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData BranchPathRoomCount { get; private set; }
 
-		public NumberSetData TotalRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData TotalRoomCount { get; private set; }
 
-		public NumberSetData MaxBranchDepth
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData MaxBranchDepth { get; private set; }
 
-		public NumberSetData TotalRetries
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData TotalRetries { get; private set; }
 
-		public NumberSetData PreProcessTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData PreProcessTime { get; private set; }
 
-		public NumberSetData MainPathGenerationTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData MainPathGenerationTime { get; private set; }
 
-		public NumberSetData BranchPathGenerationTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData BranchPathGenerationTime { get; private set; }
 
-		public NumberSetData PostProcessTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData PostProcessTime { get; private set; }
 
-		public NumberSetData TotalTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public NumberSetData TotalTime { get; private set; }
 
-		public float AnalysisTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float AnalysisTime { get; private set; }
 
-		public int SuccessCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int SuccessCount { get; private set; }
 
 		public float SuccessPercentage => 0f;
 

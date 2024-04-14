@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JetpackItem : GrabbableObject
 {
+	public bool streamlineJetpack;
+
 	public Transform backPart;
 
 	public Vector3 backPartRotationOffset;
@@ -47,6 +49,16 @@ public class JetpackItem : GrabbableObject
 	private float noiseInterval;
 
 	private RaycastHit rayHit;
+
+	public float jetpackAcceleration;
+
+	public float jetpackDeaccelleration;
+
+	public float jetpackForceChangeSpeed;
+
+	public float verticalMultiplier;
+
+	public AudioClip applause;
 
 	public override void ItemActivate(bool used, bool buttonDown = true)
 	{
