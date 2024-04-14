@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Discord;
 using UnityEngine;
 
@@ -32,18 +31,7 @@ public class DiscordController : MonoBehaviour
 
 	private bool appQuitting;
 
-	public static DiscordController Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static DiscordController Instance { get; private set; }
 
 	private void Awake()
 	{

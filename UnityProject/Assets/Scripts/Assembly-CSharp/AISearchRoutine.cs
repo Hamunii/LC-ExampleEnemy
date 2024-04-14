@@ -34,6 +34,8 @@ public class AISearchRoutine
 
 	public bool randomized;
 
+	public bool onlySearchNodesInLOS;
+
 	public float GetCurrentDistanceOfSearch()
 	{
 		return 0f;

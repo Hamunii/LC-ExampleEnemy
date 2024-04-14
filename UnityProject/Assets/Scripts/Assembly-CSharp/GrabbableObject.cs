@@ -81,7 +81,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 	[Space(3f)]
 	public bool grabbableToEnemies;
 
-	private bool hasBeenHeld;
+	public bool hasBeenHeld;
 
 	public virtual int GetItemDataToSave()
 	{
@@ -128,7 +128,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 	{
 	}
 
-	public bool UseItemBatteries()
+	public bool UseItemBatteries(bool isToggle, bool buttonDown = true)
 	{
 		return false;
 	}
@@ -215,7 +215,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 	{
 	}
 
-	private void PlayDropSFX()
+	public virtual void PlayDropSFX()
 	{
 	}
 

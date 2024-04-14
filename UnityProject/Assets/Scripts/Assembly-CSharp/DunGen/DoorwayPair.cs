@@ -1,98 +1,19 @@
-using System.Runtime.CompilerServices;
-
 namespace DunGen
 {
 	public struct DoorwayPair
 	{
-		public TileProxy PreviousTile
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public TileProxy PreviousTile { get; private set; }
 
-		public DoorwayProxy PreviousDoorway
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwayProxy PreviousDoorway { get; private set; }
 
-		public TileProxy NextTemplate
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public TileProxy NextTemplate { get; private set; }
 
-		public DoorwayProxy NextDoorway
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwayProxy NextDoorway { get; private set; }
 
-		public TileSet NextTileSet
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public TileSet NextTileSet { get; private set; }
 
-		public float TileWeight
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float TileWeight { get; private set; }
 
-		public float DoorwayWeight
-		{
-			[CompilerGenerated]
-			readonly get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float DoorwayWeight { get; private set; }
 	}
 }

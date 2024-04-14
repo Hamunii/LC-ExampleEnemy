@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -8,18 +7,7 @@ public class GlobalEffects : NetworkBehaviour
 
 	public bool ownedByPlayer;
 
-	public static GlobalEffects Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static GlobalEffects Instance { get; private set; }
 
 	private void Awake()
 	{

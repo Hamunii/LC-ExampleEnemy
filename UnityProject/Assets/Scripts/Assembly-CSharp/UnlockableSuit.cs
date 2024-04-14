@@ -37,4 +37,8 @@ public class UnlockableSuit : NetworkBehaviour
 	public static void SwitchSuitForPlayer(PlayerControllerB player, int suitID, bool playAudio = true)
 	{
 	}
+
+	public static void ChangePlayerCostumeElement(Transform costumeContainer, GameObject newCostume)
+	{
+	}
 }

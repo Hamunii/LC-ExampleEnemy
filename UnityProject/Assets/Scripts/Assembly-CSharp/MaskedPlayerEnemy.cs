@@ -8,10 +8,10 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class MaskedPlayerEnemy : EnemyAI
+public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass104_0
+	private sealed class _003C_003Ec__DisplayClass113_0
 	{
 		public float startTime;
 
@@ -33,7 +33,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CkillAnimation_003Ed__102 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CkillAnimation_003Ed__111 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -70,7 +70,7 @@ public class MaskedPlayerEnemy : EnemyAI
 		}
 
 		[DebuggerHidden]
-		public _003CkillAnimation_003Ed__102(int _003C_003E1__state)
+		public _003CkillAnimation_003Ed__111(int _003C_003E1__state)
 		{
 		}
 
@@ -97,7 +97,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CteleportMasked_003Ed__93 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CteleportMasked_003Ed__102 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -124,7 +124,7 @@ public class MaskedPlayerEnemy : EnemyAI
 		}
 
 		[DebuggerHidden]
-		public _003CteleportMasked_003Ed__93(int _003C_003E1__state)
+		public _003CteleportMasked_003Ed__102(int _003C_003E1__state)
 		{
 		}
 
@@ -151,7 +151,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitForMimicEnemySpawn_003Ed__104 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitForMimicEnemySpawn_003Ed__113 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -161,7 +161,7 @@ public class MaskedPlayerEnemy : EnemyAI
 
 		public int playerKilled;
 
-		private _003C_003Ec__DisplayClass104_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass113_0 _003C_003E8__1;
 
 		public bool inFactory;
 
@@ -184,7 +184,7 @@ public class MaskedPlayerEnemy : EnemyAI
 		}
 
 		[DebuggerHidden]
-		public _003CwaitForMimicEnemySpawn_003Ed__104(int _003C_003E1__state)
+		public _003CwaitForMimicEnemySpawn_003Ed__113(int _003C_003E1__state)
 		{
 		}
 
@@ -329,6 +329,43 @@ public class MaskedPlayerEnemy : EnemyAI
 	private float interestInShipCooldown;
 
 	private List<int> playersKilled;
+
+	ThreatType IVisibleThreat.type => default(ThreatType);
+
+	int IVisibleThreat.SendSpecialBehaviour(int id)
+	{
+		return 0;
+	}
+
+	int IVisibleThreat.GetThreatLevel(Vector3 seenByPosition)
+	{
+		return 0;
+	}
+
+	int IVisibleThreat.GetInterestLevel()
+	{
+		return 0;
+	}
+
+	Transform IVisibleThreat.GetThreatLookTransform()
+	{
+		return null;
+	}
+
+	Transform IVisibleThreat.GetThreatTransform()
+	{
+		return null;
+	}
+
+	Vector3 IVisibleThreat.GetThreatVelocity()
+	{
+		return default(Vector3);
+	}
+
+	float IVisibleThreat.GetVisibility()
+	{
+		return 0f;
+	}
 
 	public override void Start()
 	{
@@ -484,13 +521,13 @@ public class MaskedPlayerEnemy : EnemyAI
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CteleportMasked_003Ed__93))]
+	[IteratorStateMachine(typeof(_003CteleportMasked_003Ed__102))]
 	private IEnumerator teleportMasked()
 	{
 		return null;
 	}
 
-	public void SetEnemyOutside(bool outside = false)
+	public override void SetEnemyOutside(bool outside = false)
 	{
 	}
 
@@ -502,7 +539,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	{
 	}
 
-	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
 	{
 	}
 
@@ -525,7 +562,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CkillAnimation_003Ed__102))]
+	[IteratorStateMachine(typeof(_003CkillAnimation_003Ed__111))]
 	private IEnumerator killAnimation()
 	{
 		return null;
@@ -536,7 +573,7 @@ public class MaskedPlayerEnemy : EnemyAI
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__104))]
+	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__113))]
 	private IEnumerator waitForMimicEnemySpawn(NetworkObjectReference netObjectRef, bool inFactory, int playerKilled)
 	{
 		return null;

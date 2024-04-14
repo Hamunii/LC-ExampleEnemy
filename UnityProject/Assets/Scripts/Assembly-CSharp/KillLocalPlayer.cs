@@ -23,6 +23,8 @@ public class KillLocalPlayer : MonoBehaviour
 
 	public int playAudioOnDeath;
 
+	public GameObject spawnPrefab;
+
 	public void KillPlayer(PlayerControllerB playerWhoTriggered)
 	{
 	}

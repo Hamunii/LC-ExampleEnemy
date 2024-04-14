@@ -104,6 +104,10 @@ public class QuickMenuManager : MonoBehaviour
 	{
 	}
 
+	public void Debug_RevivePlayers()
+	{
+	}
+
 	public void Debug_SetEnemyType(int enemyType)
 	{
 	}

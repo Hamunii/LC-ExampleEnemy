@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 705258104
+CRC: 2858769685
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d84e65e1fece966f4e576a59dca1e204
+    Hash: f0a9d2fc65b4b9b132dc9e9395c29c15
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d7f90bbb6c3547fa47e0e7dbb04f2502
+    Hash: 51c7baccf5e3d67e963f3f50512e8b8c
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: d84e65e1fece966f4e576a59dca1e204
+    Hash: f0a9d2fc65b4b9b132dc9e9395c29c15
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -69,6 +69,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: AISearchRoutine
 - AssemblyName: Assembly-CSharp
   ClassName: EnemyBehaviourState
+- AssemblyName: Assembly-CSharp
+  ClassName: NavSizeLimit
 Assets:
 - Assets/ExampleEnemy/ExampleEnemy.asset
 - Assets/ExampleEnemy/Bestiary/ExampleEnemyTK.asset

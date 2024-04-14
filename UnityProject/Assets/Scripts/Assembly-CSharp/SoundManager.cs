@@ -11,7 +11,7 @@ using UnityEngine.Audio;
 public class SoundManager : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CfadeVolumeBackToNormalDelayed_003Ed__61 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CfadeVolumeBackToNormalDelayed_003Ed__63 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -40,7 +40,7 @@ public class SoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CfadeVolumeBackToNormalDelayed_003Ed__61(int _003C_003E1__state)
+		public _003CfadeVolumeBackToNormalDelayed_003Ed__63(int _003C_003E1__state)
 		{
 		}
 
@@ -172,6 +172,8 @@ public class SoundManager : NetworkBehaviour
 
 	public AudioSource ringingEarsAudio;
 
+	public AudioSource misc2DAudio;
+
 	public AudioSource tempAudio1;
 
 	public AudioSource tempAudio2;
@@ -180,18 +182,9 @@ public class SoundManager : NetworkBehaviour
 
 	private System.Random audioRandom;
 
-	public static SoundManager Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	private float currentDiageticVolume;
+
+	public static SoundManager Instance { get; private set; }
 
 	public void ResetRandomSeed()
 	{
@@ -205,7 +198,7 @@ public class SoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CfadeVolumeBackToNormalDelayed_003Ed__61))]
+	[IteratorStateMachine(typeof(_003CfadeVolumeBackToNormalDelayed_003Ed__63))]
 	private IEnumerator fadeVolumeBackToNormalDelayed()
 	{
 		return null;
@@ -228,6 +221,10 @@ public class SoundManager : NetworkBehaviour
 	}
 
 	private void Update()
+	{
+	}
+
+	public void SetDiageticMasterVolume(float targetDecibels)
 	{
 	}
 

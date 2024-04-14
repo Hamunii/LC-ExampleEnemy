@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DigitalRuby.ThunderAndLightning
@@ -123,18 +122,7 @@ namespace DigitalRuby.ThunderAndLightning
 
 		private float lifeTimeRemaining;
 
-		public System.Random RandomOverride
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public System.Random RandomOverride { get; set; }
 
 		private void CalculateNextLightningTimestamp(float offset)
 		{

@@ -1185,18 +1185,7 @@ public class HUDManager : NetworkBehaviour
 
 	private float noLivingPlayersAtKeyboardTimer;
 
-	public static HUDManager Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static HUDManager Instance { get; private set; }
 
 	private void OnEnable()
 	{

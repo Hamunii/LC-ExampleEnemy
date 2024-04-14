@@ -1,22 +1,10 @@
-using System.Runtime.CompilerServices;
 using DunGen.Graph;
 
 namespace DunGen
 {
 	public sealed class DungeonArchetypeValidator
 	{
-		public DungeonFlow Flow
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DungeonFlow Flow { get; private set; }
 
 		public DungeonArchetypeValidator(DungeonFlow flow)
 		{

@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 using DunGen.Graph;
 using UnityEngine;
 
@@ -99,18 +98,7 @@ namespace DunGen
 			}
 		}
 
-		public Bounds Bounds
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Bounds);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Bounds Bounds { get; private set; }
 
 		public Bounds LocalBounds
 		{
@@ -189,35 +177,13 @@ namespace DunGen
 			}
 		}
 
-		public Matrix4x4 Transform
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Matrix4x4);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Matrix4x4 Transform { get; private set; }
 
 		public int Depth => 0;
 
 		public float NormalizedDepth => 0f;
 
-		public InjectedTile InjectionData
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public InjectedTile InjectionData { get; set; }
 
 		public TilePlacementData()
 		{

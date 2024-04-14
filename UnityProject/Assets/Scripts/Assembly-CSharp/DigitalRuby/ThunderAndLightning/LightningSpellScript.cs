@@ -128,44 +128,11 @@ namespace DigitalRuby.ThunderAndLightning
 
 		private int stopToken;
 
-		protected float DurationTimer
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		protected float DurationTimer { get; private set; }
 
-		protected float CooldownTimer
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		protected float CooldownTimer { get; private set; }
 
-		public bool Casting
-		{
-			[CompilerGenerated]
-			get
-			{
-				return false;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public bool Casting { get; private set; }
 
 		public bool CanCastSpell => false;
 

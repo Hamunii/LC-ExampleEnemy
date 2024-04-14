@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -145,124 +144,25 @@ namespace DigitalRuby.ThunderAndLightning
 
 		private static int shaderId_RenderMode;
 
-		public Action<LightningBoltParameters, Vector3, Vector3> LightningStartedCallback
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public Action<LightningBoltParameters, Vector3, Vector3> LightningStartedCallback { get; set; }
 
-		public Action<LightningBoltParameters, Vector3, Vector3> LightningEndedCallback
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public Action<LightningBoltParameters, Vector3, Vector3> LightningEndedCallback { get; set; }
 
-		public Action<Light> LightAddedCallback
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public Action<Light> LightAddedCallback { get; set; }
 
-		public Action<Light> LightRemovedCallback
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			set
-			{
-			}
-		}
+		public Action<Light> LightRemovedCallback { get; set; }
 
 		public bool HasActiveBolts => false;
 
-		public static Vector4 TimeVectorSinceStart
-		{
-			[CompilerGenerated]
-			get
-			{
-				return default(Vector4);
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static Vector4 TimeVectorSinceStart { get; private set; }
 
-		public static float TimeSinceStart
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static float TimeSinceStart { get; private set; }
 
-		public static float DeltaTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static float DeltaTime { get; private set; }
 
-		internal Material lightningMaterialMeshInternal
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		internal Material lightningMaterialMeshInternal { get; private set; }
 
-		internal Material lightningMaterialMeshNoGlowInternal
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		internal Material lightningMaterialMeshNoGlowInternal { get; private set; }
 
 		public virtual void CreateLightningBolt(LightningBoltParameters p)
 		{

@@ -13,7 +13,7 @@ using UnityEngine.Video;
 public class Terminal : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass91_0
+	private sealed class _003C_003Ec__DisplayClass92_0
 	{
 		public QuickMenuManager quickMenu;
 
@@ -24,13 +24,13 @@ public class Terminal : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CdisplayReimbursedTipDelay_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CdisplayReimbursedTipDelay_003Ed__92 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
 		private object _003C_003E2__current;
 
-		private _003C_003Ec__DisplayClass91_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass92_0 _003C_003E8__1;
 
 		object IEnumerator<object>.Current
 		{
@@ -51,7 +51,7 @@ public class Terminal : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CdisplayReimbursedTipDelay_003Ed__91(int _003C_003E1__state)
+		public _003CdisplayReimbursedTipDelay_003Ed__92(int _003C_003E1__state)
 		{
 		}
 
@@ -302,7 +302,7 @@ public class Terminal : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CselectTextFieldDelayed_003Ed__96 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CselectTextFieldDelayed_003Ed__97 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -329,7 +329,7 @@ public class Terminal : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CselectTextFieldDelayed_003Ed__96(int _003C_003E1__state)
+		public _003CselectTextFieldDelayed_003Ed__97(int _003C_003E1__state)
 		{
 		}
 
@@ -356,7 +356,7 @@ public class Terminal : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitUntilFrameEndToSetActive_003Ed__90 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitUntilFrameEndToSetActive_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -385,7 +385,7 @@ public class Terminal : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CwaitUntilFrameEndToSetActive_003Ed__90(int _003C_003E1__state)
+		public _003CwaitUntilFrameEndToSetActive_003Ed__91(int _003C_003E1__state)
 		{
 		}
 
@@ -610,6 +610,10 @@ public class Terminal : NetworkBehaviour
 	{
 	}
 
+	public void ClearBoughtItems()
+	{
+	}
+
 	private void SyncBoughtItemsWithServer(int[] boughtItems, int numItemsInShip)
 	{
 	}
@@ -679,13 +683,13 @@ public class Terminal : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitUntilFrameEndToSetActive_003Ed__90))]
+	[IteratorStateMachine(typeof(_003CwaitUntilFrameEndToSetActive_003Ed__91))]
 	private IEnumerator waitUntilFrameEndToSetActive(bool active)
 	{
 		return null;
 	}
 
-	[IteratorStateMachine(typeof(_003CdisplayReimbursedTipDelay_003Ed__91))]
+	[IteratorStateMachine(typeof(_003CdisplayReimbursedTipDelay_003Ed__92))]
 	private IEnumerator displayReimbursedTipDelay()
 	{
 		return null;
@@ -709,7 +713,7 @@ public class Terminal : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CselectTextFieldDelayed_003Ed__96))]
+	[IteratorStateMachine(typeof(_003CselectTextFieldDelayed_003Ed__97))]
 	private IEnumerator selectTextFieldDelayed()
 	{
 		return null;

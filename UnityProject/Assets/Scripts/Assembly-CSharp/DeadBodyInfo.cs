@@ -5,6 +5,8 @@ public class DeadBodyInfo : MonoBehaviour
 {
 	public int playerObjectId;
 
+	public bool setMaterialToPlayerSuit;
+
 	public PlayerControllerB playerScript;
 
 	public Rigidbody[] bodyParts;

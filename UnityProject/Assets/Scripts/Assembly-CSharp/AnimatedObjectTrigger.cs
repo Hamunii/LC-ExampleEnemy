@@ -1,10 +1,68 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using GameNetcodeStuff;
 using Unity.Netcode;
 using UnityEngine;
 
 public class AnimatedObjectTrigger : NetworkBehaviour
 {
+	[CompilerGenerated]
+	private sealed class _003CwaitForNavMeshBake_003Ed__28 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public AnimatedObjectTrigger _003C_003E4__this;
+
+		object IEnumerator<object>.Current
+		{
+			[DebuggerHidden]
+			get
+			{
+				return null;
+			}
+		}
+
+		object IEnumerator.Current
+		{
+			[DebuggerHidden]
+			get
+			{
+				return null;
+			}
+		}
+
+		[DebuggerHidden]
+		public _003CwaitForNavMeshBake_003Ed__28(int _003C_003E1__state)
+		{
+		}
+
+		[DebuggerHidden]
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		[DebuggerHidden]
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
 	public Animator triggerAnimator;
 
 	public Animator triggerAnimatorB;
@@ -40,6 +98,8 @@ public class AnimatedObjectTrigger : NetworkBehaviour
 	[Space(3f)]
 	public ParticleSystem playParticle;
 
+	public int playParticleOnTimesTriggered;
+
 	[Space(4f)]
 	private StartOfRound playersManager;
 
@@ -63,6 +123,16 @@ public class AnimatedObjectTrigger : NetworkBehaviour
 	private float audioTime;
 
 	public void Start()
+	{
+	}
+
+	[IteratorStateMachine(typeof(_003CwaitForNavMeshBake_003Ed__28))]
+	private IEnumerator waitForNavMeshBake()
+	{
+		return null;
+	}
+
+	public void SetInitialState()
 	{
 	}
 

@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using GameNetcodeStuff;
 using Unity.Netcode;
 using UnityEngine;
@@ -55,18 +54,7 @@ public class ShipBuildModeManager : NetworkBehaviour
 
 	private Collider[] collidersInPlacingObject;
 
-	public static ShipBuildModeManager Instance
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-		[CompilerGenerated]
-		private set
-		{
-		}
-	}
+	public static ShipBuildModeManager Instance { get; private set; }
 
 	private void Awake()
 	{

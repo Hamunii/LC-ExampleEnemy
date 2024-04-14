@@ -33,6 +33,10 @@ public class PlayAudioAnimationEvent : MonoBehaviour
 	{
 	}
 
+	public void ScreenShake()
+	{
+	}
+
 	public void PlayAudio1()
 	{
 	}

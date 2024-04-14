@@ -29,6 +29,12 @@ public class BridgeTrigger : NetworkBehaviour
 
 	public Collider[] fallenBridgeColliders;
 
+	public int fallType;
+
+	public float weightCapacityAmount;
+
+	public float playerCapacityAmount;
+
 	private void OnEnable()
 	{
 	}

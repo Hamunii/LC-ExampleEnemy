@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DunGen
@@ -9,83 +8,17 @@ namespace DunGen
 	{
 		private List<DoorwayProxy> doorways;
 
-		public GameObject Prefab
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public GameObject Prefab { get; private set; }
 
-		public Tile PrefabTile
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Tile PrefabTile { get; private set; }
 
-		public TilePlacementData Placement
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			internal set
-			{
-			}
-		}
+		public TilePlacementData Placement { get; internal set; }
 
-		public DoorwayProxy Entrance
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwayProxy Entrance { get; private set; }
 
-		public DoorwayProxy Exit
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public DoorwayProxy Exit { get; private set; }
 
-		public ReadOnlyCollection<DoorwayProxy> Doorways
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public ReadOnlyCollection<DoorwayProxy> Doorways { get; private set; }
 
 		public IEnumerable<DoorwayProxy> UsedDoorways => null;
 

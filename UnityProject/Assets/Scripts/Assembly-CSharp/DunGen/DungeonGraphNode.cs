@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace DunGen
 {
@@ -7,18 +6,7 @@ namespace DunGen
 	{
 		public List<DungeonGraphConnection> Connections;
 
-		public Tile Tile
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public Tile Tile { get; private set; }
 
 		public DungeonGraphNode(Tile tile)
 		{

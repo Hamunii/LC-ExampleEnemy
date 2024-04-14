@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public abstract class EnemyAI : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__90 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -46,7 +46,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CChooseNextNodeInSearchRoutine_003Ed__90(int _003C_003E1__state)
+		public _003CChooseNextNodeInSearchRoutine_003Ed__91(int _003C_003E1__state)
 		{
 		}
 
@@ -73,7 +73,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CCurrentSearchCoroutine_003Ed__88 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CCurrentSearchCoroutine_003Ed__89 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -104,7 +104,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CCurrentSearchCoroutine_003Ed__88(int _003C_003E1__state)
+		public _003CCurrentSearchCoroutine_003Ed__89(int _003C_003E1__state)
 		{
 		}
 
@@ -156,7 +156,7 @@ public abstract class EnemyAI : NetworkBehaviour
 
 	public int previousBehaviourStateIndex;
 
-	private int currentOwnershipOnThisClient;
+	public int currentOwnershipOnThisClient;
 
 	public bool isInsidePlayerShip;
 
@@ -275,6 +275,10 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
+	public virtual void UseNestSpawnObject(EnemyAINestSpawnObject nestSpawnObject)
+	{
+	}
+
 	public virtual void Start()
 	{
 	}
@@ -350,14 +354,14 @@ public abstract class EnemyAI : NetworkBehaviour
 		return null;
 	}
 
+	public bool CheckLineOfSightForPosition(Vector3 objectPosition, float width = 45f, int range = 60, float proximityAwareness = -1f, Transform overrideEye = null)
+	{
+		return false;
+	}
+
 	public GameObject CheckLineOfSight(List<GameObject> objectsToLookFor, float width = 45f, int range = 60, float proximityAwareness = -1f)
 	{
 		return null;
-	}
-
-	public bool HasLineOfSightToPosition(Vector3 pos, float width = 45f, int range = 60, float proximityAwareness = -1f)
-	{
-		return false;
 	}
 
 	public void StartSearch(Vector3 startOfSearch, AISearchRoutine newSearch = null)
@@ -373,7 +377,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__88))]
+	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__89))]
 	private IEnumerator CurrentSearchCoroutine()
 	{
 		return null;
@@ -383,7 +387,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__90))]
+	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__91))]
 	private IEnumerator ChooseNextNodeInSearchRoutine()
 	{
 		return null;
@@ -519,25 +523,37 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
+	public virtual void SetEnemyOutside(bool outside = false)
+	{
+	}
+
 	public virtual void DetectNoise(Vector3 noisePosition, float noiseLoudness, int timesPlayedInOneSpot = 0, int noiseID = 0)
 	{
 	}
 
-	public void HitEnemyOnLocalClient(int force = 1, Vector3 hitDirection = default(Vector3), PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	public virtual void HitFromExplosion(float distance)
+	{
+	}
+
+	public void HitEnemyOnLocalClient(int force = 1, Vector3 hitDirection = default(Vector3), PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
 	{
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	public void HitEnemyServerRpc(int force, int playerWhoHit, bool playHitSFX)
+	public void HitEnemyServerRpc(int force, int playerWhoHit, bool playHitSFX, int hitID = -1)
 	{
 	}
 
 	[ClientRpc]
-	public void HitEnemyClientRpc(int force, int playerWhoHit, bool playHitSFX)
+	public void HitEnemyClientRpc(int force, int playerWhoHit, bool playHitSFX, int hitID = -1)
 	{
 	}
 
-	public virtual void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false)
+	public virtual void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1)
+	{
+	}
+
+	public virtual void ReceiveLoudNoiseBlast(Vector3 position, float angle)
 	{
 	}
 

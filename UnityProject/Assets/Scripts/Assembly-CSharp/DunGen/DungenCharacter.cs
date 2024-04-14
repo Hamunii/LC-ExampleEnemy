@@ -12,18 +12,7 @@ namespace DunGen
 
 		private List<Tile> overlappingTiles;
 
-		public static ReadOnlyCollection<DungenCharacter> AllCharacters
-		{
-			[CompilerGenerated]
-			get
-			{
-				return null;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public static ReadOnlyCollection<DungenCharacter> AllCharacters { get; private set; }
 
 		public Tile CurrentTile => null;
 

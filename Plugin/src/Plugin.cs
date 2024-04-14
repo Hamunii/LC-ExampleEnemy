@@ -13,6 +13,7 @@ namespace ExampleEnemy {
         // It is a good idea for our GUID to be more unique than only the plugin name. Notice that it is used in the BepInPlugin attribute.
         // The GUID is also used for the config file name by default.
         public const string ModGUID = "hamunii." + PluginInfo.PLUGIN_NAME;
+        
         internal static new ManualLogSource Logger;
         internal static PluginConfig BoundConfig { get; private set; } = null;
         public static AssetBundle ModAssets;

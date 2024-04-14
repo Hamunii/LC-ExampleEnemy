@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -205,14 +204,7 @@ public class PlayerActions : IInputActionCollection2, IInputActionCollection, IE
 
 	private readonly InputAction m_Movement_Delete;
 
-	public InputActionAsset asset
-	{
-		[CompilerGenerated]
-		get
-		{
-			return null;
-		}
-	}
+	public InputActionAsset asset { get; }
 
 	public InputBinding? bindingMask
 	{

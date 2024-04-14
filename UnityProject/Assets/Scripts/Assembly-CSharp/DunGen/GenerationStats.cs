@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace DunGen
 {
@@ -9,148 +8,27 @@ namespace DunGen
 
 		private GenerationStatus generationStatus;
 
-		public int MainPathRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int MainPathRoomCount { get; private set; }
 
-		public int BranchPathRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int BranchPathRoomCount { get; private set; }
 
-		public int TotalRoomCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int TotalRoomCount { get; private set; }
 
-		public int MaxBranchDepth
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int MaxBranchDepth { get; private set; }
 
-		public int TotalRetries
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public int TotalRetries { get; private set; }
 
-		public int PrunedBranchTileCount
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0;
-			}
-			[CompilerGenerated]
-			internal set
-			{
-			}
-		}
+		public int PrunedBranchTileCount { get; internal set; }
 
-		public float PreProcessTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float PreProcessTime { get; private set; }
 
-		public float MainPathGenerationTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float MainPathGenerationTime { get; private set; }
 
-		public float BranchPathGenerationTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float BranchPathGenerationTime { get; private set; }
 
-		public float PostProcessTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float PostProcessTime { get; private set; }
 
-		public float TotalTime
-		{
-			[CompilerGenerated]
-			get
-			{
-				return 0f;
-			}
-			[CompilerGenerated]
-			private set
-			{
-			}
-		}
+		public float TotalTime { get; private set; }
 
 		internal void Clear()
 		{

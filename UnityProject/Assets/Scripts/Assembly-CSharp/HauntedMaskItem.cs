@@ -10,7 +10,7 @@ using UnityEngine;
 public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass41_0
+	private sealed class _003C_003Ec__DisplayClass42_0
 	{
 		public float startTime;
 
@@ -32,7 +32,7 @@ public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitForMimicEnemySpawn_003Ed__41 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitForMimicEnemySpawn_003Ed__42 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -42,7 +42,7 @@ public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 
 		public HauntedMaskItem _003C_003E4__this;
 
-		private _003C_003Ec__DisplayClass41_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass42_0 _003C_003E8__1;
 
 		public bool inFactory;
 
@@ -65,7 +65,7 @@ public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CwaitForMimicEnemySpawn_003Ed__41(int _003C_003E1__state)
+		public _003CwaitForMimicEnemySpawn_003Ed__42(int _003C_003E1__state)
 		{
 		}
 
@@ -132,6 +132,11 @@ public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 	public int maskTypeId;
 
 	ThreatType IVisibleThreat.type => default(ThreatType);
+
+	int IVisibleThreat.SendSpecialBehaviour(int id)
+	{
+		return 0;
+	}
 
 	int IVisibleThreat.GetInterestLevel()
 	{
@@ -219,7 +224,7 @@ public class HauntedMaskItem : GrabbableObject, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__41))]
+	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__42))]
 	private IEnumerator waitForMimicEnemySpawn(NetworkObjectReference netObjectRef, bool inFactory)
 	{
 		return null;
