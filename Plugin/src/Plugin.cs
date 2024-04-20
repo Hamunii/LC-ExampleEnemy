@@ -14,9 +14,9 @@ namespace ExampleEnemy {
         // The GUID is also used for the config file name by default.
         public const string ModGUID = "hamunii." + PluginInfo.PLUGIN_NAME;
         
-        internal static new ManualLogSource Logger;
-        internal static PluginConfig BoundConfig { get; private set; } = null;
-        public static AssetBundle ModAssets;
+        internal static new ManualLogSource Logger = null!;
+        internal static PluginConfig BoundConfig { get; private set; } = null!;
+        public static AssetBundle? ModAssets;
 
         private void Awake() {
             Logger = base.Logger;

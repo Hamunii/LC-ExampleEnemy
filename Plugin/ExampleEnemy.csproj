@@ -1,32 +1,56 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- BepInEx Properties -->
   <PropertyGroup>
-		<!-- This is the most likely to work in Unity games, for the most part; you can ignore it. -->
-    <TargetFramework>netstandard2.1</TargetFramework>
 		<!-- This is the name of your mod. This will be used by tcli when building our Thunderstore package. -->
-    <AssemblyName>ExampleEnemy</AssemblyName>
-		<!-- This assembly description doesn't show up on Thunderstore. -->
-    <!-- Configure description for Thunderstore at ./Thunderstore/thunderstore.toml -->
-    <Description>Example Enemy for Lethal Company.</Description>
-		<!-- This is the version of your plugin. This will be used by tcli when building our Thunderstore package. -->
+    <AssemblyName>Hamunii.ExampleEnemy</AssemblyName>
+    <Product>ExampleEnemy</Product>
+    <!-- Change to whatever version you're currently on. This will be used by tcli when building our Thunderstore package. -->
     <Version>1.0.0</Version>
-		<!-- This is required for BepInEx to load us properly. -->
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<!-- This allows us to use C#11 features, for the most part. -->
-    <LangVersion>latest</LangVersion>
-
-    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
+  <!-- Project Properties -->
   <PropertyGroup>
-	  <!-- Embed Debug symbols in our DLL (otherwise it's in a separate .pdb file). This will show the line an error happens at when running our mod. -->
-    <DebugType>embedded</DebugType>
-    <!-- Remove full build path from Debug symbols, e.g. /home/user/Programming/Lethal_Company/MyProject/src/Plugin.cs:line 27 becomes ./src/Plugin.cs:line 27 -->
-    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
-</PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>ExampleEnemy</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Thunderstore CLI stuff -->
   <PropertyGroup>
-	  <!-- Your Thunderstore Team name. This will be used by tcli when building our Thunderstore package. -->
+    <!-- Your Thunderstore Team name. This will be used by tcli when building our Thunderstore package. -->
     <ThunderstoreTeam>Hamunii</ThunderstoreTeam>
+    <!-- Configure description for Thunderstore at ./Thunderstore/thunderstore.toml -->
+  </PropertyGroup>
+
+  <!-- Enable Nullable for better IDE null-checking -->
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Set NuGet Sources -->
+  <PropertyGroup>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <!-- Disable Publicizer Warnings -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CS0436</NoWarn>
+  </PropertyGroup>
+
+  <!-- Embed Debug Symbols for Easier Debugging -->
+  <PropertyGroup>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <!--
+    Trim the project path to prevent players from potentially
+    viewing Private Information in stack traces.
+    -->
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,18 +58,22 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" IncludeAssets="compile" />
+    <PackageReference Include="Evaisa.LethalLib" Version="0.*" />
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
-  <!-- Get references to DLL files. -->
-  <ItemGroup>
-    <Reference Include="UnityEngine"><HintPath>../dlls/UnityEngine.CoreModule.dll</HintPath></Reference>
-    <Reference Include="Assembly-CSharp"><HintPath>../dlls/Assembly-CSharp.dll</HintPath></Reference>
-    <Reference Include="Unity.Netcode.Runtime"><HintPath>../dlls/Unity.Netcode.Runtime.dll</HintPath></Reference>
-	  <Reference Include="LethalLib"><HintPath>../dlls/LethalLib.dll</HintPath></Reference>
+  <!-- References - Game Assemblies -->
+  <ItemGroup Condition="$(CI) != 'true'">
+    <Reference Include="$(ManagedDirectory)Assembly-CSharp.dll" Publicize="true" Private="false"/>
+    <Reference Include="$(ManagedDirectory)Unity.Netcode.Runtime.dll"/>
+  </ItemGroup>
+
+  <!-- Package References - Game Assemblies -->
+  <ItemGroup Condition="$(CI) == 'true'">
+    <PackageReference Include="LethalCompany.GameLibs.Steam" Version="*-*" Publicize="true" PrivateAssets="all"/>
   </ItemGroup>
 
   <!-- Allows us to use Rpc methods. See https://github.com/EvaisaDev/UnityNetcodePatcher -->

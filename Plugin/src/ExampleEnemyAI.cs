@@ -16,14 +16,14 @@ namespace ExampleEnemy {
         // We set these in our Asset Bundle, so we can disable warning CS0649:
         // Field 'field' is never assigned to, and will always have its default value 'value'
         #pragma warning disable 0649
-        public Transform turnCompass;
-        public Transform attackArea;
+        public Transform turnCompass = null!;
+        public Transform attackArea = null!;
         #pragma warning restore 0649
         float timeSinceHittingLocalPlayer;
         float timeSinceNewRandPos;
         Vector3 positionRandomness;
         Vector3 StalkPos;
-        System.Random enemyRandom;
+        System.Random enemyRandom = null!;
         bool isDeadAnimationDone;
         enum State {
             SearchingForPlayer,
@@ -97,7 +97,7 @@ namespace ExampleEnemy {
 
                 case (int)State.StickingInFrontOfPlayer:
                     agent.speed = 5f;
-                    // Keep targetting closest player, unless they are over 20 units away and we can't see them.
+                    // Keep targeting closest player, unless they are over 20 units away and we can't see them.
                     if (!TargetClosestPlayerInAnyCase() || (Vector3.Distance(transform.position, targetPlayer.transform.position) > 20 && !CheckLineOfSightForPosition(targetPlayer.transform.position))){
                         LogIfDebugBuild("Stop Target Player");
                         StartSearch(transform.position);
@@ -196,7 +196,7 @@ namespace ExampleEnemy {
             }
         }
 
-        public override void HitEnemy(int force = 1, PlayerControllerB playerWhoHit = null, bool playHitSFX = false, int hitID = -1) {
+        public override void HitEnemy(int force = 1, PlayerControllerB? playerWhoHit = null, bool playHitSFX = false, int hitID = -1) {
             base.HitEnemy(force, playerWhoHit, playHitSFX, hitID);
             if(isEnemyDead){
                 return;
