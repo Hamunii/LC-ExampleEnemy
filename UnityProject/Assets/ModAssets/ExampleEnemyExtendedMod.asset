@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -194780425, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+  m_Name: ExampleEnemyExtendedMod
+  m_EditorClassIdentifier: 
+  <ModName>k__BackingField: ExampleEnemy
+  <AuthorName>k__BackingField: Hamunii
+  <ModMergeSetting>k__BackingField: 0
+  <ExtendedLevels>k__BackingField: []
+  <ExtendedDungeonFlows>k__BackingField: []
+  <ExtendedItems>k__BackingField: []
+  <ExtendedEnemyTypes>k__BackingField:
+  - {fileID: 11400000, guid: 510d001ec956f8244a89bdbe64971f76, type: 2}
+  <ExtendedWeatherEffects>k__BackingField: []
+  <ExtendedFootstepSurfaces>k__BackingField: []
+  <ExtendedStoryLogs>k__BackingField: []

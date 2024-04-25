@@ -7,13 +7,16 @@ namespace ExampleEnemy.Configuration {
     public class PluginConfig
     {
         // For more info on custom configs, see https://lethal.wiki/dev/intermediate/custom-configs
-        public ConfigEntry<int> SpawnWeight;
+        public ConfigEntry<int> VanillaSpawnWeight;
+        public ConfigEntry<int> CustomSpawnWeight;
         public PluginConfig(ConfigFile cfg)
         {
-            SpawnWeight = cfg.Bind("General", "Spawn weight", 20,
-                "The spawn chance weight for ExampleEnemy, relative to other existing enemies.\n" +
+            VanillaSpawnWeight = cfg.Bind("General", "Spawn weight", 20,
+                "The spawn chance weight for ExampleEnemy in vanilla moons, relative to other existing enemies.\n" +
                 "Goes up from 0, lower is more rare, 100 and up is very common.");
-            
+            CustomSpawnWeight = cfg.Bind("General", "Spawn weight", 20,
+                "The spawn chance weight for ExampleEnemy in custom moons, relative to other existing enemies.\n" +
+                "Goes up from 0, lower is more rare, 100 and up is very common.");
             ClearUnusedEntries(cfg);
         }
 

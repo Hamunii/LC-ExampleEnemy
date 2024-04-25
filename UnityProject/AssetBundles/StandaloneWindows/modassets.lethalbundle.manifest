@@ -1,0 +1,80 @@
+ManifestFileVersion: 0
+CRC: 2909149777
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 411a714eb2a96d6d4dc1aefb3d252c4b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7ee60cc6d36fbc39255a9bc956eaeca1
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 411a714eb2a96d6d4dc1aefb3d252c4b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 04f75356a7e9c978bddc7d568e58a50b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 65d3fcb39dd67306e9bb17a603308070, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3c36d0a92cbb1f26a39169ef0eae393a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6d7127b8f98ca8ec9896b384a71d39a2, type: 3}
+- Class: 114
+  Script: {fileID: 1818284413, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+- Class: 114
+  Script: {fileID: -194780425, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+- Class: 114
+  Script: {fileID: 1493648790, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+- Class: 114
+  Script: {fileID: 2024385392, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+- Class: 114
+  Script: {fileID: 2106200333, guid: 0a223e23f4efe3249aa0d065af7121a0, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+- Class: 329
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: AISearchRoutine
+- AssemblyName: Assembly-CSharp
+  ClassName: EnemyBehaviourState
+- AssemblyName: Assembly-CSharp
+  ClassName: NavSizeLimit
+Assets:
+- Assets/ModAssets/ExampleEnemyExtendedMod.asset
+Dependencies: []

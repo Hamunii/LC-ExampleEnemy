@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1818284413, guid: 84dcaa9c49a0fbf4985f2a87a292b9dc, type: 3}
+  m_Name: ExampleEnemyExtendedEnemyType
+  m_EditorClassIdentifier: 
+  <ContentTags>k__BackingField:
+  - {fileID: 11400000, guid: d0b595b1a4ab81048895542ba121a929, type: 2}
+  - {fileID: 11400000, guid: 19aa1f79b0cb3e043b13bbe05ff49960, type: 2}
+  - {fileID: 11400000, guid: d6e9b11d9562d83449a44217e0e82e44, type: 2}
+  <EnemyType>k__BackingField: {fileID: 11400000, guid: 133b201488d7fb6cfbcd46e1309fc155,
+    type: 2}
+  <EnemyDisplayName>k__BackingField: Example Enemy
+  <OutsideLevelMatchingProperties>k__BackingField: {fileID: 11400000, guid: e68f53d4dc50b9146a714f4b0e406f4e,
+    type: 2}
+  <DaytimeLevelMatchingProperties>k__BackingField: {fileID: 0}
+  <InsideLevelMatchingProperties>k__BackingField: {fileID: 0}
+  <InsideDungeonMatchingProperties>k__BackingField: {fileID: 0}
+  <InfoNodeDescription>k__BackingField: 'Example Enemy
+
+
+    Sigurd''s danger level:
+    ?%
+
+
+    Scientific name: Enemius Examplus
+
+
+    The Example Enemy! The Example
+    Enemy is real! - Sigurd'
+  <InfoNodeVideoClip>k__BackingField: {fileID: 32900000, guid: d2497e7aef1c8cd3eb8c03e57932f1b3,
+    type: 3}
