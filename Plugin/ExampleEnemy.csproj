@@ -86,7 +86,7 @@
     <NetcodePatch Include="$(TargetPath)" />
   </ItemGroup>
   -->
-  <Target Name="NetcodePatch" AfterTargets="PostBuildEvent">
+  <Target Name="NetcodePatch" AfterTargets="PostBuildEvent" Condition="$(Configuration) == 'Release'">
     <Exec Command="dotnet netcode-patch &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')" />
   </Target>
 

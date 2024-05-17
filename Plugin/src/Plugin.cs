@@ -5,6 +5,7 @@ using LethalLib.Modules;
 using BepInEx.Logging;
 using System.IO;
 using ExampleEnemy.Configuration;
+using BepInEx.Bootstrap;
 
 namespace ExampleEnemy {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
@@ -13,6 +14,7 @@ namespace ExampleEnemy {
         internal static new ManualLogSource Logger = null!;
         internal static PluginConfig BoundConfig { get; private set; } = null!;
         public static AssetBundle? ModAssets;
+        internal static EnemyType ExampleEnemyET = null!;
 
         private void Awake() {
             Logger = base.Logger;
@@ -28,16 +30,23 @@ namespace ExampleEnemy {
             // asset bundle identifiers being the same between multiple bundles, allowing the loading of only one bundle from one mod.
             // In that case also remember to change the asset bundle copying code in the csproj.user file.
             var bundleName = "modassets";
+#if DEBUG
+            var scriptsDir = Path.Combine(Paths.BepInExRootPath, "scripts");
+            ModAssets = AssetBundle.LoadFromFile(Path.Combine(scriptsDir, bundleName));
+#else
             ModAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Info.Location), bundleName));
-            if (ModAssets == null) {
+#endif
+            if (ModAssets is null) {
                 Logger.LogError($"Failed to load custom assets.");
                 return;
             }
 
             // We load our assets from our asset bundle. Remember to rename them both here and in our Unity project.
-            var ExampleEnemy = ModAssets.LoadAsset<EnemyType>("ExampleEnemy");
+            ExampleEnemyET = ModAssets.LoadAsset<EnemyType>("ExampleEnemy");
             var ExampleEnemyTN = ModAssets.LoadAsset<TerminalNode>("ExampleEnemyTN");
             var ExampleEnemyTK = ModAssets.LoadAsset<TerminalKeyword>("ExampleEnemyTK");
+
+            AddEnemyScript.ExampleEnemyAI(ExampleEnemyET.enemyPrefab, ModAssets);
 
             // Optionally, we can list which levels we want to add our enemy to, while also specifying the spawn weight for each.
             /*
@@ -62,14 +71,29 @@ namespace ExampleEnemy {
 
             // Network Prefabs need to be registered. See https://docs-multiplayer.unity3d.com/netcode/current/basics/object-spawning/
             // LethalLib registers prefabs on GameNetworkManager.Start.
-            NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemy.enemyPrefab);
-
+#if !DEBUG
+            NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemyET.enemyPrefab);
+#endif
+            Logger.LogInfo("Hello");
             // For different ways of registering your enemy, see https://github.com/EvaisaDev/LethalLib/blob/main/LethalLib/Modules/Enemies.cs
-            Enemies.RegisterEnemy(ExampleEnemy, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, ExampleEnemyTN, ExampleEnemyTK);
+            Enemies.RegisterEnemy(ExampleEnemyET, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, ExampleEnemyTN, ExampleEnemyTK);
             // For using our rarity tables, we can use the following:
             // Enemies.RegisterEnemy(ExampleEnemy, ExampleEnemyLevelRarities, ExampleEnemyCustomLevelRarities, ExampleEnemyTN, ExampleEnemyTK);
             
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+
+        }
+
+        // We should clean up our resources when reloading the plugin.
+        private void OnDestroy()
+        {
+            Enemies.RemoveEnemyFromLevels(ExampleEnemyET, Levels.LevelTypes.All);
+
+            var em = ExampleEnemyAI.exampleEnemyObjects.GetEnumerator();
+            while(em.MoveNext()) Destroy(em.Current);
+            ExampleEnemyAI.exampleEnemyObjects.Clear();
+
+            ModAssets?.Unload(false);
         }
 
         private static void InitializeNetworkBehaviours() {

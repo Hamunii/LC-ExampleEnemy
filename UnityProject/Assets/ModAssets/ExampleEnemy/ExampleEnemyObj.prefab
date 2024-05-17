@@ -518,9 +518,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3155296454056774279}
-  - component: {fileID: 5677141701631025944}
-  - component: {fileID: 7242224457304669280}
   - component: {fileID: 7283896368714426494}
+  - component: {fileID: 7242224457304669280}
   m_Layer: 19
   m_Name: ExampleEnemyObj
   m_TagString: Untagged
@@ -552,7 +551,7 @@ Transform:
   - {fileID: 7534128241636916479}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5677141701631025944
+--- !u!114 &7283896368714426494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,108 +560,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7115615282760060981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2106200333, guid: e0a89e6f23bd69e40ab1b6cd831745f1, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: {fileID: 11400000, guid: 133b201488d7fb6cfbcd46e1309fc155, type: 2}
-  skinnedMeshRenderers: []
-  meshRenderers: []
-  creatureAnimator: {fileID: 4294296572680252570}
-  creatureVoice: {fileID: 5442961157339180124}
-  creatureSFX: {fileID: 4269935717684347862}
-  eye: {fileID: 7534128241636916479}
-  dieSFX: {fileID: 8300000, guid: 3bf9953d84767e76b833692580c82dbd, type: 3}
-  enemyBehaviourStates:
-  - name: SearchingForPlayer
-    VoiceClip: {fileID: 0}
-    playOneShotVoice: 0
-    SFXClip: {fileID: 0}
-    playOneShotSFX: 0
-    IsAnimTrigger: 0
-    parameterString: 
-    boolValue: 0
-  - name: StickingInFrontOfPlayer
-    VoiceClip: {fileID: 0}
-    playOneShotVoice: 0
-    SFXClip: {fileID: 0}
-    playOneShotSFX: 0
-    IsAnimTrigger: 0
-    parameterString: 
-    boolValue: 0
-  - name: HeadSwingAttackInProgress
-    VoiceClip: {fileID: 0}
-    playOneShotVoice: 0
-    SFXClip: {fileID: 0}
-    playOneShotSFX: 0
-    IsAnimTrigger: 0
-    parameterString: 
-    boolValue: 0
-  currentBehaviourState:
-    name: 
-    VoiceClip: {fileID: 0}
-    playOneShotVoice: 0
-    SFXClip: {fileID: 0}
-    playOneShotSFX: 0
-    IsAnimTrigger: 0
-    parameterString: 
-    boolValue: 0
-  currentBehaviourStateIndex: 0
-  previousBehaviourStateIndex: 0
-  isInsidePlayerShip: 0
-  AIIntervalTime: 0.2
-  inSpecialAnimation: 0
-  inSpecialAnimationWithPlayer: {fileID: 0}
-  serverPosition: {x: 0, y: 0, z: 0}
-  serverRotation: {x: 0, y: 0, z: 0}
-  agent: {fileID: 7242224457304669280}
-  allAINodes: []
-  targetNode: {fileID: 0}
-  favoriteSpot: {fileID: 0}
-  tempDist: 0
-  mostOptimalDistance: 0
-  pathDistance: 0
-  thisNetworkObject: {fileID: 0}
-  thisEnemyIndex: 0
-  isClientCalculatingAI: 0
-  updatePositionThreshold: 0.4
-  targetPlayer: {fileID: 0}
-  movingTowardsTargetPlayer: 0
-  moveTowardsDestination: 0
-  destination: {x: 0, y: 0, z: 0}
-  addPlayerVelocityToDestination: 0
-  syncMovementSpeed: 0.22
-  timeSinceSpawn: 0
-  exitVentAnimationTime: 0
-  ventAnimationFinished: 0
-  isEnemyDead: 0
-  daytimeEnemyLeaving: 0
-  enemyHP: 4
-  openDoorSpeedMultiplier: 0
-  useSecondaryAudiosOnAnimatedObjects: 0
-  currentSearch:
-    unsearchedNodes: []
-    currentTargetNode: {fileID: 0}
-    nextTargetNode: {fileID: 0}
-    waitingForTargetNode: 0
-    choseTargetNode: 0
-    currentSearchStartPosition: {x: 0, y: 0, z: 0}
-    loopSearch: 0
-    timesFinishingSearch: 0
-    nodesEliminatedInCurrentSearch: 0
-    inProgress: 0
-    calculatingNodeInSearch: 0
-    searchWidth: 0
-    searchPrecision: 0
-    randomized: 0
-  DebugEnemy: 0
-  stunnedIndefinitely: 0
-  stunNormalizedTimer: 0
-  postStunInvincibilityTimer: 0
-  stunnedByPlayer: {fileID: 0}
-  debugEnemyAI: 0
-  isOutside: 0
-  turnCompass: {fileID: 4490490654132626100}
-  attackArea: {fileID: 8128552763543743428}
+  GlobalObjectIdHash: 581939109
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 1
+  AutoObjectParentSync: 1
 --- !u!195 &7242224457304669280
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -685,26 +594,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
---- !u!114 &7283896368714426494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115615282760060981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 1
-  AutoObjectParentSync: 1
 --- !u!1 &7219410129926483477
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7127b8f98ca8ec9896b384a71d39a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScript: {fileID: 5677141701631025944}
+  mainScript: {fileID: 0}
   canCollideWithEnemies: 0
   onlyCollideWhenGrounded: 0
 --- !u!65 &2690536152138646115

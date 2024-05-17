@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using GameNetcodeStuff;
 using Unity.Netcode;
@@ -13,6 +14,9 @@ namespace ExampleEnemy {
 
     class ExampleEnemyAI : EnemyAI
     {
+        // We use this list to destroy loaded game objects when plugin is reloaded
+        internal static List<GameObject> exampleEnemyObjects = new();
+
         // We set these in our Asset Bundle, so we can disable warning CS0649:
         // Field 'field' is never assigned to, and will always have its default value 'value'
         #pragma warning disable 0649
@@ -39,6 +43,7 @@ namespace ExampleEnemy {
         public override void Start() {
             base.Start();
             LogIfDebugBuild("Example Enemy Spawned");
+            exampleEnemyObjects.Add(gameObject);
             timeSinceHittingLocalPlayer = 0;
             creatureAnimator.SetTrigger("startWalk");
             timeSinceNewRandPos = 0;
