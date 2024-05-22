@@ -24,6 +24,26 @@ namespace ExampleEnemy {
         Vector3 positionRandomness;
         Vector3 StalkPos;
         System.Random enemyRandom = null!;
+        [NonSerialized]
+        private NetworkVariable<NetworkBehaviourReference> _playerNetVar = new();
+        public PlayerControllerB TheTargetPlayer
+        {
+            get
+            {
+                return (PlayerControllerB)_playerNetVar.Value;
+            }
+            set 
+            {
+                if (value == null)
+                {
+                    _playerNetVar.Value = null;
+                }
+                else
+                {
+                    _playerNetVar.Value = new NetworkBehaviourReference(value);
+                }
+            }
+        }
         bool isDeadAnimationDone;
         enum State {
             SearchingForPlayer,
@@ -68,8 +88,8 @@ namespace ExampleEnemy {
             timeSinceNewRandPos += Time.deltaTime;
             
             var state = currentBehaviourStateIndex;
-            if(targetPlayer != null && (state == (int)State.StickingInFrontOfPlayer || state == (int)State.HeadSwingAttackInProgress)){
-                turnCompass.LookAt(targetPlayer.gameplayCamera.transform.position);
+            if(TheTargetPlayer != null && (state == (int)State.StickingInFrontOfPlayer || state == (int)State.HeadSwingAttackInProgress)){
+                turnCompass.LookAt(TheTargetPlayer.gameplayCamera.transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0f, turnCompass.eulerAngles.y, 0f)), 4f * Time.deltaTime);
             }
             if (stunNormalizedTimer > 0f)
@@ -98,7 +118,7 @@ namespace ExampleEnemy {
                 case (int)State.StickingInFrontOfPlayer:
                     agent.speed = 5f;
                     // Keep targeting closest player, unless they are over 20 units away and we can't see them.
-                    if (!TargetClosestPlayerInAnyCase() || (Vector3.Distance(transform.position, targetPlayer.transform.position) > 20 && !CheckLineOfSightForPosition(targetPlayer.transform.position))){
+                    if (!TargetClosestPlayerInAnyCase() || (Vector3.Distance(transform.position, TheTargetPlayer.transform.position) > 20 && !CheckLineOfSightForPosition(TheTargetPlayer.transform.position))){
                         LogIfDebugBuild("Stop Target Player");
                         StartSearch(transform.position);
                         SwitchToBehaviourClientRpc((int)State.SearchingForPlayer);
@@ -119,27 +139,27 @@ namespace ExampleEnemy {
 
         bool FoundClosestPlayerInRange(float range, float senseRange) {
             TargetClosestPlayer(bufferDistance: 1.5f, requireLineOfSight: true);
-            if(targetPlayer == null){
+            if(TheTargetPlayer == null){
                 // Couldn't see a player, so we check if a player is in sensing distance instead
                 TargetClosestPlayer(bufferDistance: 1.5f, requireLineOfSight: false);
                 range = senseRange;
             }
-            return targetPlayer != null && Vector3.Distance(transform.position, targetPlayer.transform.position) < range;
+            return TheTargetPlayer != null && Vector3.Distance(transform.position, TheTargetPlayer.transform.position) < range;
         }
         
         bool TargetClosestPlayerInAnyCase() {
             mostOptimalDistance = 2000f;
-            targetPlayer = null;
+            TheTargetPlayer = null;
             for (int i = 0; i < StartOfRound.Instance.connectedPlayersAmount + 1; i++)
             {
                 tempDist = Vector3.Distance(transform.position, StartOfRound.Instance.allPlayerScripts[i].transform.position);
                 if (tempDist < mostOptimalDistance)
                 {
                     mostOptimalDistance = tempDist;
-                    targetPlayer = StartOfRound.Instance.allPlayerScripts[i];
+                    TheTargetPlayer = StartOfRound.Instance.allPlayerScripts[i];
                 }
             }
-            if(targetPlayer == null) return false;
+            if(TheTargetPlayer == null) return false;
             return true;
         }
 
@@ -147,7 +167,7 @@ namespace ExampleEnemy {
             // We only run this method for the host because I'm paranoid about randomness not syncing I guess
             // This is fine because the game does sync the position of the enemy.
             // Also the attack is a ClientRpc so it should always sync
-            if (targetPlayer == null || !IsOwner) {
+            if (TheTargetPlayer == null || !IsOwner) {
                 return;
             }
             if(timeSinceNewRandPos > 0.7f){
@@ -159,7 +179,7 @@ namespace ExampleEnemy {
                 else{
                     // Go in front of player
                     positionRandomness = new Vector3(enemyRandom.Next(-2, 2), 0, enemyRandom.Next(-2, 2));
-                    StalkPos = targetPlayer.transform.position - Vector3.Scale(new Vector3(-5, 0, -5), targetPlayer.transform.forward) + positionRandomness;
+                    StalkPos = TheTargetPlayer.transform.position - Vector3.Scale(new Vector3(-5, 0, -5), TheTargetPlayer.transform.forward) + positionRandomness;
                 }
                 SetDestinationToPosition(StalkPos, checkForPath: false);
             }
@@ -167,7 +187,7 @@ namespace ExampleEnemy {
 
         IEnumerator SwingAttack() {
             SwitchToBehaviourClientRpc((int)State.HeadSwingAttackInProgress);
-            StalkPos = targetPlayer.transform.position;
+            StalkPos = TheTargetPlayer.transform.position;
             SetDestinationToPosition(StalkPos);
             yield return new WaitForSeconds(0.5f);
             if(isEnemyDead){
