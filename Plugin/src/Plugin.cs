@@ -5,7 +5,7 @@ using LethalLib.Modules;
 using BepInEx.Logging;
 using System.IO;
 using ExampleEnemy.Configuration;
-using BepInEx.Bootstrap;
+using System.Linq;
 
 namespace ExampleEnemy {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
@@ -18,6 +18,8 @@ namespace ExampleEnemy {
 
         private void Awake() {
             Logger = base.Logger;
+
+            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} started loading...");
 
             // If you don't want your mod to use a configuration file, you can remove this line, Configuration.cs, and other references.
             BoundConfig = new PluginConfig(base.Config);
@@ -46,7 +48,7 @@ namespace ExampleEnemy {
             var ExampleEnemyTN = ModAssets.LoadAsset<TerminalNode>("ExampleEnemyTN");
             var ExampleEnemyTK = ModAssets.LoadAsset<TerminalKeyword>("ExampleEnemyTK");
 
-            AddEnemyScript.ExampleEnemyAI(ExampleEnemyET.enemyPrefab, ModAssets);
+            AddEnemyScript.ExampleEnemyAI(ExampleEnemyET, ModAssets);
 
             // Optionally, we can list which levels we want to add our enemy to, while also specifying the spawn weight for each.
             /*
@@ -73,27 +75,34 @@ namespace ExampleEnemy {
             // LethalLib registers prefabs on GameNetworkManager.Start.
 #if !DEBUG
             NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemyET.enemyPrefab);
+#else
+            if(!Enemies.spawnableEnemies.Any(enemy => enemy.enemy.enemyName.Equals("ExampleEnemy")))
 #endif
-            Logger.LogInfo("Hello");
-            // For different ways of registering your enemy, see https://github.com/EvaisaDev/LethalLib/blob/main/LethalLib/Modules/Enemies.cs
-            Enemies.RegisterEnemy(ExampleEnemyET, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, ExampleEnemyTN, ExampleEnemyTK);
+                // For different ways of registering your enemy, see https://github.com/EvaisaDev/LethalLib/blob/main/LethalLib/Modules/Enemies.cs
+                Enemies.RegisterEnemy(ExampleEnemyET, BoundConfig.SpawnWeight.Value, Levels.LevelTypes.All, ExampleEnemyTN, ExampleEnemyTK);
             // For using our rarity tables, we can use the following:
             // Enemies.RegisterEnemy(ExampleEnemy, ExampleEnemyLevelRarities, ExampleEnemyCustomLevelRarities, ExampleEnemyTN, ExampleEnemyTK);
-            
+#if DEBUG
+            // We probably want the enemy to instantly spawn in front of us if possible
+            if(StartOfRound.Instance is not null)
+            {
+                Vector3 spawnPosition = GameNetworkManager.Instance.localPlayerController.transform.position - Vector3.Scale(new Vector3(-5, 0, -5), GameNetworkManager.Instance.localPlayerController.transform.forward);
+                RoundManager.Instance.SpawnEnemyGameObject(spawnPosition, 0f, -1, ExampleEnemyET);
+            }
+#endif
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
-
         }
 
         // We should clean up our resources when reloading the plugin.
         private void OnDestroy()
         {
-            Enemies.RemoveEnemyFromLevels(ExampleEnemyET, Levels.LevelTypes.All);
+            AddEnemyScript.ClearScript<ExampleEnemyAI>(ExampleEnemyET.enemyPrefab);
+            ModAssets?.Unload(true);
 
-            var em = ExampleEnemyAI.exampleEnemyObjects.GetEnumerator();
-            while(em.MoveNext()) Destroy(em.Current);
+            ExampleEnemyAI.exampleEnemyObjects.ForEach(Destroy);
             ExampleEnemyAI.exampleEnemyObjects.Clear();
-
-            ModAssets?.Unload(false);
+            
+            Logger.LogInfo("Cleaned all resources!");
         }
 
         private static void InitializeNetworkBehaviours() {
