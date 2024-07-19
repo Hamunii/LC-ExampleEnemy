@@ -9,7 +9,7 @@ using UnityEngine;
 public class SpikeRoofTrap : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CSlamSpikeTrapSequence_003Ed__25 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CSlamSpikeTrapSequence_003Ed__26 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -36,7 +36,7 @@ public class SpikeRoofTrap : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CSlamSpikeTrapSequence_003Ed__25(int _003C_003E1__state)
+		public _003CSlamSpikeTrapSequence_003Ed__26(int _003C_003E1__state)
 		{
 		}
 
@@ -112,6 +112,11 @@ public class SpikeRoofTrap : NetworkBehaviour
 	{
 	}
 
+	private bool GetNearEntrance()
+	{
+		return false;
+	}
+
 	public void Start()
 	{
 	}
@@ -132,7 +137,7 @@ public class SpikeRoofTrap : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CSlamSpikeTrapSequence_003Ed__25))]
+	[IteratorStateMachine(typeof(_003CSlamSpikeTrapSequence_003Ed__26))]
 	private IEnumerator SlamSpikeTrapSequence()
 	{
 		return null;

@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class ClipboardItem : GrabbableObject
 {
+	public bool truckManual;
+
+	private bool parentedToTruck;
+
 	public int currentPage;
 
 	public Animator clipboardAnimator;
@@ -9,6 +13,10 @@ public class ClipboardItem : GrabbableObject
 	public AudioClip[] turnPageSFX;
 
 	public AudioSource thisAudio;
+
+	public override void Update()
+	{
+	}
 
 	public override void PocketItem()
 	{

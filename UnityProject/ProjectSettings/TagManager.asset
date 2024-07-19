@@ -53,6 +53,8 @@ TagManager:
   - PlayerRagdoll1
   - PlayerRagdoll2
   - PlayerRagdoll3
+  - MoldAttractionPoint
+  - MoldSpore
   layers:
   - Default
   - TransparentFX
@@ -70,7 +72,7 @@ TagManager:
   - Triggers
   - MapRadar
   - NavigationSurface
-  - RoomLight
+  - MoldSpore
   - Anomaly
   - LineOfSight
   - Enemies
@@ -84,7 +86,7 @@ TagManager:
   - PlacementBlocker
   - Railing
   - DecalStickableSurface
-  - 
+  - Vehicle
   - 
   m_SortingLayers:
   - name: Default

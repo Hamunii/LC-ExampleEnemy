@@ -11,6 +11,9 @@ public class EnemyType : ScriptableObject
 
 	public bool spawningDisabled;
 
+	[Tooltip("Multiplies the spawn probability with a number based off the amount of weeds/mold growing.")]
+	public bool spawnFromWeeds;
+
 	[Tooltip("X axis is the number of this enemy type that have spawned, divided by 10; Y axis is a multiplier to probabilityCurve.")]
 	public AnimationCurve numberSpawnedFalloff;
 

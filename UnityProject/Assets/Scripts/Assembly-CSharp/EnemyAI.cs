@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public abstract class EnemyAI : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__92 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -46,7 +46,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CChooseNextNodeInSearchRoutine_003Ed__91(int _003C_003E1__state)
+		public _003CChooseNextNodeInSearchRoutine_003Ed__92(int _003C_003E1__state)
 		{
 		}
 
@@ -73,7 +73,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CCurrentSearchCoroutine_003Ed__89 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CCurrentSearchCoroutine_003Ed__90 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -104,7 +104,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CCurrentSearchCoroutine_003Ed__89(int _003C_003E1__state)
+		public _003CCurrentSearchCoroutine_003Ed__90(int _003C_003E1__state)
 		{
 		}
 
@@ -235,7 +235,7 @@ public abstract class EnemyAI : NetworkBehaviour
 
 	public int enemyHP;
 
-	private GameObject[] nodesTempArray;
+	public GameObject[] nodesTempArray;
 
 	public float openDoorSpeedMultiplier;
 
@@ -268,6 +268,8 @@ public abstract class EnemyAI : NetworkBehaviour
 	private bool removedPowerLevel;
 
 	public bool isOutside;
+
+	public bool hitsPhysicsObjects;
 
 	private System.Random searchRoutineRandom;
 
@@ -377,7 +379,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__89))]
+	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__90))]
 	private IEnumerator CurrentSearchCoroutine()
 	{
 		return null;
@@ -387,7 +389,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__91))]
+	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__92))]
 	private IEnumerator ChooseNextNodeInSearchRoutine()
 	{
 		return null;

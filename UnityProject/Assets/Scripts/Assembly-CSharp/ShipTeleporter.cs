@@ -10,7 +10,7 @@ using UnityEngine;
 public class ShipTeleporter : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass36_0
+	private sealed class _003C_003Ec__DisplayClass37_0
 	{
 		public int playerObj;
 
@@ -79,7 +79,7 @@ public class ShipTeleporter : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CbeamUpPlayer_003Ed__37 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CbeamUpPlayer_003Ed__38 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -108,7 +108,7 @@ public class ShipTeleporter : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CbeamUpPlayer_003Ed__37(int _003C_003E1__state)
+		public _003CbeamUpPlayer_003Ed__38(int _003C_003E1__state)
 		{
 		}
 
@@ -135,7 +135,7 @@ public class ShipTeleporter : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CteleportBodyOut_003Ed__36 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CteleportBodyOut_003Ed__37 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -143,7 +143,7 @@ public class ShipTeleporter : NetworkBehaviour
 
 		public int playerObj;
 
-		private _003C_003Ec__DisplayClass36_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass37_0 _003C_003E8__1;
 
 		public ShipTeleporter _003C_003E4__this;
 
@@ -168,7 +168,7 @@ public class ShipTeleporter : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CteleportBodyOut_003Ed__36(int _003C_003E1__state)
+		public _003CteleportBodyOut_003Ed__37(int _003C_003E1__state)
 		{
 		}
 
@@ -294,6 +294,10 @@ public class ShipTeleporter : NetworkBehaviour
 	{
 	}
 
+	private void SpikeTrapsReactToInverseTeleport()
+	{
+	}
+
 	private void TeleportPlayerOutWithInverseTeleporter(int playerObj, Vector3 teleportPos)
 	{
 	}
@@ -308,13 +312,13 @@ public class ShipTeleporter : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CteleportBodyOut_003Ed__36))]
+	[IteratorStateMachine(typeof(_003CteleportBodyOut_003Ed__37))]
 	private IEnumerator teleportBodyOut(int playerObj, Vector3 teleportPosition)
 	{
 		return null;
 	}
 
-	[IteratorStateMachine(typeof(_003CbeamUpPlayer_003Ed__37))]
+	[IteratorStateMachine(typeof(_003CbeamUpPlayer_003Ed__38))]
 	private IEnumerator beamUpPlayer()
 	{
 		return null;

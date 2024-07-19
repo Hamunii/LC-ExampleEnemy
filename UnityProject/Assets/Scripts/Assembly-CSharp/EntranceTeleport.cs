@@ -66,7 +66,7 @@ public class EntranceTeleport : NetworkBehaviour
 
 	public Transform entrancePoint;
 
-	private Transform exitPoint;
+	public Transform exitPoint;
 
 	public int entranceId;
 

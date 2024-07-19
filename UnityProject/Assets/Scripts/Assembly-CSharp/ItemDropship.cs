@@ -30,7 +30,45 @@ public class ItemDropship : NetworkBehaviour
 
 	public InteractTrigger triggerScript;
 
+	public LineRenderer[] ropes;
+
+	public Transform[] ropeDestinations;
+
+	public Transform deliverVehiclePoint;
+
+	public bool deliveringVehicle;
+
+	public bool untetheredVehicle;
+
 	private void Start()
+	{
+	}
+
+	public void UntetherVehicle()
+	{
+	}
+
+	[ServerRpc]
+	public void UntetherVehicleServerRpc()
+	{
+	}
+
+	[ClientRpc]
+	public void UntetherVehicleClientRpc()
+	{
+	}
+
+	private void FinishDeliveringVehicleOnServer()
+	{
+	}
+
+	[ServerRpc]
+	public void FinishDeliveringVehicleServerRpc()
+	{
+	}
+
+	[ClientRpc]
+	public void FinishDeliveringVehicleClientRpc()
 	{
 	}
 
@@ -57,6 +95,15 @@ public class ItemDropship : NetworkBehaviour
 	}
 
 	public void ShipLandedAnimationEvent()
+	{
+	}
+
+	private void DeliverVehicleOnServer()
+	{
+	}
+
+	[ClientRpc]
+	public void DeliverVehicleClientRpc()
 	{
 	}
 

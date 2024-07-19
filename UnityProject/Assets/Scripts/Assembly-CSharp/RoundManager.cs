@@ -12,7 +12,7 @@ using UnityEngine.AI;
 public class RoundManager : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CDetectElevatorRunning_003Ed__137 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CDetectElevatorRunning_003Ed__144 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -39,7 +39,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CDetectElevatorRunning_003Ed__137(int _003C_003E1__state)
+		public _003CDetectElevatorRunning_003Ed__144(int _003C_003E1__state)
 		{
 		}
 
@@ -66,7 +66,7 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CFlickerPoweredLights_003Ed__163 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CFlickerPoweredLights_003Ed__172 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -101,7 +101,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CFlickerPoweredLights_003Ed__163(int _003C_003E1__state)
+		public _003CFlickerPoweredLights_003Ed__172(int _003C_003E1__state)
 		{
 		}
 
@@ -128,7 +128,7 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CLoadNewLevelWait_003Ed__118 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CLoadNewLevelWait_003Ed__125 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -157,7 +157,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CLoadNewLevelWait_003Ed__118(int _003C_003E1__state)
+		public _003CLoadNewLevelWait_003Ed__125(int _003C_003E1__state)
 		{
 		}
 
@@ -184,7 +184,7 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CturnOnLights_003Ed__161 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CturnOnLights_003Ed__170 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -215,7 +215,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CturnOnLights_003Ed__161(int _003C_003E1__state)
+		public _003CturnOnLights_003Ed__170(int _003C_003E1__state)
 		{
 		}
 
@@ -242,7 +242,7 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitForMainEntranceTeleportToSpawn_003Ed__176 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitForMainEntranceTeleportToSpawn_003Ed__185 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -271,7 +271,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CwaitForMainEntranceTeleportToSpawn_003Ed__176(int _003C_003E1__state)
+		public _003CwaitForMainEntranceTeleportToSpawn_003Ed__185(int _003C_003E1__state)
 		{
 		}
 
@@ -298,7 +298,7 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitForScrapToSpawnToSync_003Ed__107 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitForScrapToSpawnToSync_003Ed__114 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -329,7 +329,7 @@ public class RoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CwaitForScrapToSpawnToSync_003Ed__107(int _003C_003E1__state)
+		public _003CwaitForScrapToSpawnToSync_003Ed__114(int _003C_003E1__state)
 		{
 		}
 
@@ -455,6 +455,9 @@ public class RoundManager : NetworkBehaviour
 	private Coroutine powerLightsCoroutine;
 
 	[Header("Enemies")]
+	public List<SpawnableEnemyWithRarity> WeedEnemies;
+
+	[Space(5f)]
 	public EnemyVent[] allEnemyVents;
 
 	public List<Anomaly> SpawnedAnomalies;
@@ -476,6 +479,8 @@ public class RoundManager : NetworkBehaviour
 
 	public GameObject mapPropsContainer;
 
+	public Transform VehiclesContainer;
+
 	public Transform[] shipSpawnPathPoints;
 
 	public GameObject[] spawnDenialPoints;
@@ -485,6 +490,13 @@ public class RoundManager : NetworkBehaviour
 	public GameObject quicksandPrefab;
 
 	public GameObject keyPrefab;
+
+	[Space(3f)]
+	public GameObject breakTreePrefab;
+
+	public AudioClip breakTreeAudio1;
+
+	public AudioClip breakTreeAudio2;
 
 	[Space(5f)]
 	public GameObject[] outsideAINodes;
@@ -524,6 +536,8 @@ public class RoundManager : NetworkBehaviour
 	public System.Random EnemySpawnRandom;
 
 	public System.Random OutsideEnemySpawnRandom;
+
+	public System.Random WeedEnemySpawnRandom;
 
 	public System.Random BreakerBoxRandom;
 
@@ -565,6 +579,8 @@ public class RoundManager : NetworkBehaviour
 
 	private bool firstTimeSpawningOutsideEnemies;
 
+	private bool firstTimeSpawningWeedEnemies;
+
 	private bool firstTimeSpawningDaytimeEnemies;
 
 	public List<EnemyAINestSpawnObject> enemyNestSpawnObjects;
@@ -579,7 +595,7 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitForScrapToSpawnToSync_003Ed__107))]
+	[IteratorStateMachine(typeof(_003CwaitForScrapToSpawnToSync_003Ed__114))]
 	private IEnumerator waitForScrapToSpawnToSync(NetworkObjectReference[] spawnedScrap, int[] scrapValues)
 	{
 		return null;
@@ -628,14 +644,14 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CLoadNewLevelWait_003Ed__118))]
+	[IteratorStateMachine(typeof(_003CLoadNewLevelWait_003Ed__125))]
 	private IEnumerator LoadNewLevelWait(int randomSeed)
 	{
 		return null;
 	}
 
 	[ClientRpc]
-	public void GenerateNewLevelClientRpc(int randomSeed, int levelID)
+	public void GenerateNewLevelClientRpc(int randomSeed, int levelID, int moldIterations = 0, int moldStartPosition = 0, int[] syncDestroyedMold = null)
 	{
 	}
 
@@ -712,7 +728,7 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CDetectElevatorRunning_003Ed__137))]
+	[IteratorStateMachine(typeof(_003CDetectElevatorRunning_003Ed__144))]
 	private IEnumerator DetectElevatorRunning()
 	{
 		return null;
@@ -724,6 +740,15 @@ public class RoundManager : NetworkBehaviour
 
 	public void SpawnEnemiesOutside()
 	{
+	}
+
+	public void SpawnWeedEnemies()
+	{
+	}
+
+	public bool SpawnRandomWeedEnemy(GameObject[] spawnPoints, float timeUpToCurrentHour, int numberOfWeeds)
+	{
+		return false;
 	}
 
 	public void SpawnDaytimeEnemiesOutside()
@@ -821,7 +846,7 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CturnOnLights_003Ed__161))]
+	[IteratorStateMachine(typeof(_003CturnOnLights_003Ed__170))]
 	private IEnumerator turnOnLights(bool turnOn)
 	{
 		return null;
@@ -831,7 +856,7 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CFlickerPoweredLights_003Ed__163))]
+	[IteratorStateMachine(typeof(_003CFlickerPoweredLights_003Ed__172))]
 	private IEnumerator FlickerPoweredLights(bool flickerFlashlights = false, bool disableFlashlights = false)
 	{
 		return null;
@@ -886,7 +911,7 @@ public class RoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitForMainEntranceTeleportToSpawn_003Ed__176))]
+	[IteratorStateMachine(typeof(_003CwaitForMainEntranceTeleportToSpawn_003Ed__185))]
 	private IEnumerator waitForMainEntranceTeleportToSpawn()
 	{
 		return null;
@@ -909,6 +934,25 @@ public class RoundManager : NetworkBehaviour
 	}
 
 	private void SetLockedDoors(Vector3 mainEntrancePosition)
+	{
+	}
+
+	public void DestroyTreeOnLocalClient(Vector3 pos)
+	{
+	}
+
+	private bool DestroyTreeAtPosition(Vector3 pos)
+	{
+		return false;
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void BreakTreeServerRpc(Vector3 pos, int playerWhoSent)
+	{
+	}
+
+	[ClientRpc]
+	public void BreakTreeClientRpc(Vector3 pos, int playerWhoSent)
 	{
 	}
 

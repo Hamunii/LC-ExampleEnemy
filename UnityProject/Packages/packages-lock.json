@@ -19,13 +19,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.assetbundlebrowser": {
-      "version": "https://github.com/Unity-Technologies/AssetBundles-Browser.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "ad2a81ec3068eafd48753df1825a8dd7201ce60c"
-    },
     "com.unity.burst": {
       "version": "1.8.8",
       "depth": 1,
@@ -36,7 +29,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.2.0",
+      "version": "2.4.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
