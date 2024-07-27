@@ -7,7 +7,7 @@ using System.IO;
 using ExampleEnemy.Configuration;
 
 namespace ExampleEnemy {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
     [BepInDependency(LethalLib.Plugin.ModGUID)] 
     public class Plugin : BaseUnityPlugin {
         internal static new ManualLogSource Logger = null!;
@@ -69,7 +69,7 @@ namespace ExampleEnemy {
             // For using our rarity tables, we can use the following:
             // Enemies.RegisterEnemy(ExampleEnemy, ExampleEnemyLevelRarities, ExampleEnemyCustomLevelRarities, ExampleEnemyTN, ExampleEnemyTK);
             
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         }
 
         private static void InitializeNetworkBehaviours() {
