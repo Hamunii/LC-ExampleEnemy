@@ -27,6 +27,8 @@ public class AISearchRoutine
 
 	public bool calculatingNodeInSearch;
 
+	public bool startedSearchAtSelf;
+
 	[Space(5f)]
 	public float searchWidth;
 

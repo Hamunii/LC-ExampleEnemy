@@ -5,6 +5,8 @@ public class QuicksandTrigger : MonoBehaviour
 {
 	public bool isWater;
 
+	public bool isInsideWater;
+
 	public int audioClipIndex;
 
 	[Space(5f)]

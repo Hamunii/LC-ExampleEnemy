@@ -11,7 +11,7 @@ using UnityEngine.Animations.Rigging;
 public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 {
 	[CompilerGenerated]
-	private sealed class _003C_003Ec__DisplayClass113_0
+	private sealed class _003C_003Ec__DisplayClass117_0
 	{
 		public float startTime;
 
@@ -33,7 +33,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CkillAnimation_003Ed__111 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CkillAnimation_003Ed__115 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -70,7 +70,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CkillAnimation_003Ed__111(int _003C_003E1__state)
+		public _003CkillAnimation_003Ed__115(int _003C_003E1__state)
 		{
 		}
 
@@ -97,7 +97,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CteleportMasked_003Ed__102 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CteleportMasked_003Ed__106 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -124,7 +124,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CteleportMasked_003Ed__102(int _003C_003E1__state)
+		public _003CteleportMasked_003Ed__106(int _003C_003E1__state)
 		{
 		}
 
@@ -151,7 +151,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CwaitForMimicEnemySpawn_003Ed__113 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CwaitForMimicEnemySpawn_003Ed__117 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -161,7 +161,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 
 		public int playerKilled;
 
-		private _003C_003Ec__DisplayClass113_0 _003C_003E8__1;
+		private _003C_003Ec__DisplayClass117_0 _003C_003E8__1;
 
 		public bool inFactory;
 
@@ -184,7 +184,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 		}
 
 		[DebuggerHidden]
-		public _003CwaitForMimicEnemySpawn_003Ed__113(int _003C_003E1__state)
+		public _003CwaitForMimicEnemySpawn_003Ed__117(int _003C_003E1__state)
 		{
 		}
 
@@ -330,6 +330,10 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 
 	private List<int> playersKilled;
 
+	private bool isInElevatorStartRoom;
+
+	private MineshaftElevatorController elevatorScript;
+
 	ThreatType IVisibleThreat.type => default(ThreatType);
 
 	int IVisibleThreat.SendSpecialBehaviour(int id)
@@ -405,6 +409,16 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 
 	private void TeleportMaskedEnemy(Vector3 pos, bool setOutside)
 	{
+	}
+
+	private bool GoTowardsEntrance()
+	{
+		return false;
+	}
+
+	private bool UseElevator(bool goUp)
+	{
+		return false;
 	}
 
 	public override void DoAIInterval()
@@ -521,7 +535,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CteleportMasked_003Ed__102))]
+	[IteratorStateMachine(typeof(_003CteleportMasked_003Ed__106))]
 	private IEnumerator teleportMasked()
 	{
 		return null;
@@ -562,7 +576,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CkillAnimation_003Ed__111))]
+	[IteratorStateMachine(typeof(_003CkillAnimation_003Ed__115))]
 	private IEnumerator killAnimation()
 	{
 		return null;
@@ -573,7 +587,7 @@ public class MaskedPlayerEnemy : EnemyAI, IVisibleThreat
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__113))]
+	[IteratorStateMachine(typeof(_003CwaitForMimicEnemySpawn_003Ed__117))]
 	private IEnumerator waitForMimicEnemySpawn(NetworkObjectReference netObjectRef, bool inFactory, int playerKilled)
 	{
 		return null;

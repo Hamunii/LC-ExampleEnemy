@@ -43,6 +43,13 @@ public class DoorLock : NetworkBehaviour
 
 	private float playerPickingLockProgress;
 
+	[Space(3f)]
+	public float defaultTimeToHold;
+
+	private bool hauntedDoor;
+
+	private float doorHauntInterval;
+
 	public void Awake()
 	{
 	}
@@ -70,6 +77,10 @@ public class DoorLock : NetworkBehaviour
 
 	[ClientRpc]
 	public void UnlockDoorClientRpc()
+	{
+	}
+
+	private void TryDoorHaunt()
 	{
 	}
 

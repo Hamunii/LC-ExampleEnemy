@@ -29,6 +29,8 @@ public class EnemyVent : NetworkBehaviour
 
 	public bool ventIsOpen;
 
+	public bool caveVent;
+
 	private void Start()
 	{
 	}

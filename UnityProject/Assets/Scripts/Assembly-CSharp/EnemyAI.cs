@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public abstract class EnemyAI : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CChooseNextNodeInSearchRoutine_003Ed__95 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -46,7 +46,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CChooseNextNodeInSearchRoutine_003Ed__91(int _003C_003E1__state)
+		public _003CChooseNextNodeInSearchRoutine_003Ed__95(int _003C_003E1__state)
 		{
 		}
 
@@ -73,7 +73,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CCurrentSearchCoroutine_003Ed__89 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CCurrentSearchCoroutine_003Ed__93 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -104,7 +104,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CCurrentSearchCoroutine_003Ed__89(int _003C_003E1__state)
+		public _003CCurrentSearchCoroutine_003Ed__93(int _003C_003E1__state)
 		{
 		}
 
@@ -235,7 +235,7 @@ public abstract class EnemyAI : NetworkBehaviour
 
 	public int enemyHP;
 
-	private GameObject[] nodesTempArray;
+	public GameObject[] nodesTempArray;
 
 	public float openDoorSpeedMultiplier;
 
@@ -269,7 +269,15 @@ public abstract class EnemyAI : NetworkBehaviour
 
 	public bool isOutside;
 
+	public bool hitsPhysicsObjects;
+
 	private System.Random searchRoutineRandom;
+
+	private int getFarthestNodeAsyncBookmark;
+
+	public bool gotFarthestNodeAsync;
+
+	private Collider[] overlapColliders;
 
 	public virtual void SetEnemyStunned(bool setToStunned, float setToStunTime = 1f, PlayerControllerB setStunnedByPlayer = null)
 	{
@@ -359,7 +367,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		return false;
 	}
 
-	public GameObject CheckLineOfSight(List<GameObject> objectsToLookFor, float width = 45f, int range = 60, float proximityAwareness = -1f)
+	public GameObject CheckLineOfSight(List<GameObject> objectsToLookFor, float width = 45f, int range = 60, float proximityAwareness = -1f, Transform useEye = null, int[] itemIdExceptions = null)
 	{
 		return null;
 	}
@@ -377,7 +385,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__89))]
+	[IteratorStateMachine(typeof(_003CCurrentSearchCoroutine_003Ed__93))]
 	private IEnumerator CurrentSearchCoroutine()
 	{
 		return null;
@@ -387,7 +395,7 @@ public abstract class EnemyAI : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__91))]
+	[IteratorStateMachine(typeof(_003CChooseNextNodeInSearchRoutine_003Ed__95))]
 	private IEnumerator ChooseNextNodeInSearchRoutine()
 	{
 		return null;
@@ -424,7 +432,7 @@ public abstract class EnemyAI : NetworkBehaviour
 		return false;
 	}
 
-	public Transform ChooseFarthestNodeFromPosition(Vector3 pos, bool avoidLineOfSight = false, int offset = 0, bool log = false)
+	public Transform ChooseFarthestNodeFromPosition(Vector3 pos, bool avoidLineOfSight = false, int offset = 0, bool doAsync = false, int maxAsyncIterations = 50, bool capDistance = false)
 	{
 		return null;
 	}
@@ -434,7 +442,12 @@ public abstract class EnemyAI : NetworkBehaviour
 		return null;
 	}
 
-	public bool PathIsIntersectedByLineOfSight(Vector3 targetPos, bool calculatePathDistance = false, bool avoidLineOfSight = true)
+	public bool PathIsIntersectedByLineOfSight(Vector3 targetPos, bool calculatePathDistance = false, bool avoidLineOfSight = true, bool checkLOSToTargetPlayer = false)
+	{
+		return false;
+	}
+
+	public bool GetPathDistance(Vector3 targetPos, Vector3 sourcePos)
 	{
 		return false;
 	}

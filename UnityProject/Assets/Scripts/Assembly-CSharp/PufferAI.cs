@@ -10,7 +10,7 @@ using UnityEngine;
 public class PufferAI : EnemyAI
 {
 	[CompilerGenerated]
-	private sealed class _003CshakeTailAnimation_003Ed__45 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CshakeTailAnimation_003Ed__47 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -37,7 +37,7 @@ public class PufferAI : EnemyAI
 		}
 
 		[DebuggerHidden]
-		public _003CshakeTailAnimation_003Ed__45(int _003C_003E1__state)
+		public _003CshakeTailAnimation_003Ed__47(int _003C_003E1__state)
 		{
 		}
 
@@ -64,7 +64,7 @@ public class PufferAI : EnemyAI
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CstompAnimation_003Ed__44 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CstompAnimation_003Ed__46 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -91,7 +91,7 @@ public class PufferAI : EnemyAI
 		}
 
 		[DebuggerHidden]
-		public _003CstompAnimation_003Ed__44(int _003C_003E1__state)
+		public _003CstompAnimation_003Ed__46(int _003C_003E1__state)
 		{
 		}
 
@@ -184,6 +184,10 @@ public class PufferAI : EnemyAI
 
 	private float timeSinceHittingPlayer;
 
+	private bool gettingFarthestNodeFromPlayerAsync;
+
+	private Transform farthestNodeFromTargetPlayer;
+
 	public override void Start()
 	{
 	}
@@ -232,13 +236,13 @@ public class PufferAI : EnemyAI
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CstompAnimation_003Ed__44))]
+	[IteratorStateMachine(typeof(_003CstompAnimation_003Ed__46))]
 	private IEnumerator stompAnimation()
 	{
 		return null;
 	}
 
-	[IteratorStateMachine(typeof(_003CshakeTailAnimation_003Ed__45))]
+	[IteratorStateMachine(typeof(_003CshakeTailAnimation_003Ed__47))]
 	private IEnumerator shakeTailAnimation()
 	{
 		return null;

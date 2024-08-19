@@ -11,7 +11,7 @@ using UnityEngine.Audio;
 public class SoundManager : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CfadeVolumeBackToNormalDelayed_003Ed__63 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CfadeVolumeBackToNormalDelayed_003Ed__65 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -40,7 +40,7 @@ public class SoundManager : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CfadeVolumeBackToNormalDelayed_003Ed__63(int _003C_003E1__state)
+		public _003CfadeVolumeBackToNormalDelayed_003Ed__65(int _003C_003E1__state)
 		{
 		}
 
@@ -87,6 +87,8 @@ public class SoundManager : NetworkBehaviour
 	public AudioSource ambienceAudio;
 
 	public AudioSource ambienceAudioNonDiagetic;
+
+	public LevelAmbienceLibrary currentLevelAmbience;
 
 	[Header("Outside Music")]
 	public AudioSource musicSource;
@@ -138,6 +140,9 @@ public class SoundManager : NetworkBehaviour
 	public int currentMixerSnapshotID;
 
 	private bool overridingCurrentAudioMixer;
+
+	[Space(3f)]
+	public bool echoEnabled;
 
 	[Header("Background music")]
 	public AudioSource highAction1;
@@ -198,7 +203,7 @@ public class SoundManager : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CfadeVolumeBackToNormalDelayed_003Ed__63))]
+	[IteratorStateMachine(typeof(_003CfadeVolumeBackToNormalDelayed_003Ed__65))]
 	private IEnumerator fadeVolumeBackToNormalDelayed()
 	{
 		return null;
@@ -225,6 +230,10 @@ public class SoundManager : NetworkBehaviour
 	}
 
 	public void SetDiageticMasterVolume(float targetDecibels)
+	{
+	}
+
+	public void SetEchoFilter(bool setEcho)
 	{
 	}
 

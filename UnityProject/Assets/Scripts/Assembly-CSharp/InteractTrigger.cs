@@ -10,7 +10,7 @@ using UnityEngine;
 public class InteractTrigger : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CisSpecialAnimationPlayingTimer_003Ed__65 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CisSpecialAnimationPlayingTimer_003Ed__73 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -39,7 +39,7 @@ public class InteractTrigger : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CisSpecialAnimationPlayingTimer_003Ed__65(int _003C_003E1__state)
+		public _003CisSpecialAnimationPlayingTimer_003Ed__73(int _003C_003E1__state)
 		{
 		}
 
@@ -66,7 +66,7 @@ public class InteractTrigger : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CladderClimbAnimation_003Ed__57 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CladderClimbAnimation_003Ed__65 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -101,7 +101,7 @@ public class InteractTrigger : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CladderClimbAnimation_003Ed__57(int _003C_003E1__state)
+		public _003CladderClimbAnimation_003Ed__65(int _003C_003E1__state)
 		{
 		}
 
@@ -128,7 +128,7 @@ public class InteractTrigger : NetworkBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CspecialInteractAnimation_003Ed__61 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CspecialInteractAnimation_003Ed__69 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -157,7 +157,7 @@ public class InteractTrigger : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CspecialInteractAnimation_003Ed__61(int _003C_003E1__state)
+		public _003CspecialInteractAnimation_003Ed__69(int _003C_003E1__state)
 		{
 		}
 
@@ -240,6 +240,8 @@ public class InteractTrigger : NetworkBehaviour
 	public int randomChancePercentage;
 
 	[Header("Events")]
+	public InteractEvent onInteractEarlyOtherClients;
+
 	public InteractEvent onInteract;
 
 	public InteractEvent onInteractEarly;
@@ -269,6 +271,20 @@ public class InteractTrigger : NetworkBehaviour
 	public Transform playerPositionNode;
 
 	private Transform lockedPlayer;
+
+	public bool clampLooking;
+
+	public bool setVehicleAnimation;
+
+	public float minVerticalClamp;
+
+	public float maxVerticalClamp;
+
+	public float horizontalClamp;
+
+	public bool allowUseWhileInAnimation;
+
+	public Transform overridePlayerParent;
 
 	private bool usedByOtherClient;
 
@@ -319,7 +335,7 @@ public class InteractTrigger : NetworkBehaviour
 		return false;
 	}
 
-	[IteratorStateMachine(typeof(_003CladderClimbAnimation_003Ed__57))]
+	[IteratorStateMachine(typeof(_003CladderClimbAnimation_003Ed__65))]
 	private IEnumerator ladderClimbAnimation(PlayerControllerB playerController)
 	{
 		return null;
@@ -337,7 +353,7 @@ public class InteractTrigger : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CspecialInteractAnimation_003Ed__61))]
+	[IteratorStateMachine(typeof(_003CspecialInteractAnimation_003Ed__69))]
 	private IEnumerator specialInteractAnimation(PlayerControllerB playerController)
 	{
 		return null;
@@ -357,7 +373,7 @@ public class InteractTrigger : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CisSpecialAnimationPlayingTimer_003Ed__65))]
+	[IteratorStateMachine(typeof(_003CisSpecialAnimationPlayingTimer_003Ed__73))]
 	private IEnumerator isSpecialAnimationPlayingTimer(int playerNum)
 	{
 		return null;
@@ -378,6 +394,10 @@ public class InteractTrigger : NetworkBehaviour
 	}
 
 	private void LateUpdate()
+	{
+	}
+
+	private void OnEnable()
 	{
 	}
 

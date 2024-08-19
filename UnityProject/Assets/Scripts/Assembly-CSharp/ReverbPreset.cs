@@ -27,4 +27,7 @@ public class ReverbPreset : ScriptableObject
 
 	[Range(-10000f, 0f)]
 	public float room;
+
+	[Space(3f)]
+	public bool hasEcho;
 }

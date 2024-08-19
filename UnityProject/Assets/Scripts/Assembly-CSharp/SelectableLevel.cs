@@ -55,6 +55,12 @@ public class SelectableLevel : ScriptableObject
 
 	public SpawnableOutsideObjectWithRarity[] spawnableOutsideObjects;
 
+	public bool canSpawnMold;
+
+	public int moldSpreadIterations;
+
+	public int moldStartPosition;
+
 	[Space(3f)]
 	public List<SpawnableItemWithRarity> spawnableScrap;
 

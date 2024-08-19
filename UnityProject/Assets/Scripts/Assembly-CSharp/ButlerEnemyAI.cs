@@ -390,7 +390,7 @@ public class ButlerEnemyAI : EnemyAI
 	{
 	}
 
-	[ServerRpc]
+	[ServerRpc(RequireOwnership = false)]
 	public void PingButlerAttentionServerRpc(float timeToLook, Vector3 attentionPosition)
 	{
 	}

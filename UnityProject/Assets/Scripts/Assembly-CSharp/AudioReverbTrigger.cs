@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using GameNetcodeStuff;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
-public class AudioReverbTrigger : NetworkBehaviour
+public class AudioReverbTrigger : MonoBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CchangeVolume_003Ed__19 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CchangeVolume_003Ed__18 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -46,7 +45,7 @@ public class AudioReverbTrigger : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CchangeVolume_003Ed__19(int _003C_003E1__state)
+		public _003CchangeVolume_003Ed__18(int _003C_003E1__state)
 		{
 		}
 
@@ -81,8 +80,6 @@ public class AudioReverbTrigger : NetworkBehaviour
 	[Header("CHANGE AUDIO AMBIANCE")]
 	public switchToAudio[] audioChanges;
 
-	private bool changingVolumes;
-
 	[Header("MISC")]
 	public bool elevatorTriggerForProps;
 
@@ -113,7 +110,7 @@ public class AudioReverbTrigger : NetworkBehaviour
 
 	private bool spectatedClientTriggered;
 
-	[IteratorStateMachine(typeof(_003CchangeVolume_003Ed__19))]
+	[IteratorStateMachine(typeof(_003CchangeVolume_003Ed__18))]
 	private IEnumerator changeVolume(AudioSource aud, float changeVolumeTo)
 	{
 		return null;

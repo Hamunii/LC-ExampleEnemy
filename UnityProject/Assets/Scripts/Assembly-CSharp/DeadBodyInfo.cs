@@ -103,6 +103,12 @@ public class DeadBodyInfo : MonoBehaviour
 
 	public bool overrideSpawnPosition;
 
+	public Transform physicsParent;
+
+	private Collider physicsParentCollider;
+
+	public bool isParentedToPhysicsRegion;
+
 	private void FloatBodyToWaterSurface()
 	{
 	}
@@ -120,6 +126,10 @@ public class DeadBodyInfo : MonoBehaviour
 	}
 
 	private void Start()
+	{
+	}
+
+	public void SetPhysicsParent(Transform setPhysicsParent, Collider physicsCollider = null)
 	{
 	}
 
