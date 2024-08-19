@@ -13,9 +13,22 @@ public class ColdOpenCinematicCutscene : MonoBehaviour
 
 	public float cameraUp;
 
+	public float maxCameraUp;
+
+	public float minCameraUp;
+
+	[Space(5f)]
+	public float cameraTurn;
+
+	public float maxCameraTurn;
+
+	public float minCameraTurn;
+
 	private float startInputTimer;
 
 	public Animator cameraAnimator;
+
+	public float lookSens;
 
 	private void TurnCamera(Vector2 input)
 	{

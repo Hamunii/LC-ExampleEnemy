@@ -67,7 +67,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 
 	public MeshRenderer mainObjectRenderer;
 
-	private int isSendingItemRPC;
+	public int isSendingItemRPC;
 
 	public bool scrapPersistedThroughRounds;
 
@@ -142,6 +142,10 @@ public abstract class GrabbableObject : NetworkBehaviour
 	}
 
 	public virtual void ItemInteractLeftRight(bool right)
+	{
+	}
+
+	public virtual void ActivatePhysicsTrigger(Collider other)
 	{
 	}
 
@@ -269,7 +273,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	private void UseUpItemBatteriesServerRpc()
+	public void UseUpItemBatteriesServerRpc()
 	{
 	}
 
@@ -307,7 +311,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 	{
 	}
 
-	public void EnableItemMeshes(bool enable)
+	public virtual void EnableItemMeshes(bool enable)
 	{
 	}
 

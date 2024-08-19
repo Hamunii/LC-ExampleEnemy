@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CCreateLeaderboardSlots_003Ed__83 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CCreateLeaderboardSlots_003Ed__84 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CCreateLeaderboardSlots_003Ed__83(int _003C_003E1__state)
+		public _003CCreateLeaderboardSlots_003Ed__84(int _003C_003E1__state)
 		{
 		}
 
@@ -73,7 +73,7 @@ public class MenuManager : MonoBehaviour
 
 	[StructLayout(LayoutKind.Auto)]
 	[CompilerGenerated]
-	private struct _003CGetLeaderboardForChallenge_003Ed__80 : IAsyncStateMachine
+	private struct _003CGetLeaderboardForChallenge_003Ed__81 : IAsyncStateMachine
 	{
 		public int _003C_003E1__state;
 
@@ -112,7 +112,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CPlayMenuMusicDelayed_003Ed__72 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CPlayMenuMusicDelayed_003Ed__73 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -139,7 +139,7 @@ public class MenuManager : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CPlayMenuMusicDelayed_003Ed__72(int _003C_003E1__state)
+		public _003CPlayMenuMusicDelayed_003Ed__73(int _003C_003E1__state)
 		{
 		}
 
@@ -167,7 +167,7 @@ public class MenuManager : MonoBehaviour
 
 	[StructLayout(LayoutKind.Auto)]
 	[CompilerGenerated]
-	private struct _003CRemoveLeaderboardScore_003Ed__76 : IAsyncStateMachine
+	private struct _003CRemoveLeaderboardScore_003Ed__77 : IAsyncStateMachine
 	{
 		public int _003C_003E1__state;
 
@@ -204,7 +204,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CconnectionTimeOut_003Ed__85 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CconnectionTimeOut_003Ed__86 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -231,7 +231,7 @@ public class MenuManager : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CconnectionTimeOut_003Ed__85(int _003C_003E1__state)
+		public _003CconnectionTimeOut_003Ed__86(int _003C_003E1__state)
 		{
 		}
 
@@ -258,7 +258,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	[CompilerGenerated]
-	private sealed class _003CdelayedStartScene_003Ed__91 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CdelayedStartScene_003Ed__92 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -285,7 +285,7 @@ public class MenuManager : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CdelayedStartScene_003Ed__91(int _003C_003E1__state)
+		public _003CdelayedStartScene_003Ed__92(int _003C_003E1__state)
 		{
 		}
 
@@ -458,6 +458,8 @@ public class MenuManager : MonoBehaviour
 
 	public GameObject removeScoreButton;
 
+	public AudioClip coldOpen2Audio;
+
 	private void Update()
 	{
 	}
@@ -474,7 +476,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CPlayMenuMusicDelayed_003Ed__72))]
+	[IteratorStateMachine(typeof(_003CPlayMenuMusicDelayed_003Ed__73))]
 	private IEnumerator PlayMenuMusicDelayed()
 	{
 		return null;
@@ -492,7 +494,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[AsyncStateMachine(typeof(_003CRemoveLeaderboardScore_003Ed__76))]
+	[AsyncStateMachine(typeof(_003CRemoveLeaderboardScore_003Ed__77))]
 	private void RemoveLeaderboardScore()
 	{
 	}
@@ -509,7 +511,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[AsyncStateMachine(typeof(_003CGetLeaderboardForChallenge_003Ed__80))]
+	[AsyncStateMachine(typeof(_003CGetLeaderboardForChallenge_003Ed__81))]
 	private void GetLeaderboardForChallenge(bool submitScore = false)
 	{
 	}
@@ -522,7 +524,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CCreateLeaderboardSlots_003Ed__83))]
+	[IteratorStateMachine(typeof(_003CCreateLeaderboardSlots_003Ed__84))]
 	private IEnumerator CreateLeaderboardSlots(LeaderboardEntry[] entries)
 	{
 		return null;
@@ -532,7 +534,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CconnectionTimeOut_003Ed__85))]
+	[IteratorStateMachine(typeof(_003CconnectionTimeOut_003Ed__86))]
 	private IEnumerator connectionTimeOut()
 	{
 		return null;
@@ -558,7 +560,7 @@ public class MenuManager : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CdelayedStartScene_003Ed__91))]
+	[IteratorStateMachine(typeof(_003CdelayedStartScene_003Ed__92))]
 	private IEnumerator delayedStartScene()
 	{
 		return null;

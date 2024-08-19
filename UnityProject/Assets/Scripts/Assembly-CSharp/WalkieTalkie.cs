@@ -10,7 +10,7 @@ using UnityEngine;
 public class WalkieTalkie : GrabbableObject
 {
 	[CompilerGenerated]
-	private sealed class _003CspeakingIntoWalkieTalkieMode_003Ed__42 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CspeakingIntoWalkieTalkieMode_003Ed__45 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -37,7 +37,7 @@ public class WalkieTalkie : GrabbableObject
 		}
 
 		[DebuggerHidden]
-		public _003CspeakingIntoWalkieTalkieMode_003Ed__42(int _003C_003E1__state)
+		public _003CspeakingIntoWalkieTalkieMode_003Ed__45(int _003C_003E1__state)
 		{
 		}
 
@@ -125,6 +125,12 @@ public class WalkieTalkie : GrabbableObject
 
 	private float updateInterval;
 
+	public AudioSource wallAudio;
+
+	public AudioClip[] wallAudios;
+
+	private float wallAudioCheckInterval;
+
 	private void OnDisable()
 	{
 	}
@@ -178,7 +184,7 @@ public class WalkieTalkie : GrabbableObject
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CspeakingIntoWalkieTalkieMode_003Ed__42))]
+	[IteratorStateMachine(typeof(_003CspeakingIntoWalkieTalkieMode_003Ed__45))]
 	private IEnumerator speakingIntoWalkieTalkieMode()
 	{
 		return null;
@@ -226,6 +232,20 @@ public class WalkieTalkie : GrabbableObject
 	}
 
 	public override void Update()
+	{
+	}
+
+	private void SetWallAudioVolume()
+	{
+	}
+
+	[ServerRpc]
+	public void PlayWallAudioServerRpc(int clipIndex)
+	{
+	}
+
+	[ClientRpc]
+	public void PlayWallAudioClientRpc(int clipIndex)
 	{
 	}
 

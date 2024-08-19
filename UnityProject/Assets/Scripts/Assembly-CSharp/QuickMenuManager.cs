@@ -80,6 +80,8 @@ public class QuickMenuManager : MonoBehaviour
 
 	public TMP_Dropdown allItemsDropdown;
 
+	public GameObject truckPrefab;
+
 	private void Start()
 	{
 	}
@@ -93,6 +95,14 @@ public class QuickMenuManager : MonoBehaviour
 	}
 
 	public void Debug_SetItemToSpawn(int itemId)
+	{
+	}
+
+	public void Debug_KillLocalPlayer()
+	{
+	}
+
+	public void Debug_SpawnTruck()
 	{
 	}
 

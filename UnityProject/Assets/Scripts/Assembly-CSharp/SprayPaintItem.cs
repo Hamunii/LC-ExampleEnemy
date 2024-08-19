@@ -73,6 +73,17 @@ public class SprayPaintItem : GrabbableObject
 
 	private float audioInterval;
 
+	[Space(5f)]
+	public bool isWeedKillerSprayBottle;
+
+	private Transform killingWeed;
+
+	private Collider[] weedColliders;
+
+	private float killWeedSpeed;
+
+	private float addVehicleHPInterval;
+
 	public override void Start()
 	{
 	}
@@ -103,6 +114,48 @@ public class SprayPaintItem : GrabbableObject
 	}
 
 	public override void LateUpdate()
+	{
+	}
+
+	private void TrySprayingWeedKillerBottle()
+	{
+	}
+
+	private void StopKillingWeedLocalClient()
+	{
+	}
+
+	private void StartKillingWeedLocalClient(Transform newWeed)
+	{
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void StartKillingWeedServerRpc(Vector3 atPosition)
+	{
+	}
+
+	[ClientRpc]
+	public void StartKillingWeedClientRpc(Vector3 atPosition)
+	{
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void StopKillingWeedServerRpc()
+	{
+	}
+
+	[ClientRpc]
+	public void StopKillingWeedClientRpc()
+	{
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void KillWeedServerRpc(Vector3 weedPos)
+	{
+	}
+
+	[ClientRpc]
+	public void KillWeedClientRpc(Vector3 weedPos)
 	{
 	}
 

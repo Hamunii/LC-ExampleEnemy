@@ -16,7 +16,7 @@ public class WhoopieCushionItem : GrabbableObject
 	{
 	}
 
-	public void FartWithDebounce()
+	public override void ActivatePhysicsTrigger(Collider other)
 	{
 	}
 }

@@ -9,13 +9,11 @@ using UnityEngine;
 public class EntranceTeleport : NetworkBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CplayMusicOnDelay_003Ed__21 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CplayMusicOnDelay_003Ed__18 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
 		private object _003C_003E2__current;
-
-		public EntranceTeleport _003C_003E4__this;
 
 		object IEnumerator<object>.Current
 		{
@@ -36,7 +34,7 @@ public class EntranceTeleport : NetworkBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CplayMusicOnDelay_003Ed__21(int _003C_003E1__state)
+		public _003CplayMusicOnDelay_003Ed__18(int _003C_003E1__state)
 		{
 		}
 
@@ -66,13 +64,11 @@ public class EntranceTeleport : NetworkBehaviour
 
 	public Transform entrancePoint;
 
-	private Transform exitPoint;
+	public Transform exitPoint;
 
 	public int entranceId;
 
 	public StartOfRound playersManager;
-
-	private bool initializedVariables;
 
 	public int audioReverbPreset;
 
@@ -81,10 +77,6 @@ public class EntranceTeleport : NetworkBehaviour
 	private AudioSource exitPointAudio;
 
 	public AudioClip[] doorAudios;
-
-	public AudioClip firstTimeAudio;
-
-	public int dungeonFlowId;
 
 	private InteractTrigger triggerScript;
 
@@ -111,7 +103,7 @@ public class EntranceTeleport : NetworkBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CplayMusicOnDelay_003Ed__21))]
+	[IteratorStateMachine(typeof(_003CplayMusicOnDelay_003Ed__18))]
 	private IEnumerator playMusicOnDelay()
 	{
 		return null;

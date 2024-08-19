@@ -11,6 +11,9 @@ public class EnemyType : ScriptableObject
 
 	public bool spawningDisabled;
 
+	[Tooltip("Multiplies the spawn probability with a number based off the amount of weeds/mold growing.")]
+	public bool spawnFromWeeds;
+
 	[Tooltip("X axis is the number of this enemy type that have spawned, divided by 10; Y axis is a multiplier to probabilityCurve.")]
 	public AnimationCurve numberSpawnedFalloff;
 
@@ -41,6 +44,9 @@ public class EnemyType : ScriptableObject
 	[Space(3f)]
 	public bool isDaytimeEnemy;
 
+	[Space(3f)]
+	public int increasedChanceInterior;
+
 	[Range(0f, 1f)]
 	public float normalizedTimeInDayToLeave;
 
@@ -55,6 +61,8 @@ public class EnemyType : ScriptableObject
 	public bool canBeStunned;
 
 	public bool canDie;
+
+	public bool canBeDestroyed;
 
 	public bool destroyOnDeath;
 

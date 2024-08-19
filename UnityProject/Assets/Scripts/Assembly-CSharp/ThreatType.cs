@@ -10,5 +10,6 @@ public enum ThreatType
 	ForestGiant = 4,
 	Item = 5,
 	RadMech = 6,
-	BaboonHawk = 7
+	BaboonHawk = 7,
+	BushWolf = 8
 }

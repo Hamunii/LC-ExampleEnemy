@@ -18,13 +18,13 @@ public class TerminalNode : ScriptableObject
 	[Header("Purchasing items")]
 	public int buyItemIndex;
 
+	public int buyVehicleIndex;
+
 	public bool isConfirmationNode;
 
 	public int buyRerouteToMoon;
 
 	public int displayPlanetInfo;
-
-	public bool lockedInDemo;
 
 	[Space(3f)]
 	public int shipUnlockableID;

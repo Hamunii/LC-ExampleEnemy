@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class InitializeGame : MonoBehaviour
 {
 	[CompilerGenerated]
-	private sealed class _003CSendToNextScene_003Ed__11 : IEnumerator<object>, IEnumerator, IDisposable
+	private sealed class _003CSendToNextScene_003Ed__14 : IEnumerator<object>, IEnumerator, IDisposable
 	{
 		private int _003C_003E1__state;
 
@@ -36,7 +36,7 @@ public class InitializeGame : MonoBehaviour
 		}
 
 		[DebuggerHidden]
-		public _003CSendToNextScene_003Ed__11(int _003C_003E1__state)
+		public _003CSendToNextScene_003Ed__14(int _003C_003E1__state)
 		{
 		}
 
@@ -68,6 +68,10 @@ public class InitializeGame : MonoBehaviour
 
 	public AudioSource bootUpAudio;
 
+	public AudioClip bootUpSFXError;
+
+	public AudioClip coldOpen2Audio;
+
 	public PlayerActions playerActions;
 
 	private bool canSkip;
@@ -75,6 +79,8 @@ public class InitializeGame : MonoBehaviour
 	private bool hasSkipped;
 
 	public bool playColdOpenCinematic;
+
+	public bool playColdOpenCinematic2;
 
 	private void OnEnable()
 	{
@@ -92,7 +98,7 @@ public class InitializeGame : MonoBehaviour
 	{
 	}
 
-	[IteratorStateMachine(typeof(_003CSendToNextScene_003Ed__11))]
+	[IteratorStateMachine(typeof(_003CSendToNextScene_003Ed__14))]
 	private IEnumerator SendToNextScene()
 	{
 		return null;
