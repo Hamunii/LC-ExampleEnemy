@@ -75,7 +75,7 @@ body:
     id: mods
     attributes:
       label: List of mods used
-      description: Please copy and paste your mod list. ![HOW](/Hamunii/LC-ExampleEnemy/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-show-modlist.png?raw=true)
+      description: Please copy and paste your mod list. ![HOW](/XuXiaolan/LC-ExampleContent/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-show-modlist.png?raw=true)
     validations:
       required: true
 
@@ -83,7 +83,7 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks. If you're not sure what to include, just paste the whole thing! ![HOW](/Hamunii/LC-ExampleEnemy/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-copy-game-log.png?raw=true)
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks. If you're not sure what to include, just paste the whole thing! ![HOW](/XuXiaolan/LC-ExampleContent/blob/main/AssetSources/.github_ISSUE_TEMPLATE_images/r2mm-copy-game-log.png?raw=true)
       render: PowerShell
 
   - type: checkboxes

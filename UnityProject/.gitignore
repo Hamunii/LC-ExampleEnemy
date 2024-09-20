@@ -78,5 +78,5 @@ crashlytics-build.properties
 *.dll*
 
 # We allow these dll files because we have the right to redistribute them
-!/[Aa]ssets/Plugins/Hamunii.ExampleEnemy.dll*
+!/[Aa]ssets/Plugins/XuXiaolan.ExampleContent.dll*
 !/[Aa]ssets/Plugins/LethalLib.dll*

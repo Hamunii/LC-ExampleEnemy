@@ -226,10 +226,10 @@ def main():
       </Target>
    </Project>"""
 
-   fp = open(f'{thisPath}/Plugin/ExampleEnemy.csproj.user', 'w')
+   fp = open(f'{thisPath}/Plugin/ExampleContent.csproj.user', 'w')
    fp.write(userFile)
    fp.close()
-   print(color.green + f'csproj.user file created at {thisPath}/Plugin/ExampleEnemy.csproj.user!')
+   print(color.green + f'csproj.user file created at {thisPath}/Plugin/ExampleContent.csproj.user!')
 
    print(color.lightblue + f'Project Setup Complete!{color.lightcyan}\n> You should now be able to build the C# project, including the Asset Bundle!')
    exitProgram()

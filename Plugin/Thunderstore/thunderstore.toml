@@ -6,7 +6,7 @@ repository = "https://thunderstore.io"
 
 [package]
 description = "Example Enemy for Lethal Company."
-websiteUrl = "https://github.com/Hamunii/LC-ExampleEnemy"
+websiteUrl = "https://github.com/XuXiaolan/LC-ExampleContent"
 containsNsfwContent = false
 [package.dependencies]
 BepInEx-BepInExPack = "5.4.2100"
@@ -18,12 +18,12 @@ readme = "./README.md"
 outdir = "./Packages"
 
 [[build.copy]]
-source = "../bin/Release/netstandard2.1/Hamunii.ExampleEnemy.dll"
-target = "plugins/ExampleEnemy/"
+source = "../bin/Release/netstandard2.1/XuXiaolan.ExampleContent.dll"
+target = "plugins/ExampleContent/"
 
 [[build.copy]]
 source = "../../UnityProject/AssetBundles/StandaloneWindows/modassets"
-target = "plugins/ExampleEnemy/"
+target = "plugins/ExampleContent/"
 
 [[build.copy]]
 source = "./CHANGELOG.md"
