@@ -1,6 +1,6 @@
-# Example Enemy
+# Example Content
 
-This repository contains the full source code for the Example Enemy for Lethal Company, including the Unity project which can be used to build its asset bundle. The guide part of this project can be found at <https://lethal.wiki/dev/apis/lethallib/custom-enemies/overview>.
+This repository contains the full source code for the Example Enemy, Example Shovel, Example Scrap and an Example Present for Lethal Company, including the Unity project which can be used to build its asset bundle. The guide part of this project can be found at <https://lethal.wiki/dev/apis/lethallib/custom-enemies/overview>.
 
 > [!NOTE]
 > The wiki page might be slightly out of date regarding how the Example Enemy prefab is constructed.
@@ -89,10 +89,11 @@ Renaming a mod can easily break things if you don't update every instance of it.
 
 ## Credits
 
-[XuXiaolan](https://github.com/XuuXiao/) - Maintaing ExampleEnemy and ExampleContent.
+[XuXiaolan](https://github.com/XuuXiaolan/) - Maintaing ExampleEnemy (V49+) and creating ExampleContent.
+[Hamunii](https://github.com/Suni/)
 [EvaisaDev](https://github.com/EvaisaDev) - [LethalLib](https://github.com/EvaisaDev/LethalLib)  
 [Lordfirespeed](https://github.com/Lordfirespeed) - reference tcli usage in LethalLib  
-[Xilophor](https://github.com/Xilophor) - csproj files taken from Xilo's [mod templates](https://github.com/Xilophor/Lethal-Company-Mod-Templates)  
+[Xilophor](https://github.com/Xilophor) - csproj files taken from Xilo's [Mod Templates](https://github.com/Xilophor/Lethal-Company-Mod-Templates)  
 [nomnomab](https://github.com/nomnomab) - [Lethal Company Project Patcher](https://github.com/nomnomab/lc-project-patcher) - used for the Unity Project  
 [AlbinoGeek](https://github.com/AlbinoGeek) - issue template  
 Melavex - suggestions and feedback on this project  

@@ -9,12 +9,14 @@ using ExampleContent.src.Utils;
 namespace ExampleContent.src;
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 [BepInDependency(LethalLib.Plugin.ModGUID)] 
-public class Plugin : BaseUnityPlugin {
+public class Plugin : BaseUnityPlugin
+{
     internal static new ManualLogSource Logger = null!;
     internal static PluginConfig BoundConfig { get; private set; } = null!;
     public static AssetBundle? ModAssets;
 
-    private void Awake() {
+    private void Awake()
+    {
         Logger = base.Logger;
 
         // If you don't want your mod to use a configuration file, you can remove this line, Configuration.cs, and other references.
@@ -34,6 +36,13 @@ public class Plugin : BaseUnityPlugin {
             return;
         }
 
+        RegisterExampleEnemies(ModAssets);
+        RegisterExampleItems(ModAssets);
+        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+    }
+
+    private void RegisterExampleEnemies(AssetBundle ModAssets)
+    {
         // We load our assets from our asset bundle. Remember to rename them both here and in our Unity project.
         var ExampleEnemy = ModAssets.LoadAsset<EnemyType>("ExampleEnemy");
         var ExampleEnemyTN = ModAssets.LoadAsset<TerminalNode>("ExampleEnemyTN");
@@ -44,12 +53,18 @@ public class Plugin : BaseUnityPlugin {
         NetworkPrefabs.RegisterNetworkPrefab(ExampleEnemy.enemyPrefab);
 
         // For different ways of registering your enemy, see https://github.com/Hamunii/LC-ExampleEnemy/tree/ExampleContent/Plugin/src/Utils/ContentLoader.cs
-        ContentHandler.Instance.RegisterEnemyWithConfig(BoundConfig.ConfigSpawnWeight.Value, ExampleEnemy, ExampleEnemyTN, ExampleEnemyTK, BoundConfig.ConfigPowerLevel.Value, BoundConfig.ConfigMaxSpawnCount.Value);
-        
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        ContentHandler.Instance.RegisterEnemyWithConfig(BoundConfig.ConfigExampleEnemySpawnWeight.Value, ExampleEnemy, ExampleEnemyTN, ExampleEnemyTK, BoundConfig.ConfigPowerLevel.Value, BoundConfig.ConfigMaxSpawnCount.Value);
     }
 
-    private static void InitializeNetworkBehaviours() {
+    private void RegisterExampleItems(AssetBundle ModAssets)
+    {
+        // We load our assets from our asset bundle. Remember to rename them both here and in our Unity project.
+        var ExampleScrap = ModAssets.LoadAsset<Item>("ExampleScrapObj");
+        ContentHandler.Instance.RegisterScrapWithConfig(BoundConfig.ConfigExampleScrapSpawnWeight.Value, ExampleScrap);
+    }
+
+    private static void InitializeNetworkBehaviours()
+    {
         // See https://github.com/EvaisaDev/UnityNetcodePatcher?tab=readme-ov-file#preparing-mods-for-patching
         var types = Assembly.GetExecutingAssembly().GetTypes();
         foreach (var type in types)

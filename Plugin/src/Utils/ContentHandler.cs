@@ -29,35 +29,6 @@ public class ContentHandler
         }
     }
 
-    internal string[] MapObjectConfigParsing(string configString)
-    {
-        var levelTypesList = new List<string>();
-
-        foreach (string entry in configString.Split(',').Select(s => s.Trim()))
-        {
-            string name = entry;
-            if (System.Enum.TryParse(name, true, out Levels.LevelTypes levelType))
-            {
-                levelTypesList.Add(name);
-            }
-            else
-            {
-                // Try appending "Level" to the name and re-attempt parsing
-                string modifiedName = name + "Level";
-                if (System.Enum.TryParse(modifiedName, true, out levelType))
-                {
-                    levelTypesList.Add(modifiedName);
-                }
-                else
-                {
-                    levelTypesList.Add(name);
-                }
-            }
-        }
-
-        return levelTypesList.ToArray();
-    }
-
     // Optionally, we can list which levels we want to add our enemy to, while also specifying the spawn weight for each.
     /*
     var ExampleEnemyLevelRarities = new Dictionary<Levels.LevelTypes, int> {

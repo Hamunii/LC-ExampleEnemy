@@ -6,13 +6,20 @@ namespace ExampleContent.src;
 public class PluginConfig
 {
     // For more info on custom configs, see https://lethal.wiki/dev/intermediate/custom-configs
-    public ConfigEntry<string> ConfigSpawnWeight;
+    public ConfigEntry<string> ConfigExampleScrapSpawnWeight;
+    public ConfigEntry<string> ConfigExampleEnemySpawnWeight;
     public ConfigEntry<float> ConfigPowerLevel;
     public ConfigEntry<int> ConfigMaxSpawnCount;
 
     public PluginConfig(ConfigFile cfg)
     {
-        ConfigSpawnWeight = cfg.Bind("ExampleEnemy",
+        ConfigExampleScrapSpawnWeight = cfg.Bind("ExampleScrap",
+                                "Example Scrap | SpawnWeight",
+                                "Modded:69,Vanilla:69",
+                                "The spawn chance weight for ExampleItem, relative to other existing items.\n" +
+                                "Goes up from 0, lower is more rare, 100 and up is very common. \n" +
+                                "Allows the use of Moon names in the config.");
+        ConfigExampleEnemySpawnWeight = cfg.Bind("ExampleEnemy",
                                 "Example Enemy | SpawnWeight",
                                 "Modded:69,Vanilla:69",
                                 "The spawn chance weight for ExampleEnemy, relative to other existing enemies.\n" +

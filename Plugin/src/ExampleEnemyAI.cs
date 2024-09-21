@@ -11,15 +11,19 @@ namespace ExampleContent.src;
 // Asset bundles cannot contain scripts, only references to the script, so our script lives here. It is important to get the
 // reference right, or else it will not find this file. See the guide for more information.
 
+// This script also makes use of `nullable`, read more about it here: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references
 public class ExampleEnemyAI : EnemyAI
 {
+    // `public` fields are set in the UnityProject.
     public Transform turnCompass = null!;
     public Transform attackArea = null!;
+
     private float timeSinceHittingLocalPlayer = 0;
     private float timeSinceNewRandPos = 0;
     private Vector3 positionRandomness = Vector3.zero;
     private Vector3 StalkPos = Vector3.zero;
     private System.Random enemyRandom = null!;
+    // Setting the Hashes for the animator instead of using string's, saves the Animator from doing a step and miniscule performance.
     private static readonly int swingAttackHash = Animator.StringToHash("swingAttack");
     private static readonly int startWalkHash = Animator.StringToHash("startWalk");
 
