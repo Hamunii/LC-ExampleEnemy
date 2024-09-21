@@ -3,7 +3,7 @@
   <!-- BepInEx Properties -->
   <PropertyGroup>
 		<!-- This is the GUID of your mod. -->
-    <AssemblyName>XuXiaolan.ExampleContent</AssemblyName>
+    <AssemblyName>com.github.xuuxiaolan.examplecontent</AssemblyName>
 		<!-- This is the name of your mod. This will be used by tcli when building our Thunderstore package. -->
     <Product>ExampleContent</Product>
     <!-- Change to whatever version you're currently on. This will be used by tcli when building our Thunderstore package. -->
