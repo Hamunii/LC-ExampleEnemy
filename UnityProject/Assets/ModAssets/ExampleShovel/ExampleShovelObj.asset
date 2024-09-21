@@ -13,29 +13,29 @@ MonoBehaviour:
   m_Name: ExampleShovelObj
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: 
+  itemName: Example Shovel
   spawnPositionTypes: []
   twoHanded: 0
-  twoHandedAnimation: 0
+  twoHandedAnimation: 1
   disableHandsOnWall: 0
   canBeGrabbedBeforeGameStart: 0
-  weight: 0
+  weight: 1.2
   itemIsTrigger: 0
-  holdButtonUse: 0
-  itemSpawnsOnGround: 0
-  isConductiveMetal: 0
-  isScrap: 0
+  holdButtonUse: 1
+  itemSpawnsOnGround: 1
+  isConductiveMetal: 1
+  isScrap: 1
   creditsWorth: 0
   lockedInDemo: 0
   highestSalePercentage: 0
-  maxValue: 0
-  minValue: 0
+  maxValue: 200
+  minValue: 100
   spawnPrefab: {fileID: 0}
   requiresBattery: 0
   batteryUsage: 0
   automaticallySetUsingPower: 0
   itemIcon: {fileID: 0}
-  grabAnim: 
+  grabAnim: HoldLung
   useAnim: 
   pocketAnim: 
   throwAnim: 
@@ -49,7 +49,7 @@ MonoBehaviour:
   syncDiscardFunction: 0
   syncInteractLRFunction: 0
   saveItemVariable: 0
-  isDefensiveWeapon: 0
+  isDefensiveWeapon: 1
   toolTips: []
   verticalOffset: 0
   floorYOffset: 0
