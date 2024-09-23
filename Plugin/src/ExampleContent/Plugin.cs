@@ -4,9 +4,9 @@ using BepInEx;
 using LethalLib.Modules;
 using BepInEx.Logging;
 using System.IO;
-using ExampleContent.src.Utils;
+using ExampleContent.Utils;
 
-namespace ExampleContent.src;
+namespace ExampleContent;
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 [BepInDependency(LethalLib.Plugin.ModGUID)] 
 public class Plugin : BaseUnityPlugin

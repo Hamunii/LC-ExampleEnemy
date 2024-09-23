@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace ExampleContent.src;
+namespace ExampleContent.Items;
 public class ExampleBigPresent : GrabbableObject
 {
     private List<Item> items = new();

@@ -2,7 +2,7 @@
 using System.Reflection;
 using BepInEx.Configuration;
 
-namespace ExampleContent.src;
+namespace ExampleContent;
 public class PluginConfig
 {
     // For more info on custom configs, see https://lethal.wiki/dev/intermediate/custom-configs

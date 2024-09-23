@@ -4,7 +4,7 @@ using GameNetcodeStuff;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace ExampleContent.src;
+namespace ExampleContent.Enemies;
 
 // You may be wondering, how does the Example Enemy know it is from class ExampleEnemyAI?
 // Well, we give it a reference to to this class in the Unity project where we make the asset bundle.

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LethalLib.Modules;
 
-namespace ExampleContent.src.Utils;
+namespace ExampleContent.Utils;
 public class ContentHandler
 {
     public static ContentHandler Instance = new();
@@ -11,18 +11,18 @@ public class ContentHandler
         enemy.MaxCount = spawnCount;
         enemy.PowerLevel = powerLevel;
         (Dictionary<Levels.LevelTypes, int> spawnRateByLevelType, Dictionary<string, int> spawnRateByCustomLevelType) = ConfigParsing(configMoonRarity);
-        Enemies.RegisterEnemy(enemy, spawnRateByLevelType, spawnRateByCustomLevelType, terminalNode, terminalKeyword);
+        LethalLib.Modules.Enemies.RegisterEnemy(enemy, spawnRateByLevelType, spawnRateByCustomLevelType, terminalNode, terminalKeyword);
     }
 
     internal void RegisterScrapWithConfig(string configMoonRarity, Item scrap)
     {
         (Dictionary<Levels.LevelTypes, int> spawnRateByLevelType, Dictionary<string, int> spawnRateByCustomLevelType) = ConfigParsing(configMoonRarity);
-        Items.RegisterScrap(scrap, spawnRateByLevelType, spawnRateByCustomLevelType);
+        LethalLib.Modules.Items.RegisterScrap(scrap, spawnRateByLevelType, spawnRateByCustomLevelType);
     }
 
     internal void RegisterShopItemWithConfig(bool enabledScrap, Item item, TerminalNode terminalNode, int itemCost, string configMoonRarity)
     {
-        Items.RegisterShopItem(item, null!, null!, terminalNode, itemCost);
+        LethalLib.Modules.Items.RegisterShopItem(item, null!, null!, terminalNode, itemCost);
         if (enabledScrap)
         {
             RegisterScrapWithConfig(configMoonRarity, item);
