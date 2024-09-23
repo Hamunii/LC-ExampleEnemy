@@ -65,9 +65,8 @@ public class ExampleEnemyAI : EnemyAI
         timeSinceHittingLocalPlayer += Time.deltaTime;
         timeSinceNewRandPos += Time.deltaTime;
         
-        int state = currentBehaviourStateIndex;
         
-        if (targetPlayer != null && state != (int)State.HeadSwingAttackInProgress)
+        if (targetPlayer != null && currentBehaviourStateIndex != (int)State.HeadSwingAttackInProgress)
         {
             turnCompass.LookAt(targetPlayer.gameplayCamera.transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0f, turnCompass.eulerAngles.y, 0f)), 4f * Time.deltaTime);
