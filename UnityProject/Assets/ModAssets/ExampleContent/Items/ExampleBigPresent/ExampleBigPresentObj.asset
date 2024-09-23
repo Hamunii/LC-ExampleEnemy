@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ExampleBigPresentObj
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: 
+  itemName: Big Present
   spawnPositionTypes: []
-  twoHanded: 0
-  twoHandedAnimation: 0
+  twoHanded: 1
+  twoHandedAnimation: 1
   disableHandsOnWall: 0
   canBeGrabbedBeforeGameStart: 0
-  weight: 0
+  weight: 1.45
   itemIsTrigger: 0
   holdButtonUse: 0
   itemSpawnsOnGround: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   batteryUsage: 0
   automaticallySetUsingPower: 0
   itemIcon: {fileID: 0}
-  grabAnim: 
+  grabAnim: HoldForward
   useAnim: 
   pocketAnim: 
   throwAnim: 
