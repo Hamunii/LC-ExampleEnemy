@@ -561,7 +561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7115615282760060981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2106200333, guid: e0a89e6f23bd69e40ab1b6cd831745f1, type: 3}
+  m_Script: {fileID: 27169093, guid: f3266f27809feb14bbf868eed34aefa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: {fileID: 11400000, guid: 133b201488d7fb6cfbcd46e1309fc155, type: 2}
@@ -608,6 +608,7 @@ MonoBehaviour:
     boolValue: 0
   currentBehaviourStateIndex: 0
   previousBehaviourStateIndex: 0
+  currentOwnershipOnThisClient: 0
   isInsidePlayerShip: 0
   AIIntervalTime: 0.2
   inSpecialAnimation: 0
@@ -637,6 +638,7 @@ MonoBehaviour:
   isEnemyDead: 0
   daytimeEnemyLeaving: 0
   enemyHP: 4
+  nodesTempArray: []
   openDoorSpeedMultiplier: 0
   useSecondaryAudiosOnAnimatedObjects: 0
   currentSearch:
@@ -651,9 +653,11 @@ MonoBehaviour:
     nodesEliminatedInCurrentSearch: 0
     inProgress: 0
     calculatingNodeInSearch: 0
+    startedSearchAtSelf: 0
     searchWidth: 0
     searchPrecision: 0
     randomized: 0
+    onlySearchNodesInLOS: 0
   DebugEnemy: 0
   stunnedIndefinitely: 0
   stunNormalizedTimer: 0
@@ -661,6 +665,8 @@ MonoBehaviour:
   stunnedByPlayer: {fileID: 0}
   debugEnemyAI: 0
   isOutside: 0
+  hitsPhysicsObjects: 0
+  gotFarthestNodeAsync: 0
   turnCompass: {fileID: 4490490654132626100}
   attackArea: {fileID: 8128552763543743428}
 --- !u!195 &7242224457304669280
