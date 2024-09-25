@@ -3,7 +3,6 @@
  * https://github.com/ChrisFeline
  */
 
-#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -61,4 +60,3 @@ namespace Kittenji.Editor
         }
     }
 }
-#endif
