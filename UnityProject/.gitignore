@@ -79,3 +79,4 @@ crashlytics-build.properties
 
 # We allow these dll files because we have the right to redistribute them
 !/[Aa]ssets/ModAssets/ExampleContent/XuXiaolan.ExampleContent.dll*
+!/[Aa]ssets/ModAssets/ExampleContent/Dependencies/LethalLib/Plugins/LethalLib/LethalLib.dll*
