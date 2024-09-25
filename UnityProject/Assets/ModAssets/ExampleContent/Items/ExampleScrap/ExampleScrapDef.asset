@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
-  m_Name: ExampleBigPresentObj
+  m_Name: ExampleScrapDef
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: Big Present
+  itemName: 
   spawnPositionTypes: []
-  twoHanded: 1
-  twoHandedAnimation: 1
+  twoHanded: 0
+  twoHandedAnimation: 0
   disableHandsOnWall: 0
   canBeGrabbedBeforeGameStart: 0
-  weight: 1.45
+  weight: 0
   itemIsTrigger: 0
   holdButtonUse: 0
   itemSpawnsOnGround: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   batteryUsage: 0
   automaticallySetUsingPower: 0
   itemIcon: {fileID: 0}
-  grabAnim: HoldForward
+  grabAnim: 
   useAnim: 
   pocketAnim: 
   throwAnim: 

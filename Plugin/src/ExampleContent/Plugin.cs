@@ -44,7 +44,7 @@ public class Plugin : BaseUnityPlugin
     private void RegisterExampleEnemies(AssetBundle ModAssets)
     {
         // We load our assets from our asset bundle. Remember to rename them both here and in our Unity project.
-        var ExampleEnemy = ModAssets.LoadAsset<EnemyType>("ExampleEnemy");
+        var ExampleEnemy = ModAssets.LoadAsset<EnemyType>("ExampleEnemyDef");
         var ExampleEnemyTN = ModAssets.LoadAsset<TerminalNode>("ExampleEnemyTN");
         var ExampleEnemyTK = ModAssets.LoadAsset<TerminalKeyword>("ExampleEnemyTK");
 
@@ -59,8 +59,14 @@ public class Plugin : BaseUnityPlugin
     private void RegisterExampleItems(AssetBundle ModAssets)
     {
         // We load our assets from our asset bundle. Remember to rename them both here and in our Unity project.
-        var ExampleScrap = ModAssets.LoadAsset<Item>("ExampleScrapObj");
+        var ExampleScrap = ModAssets.LoadAsset<Item>("ExampleScrapDef");
         ContentHandler.Instance.RegisterScrapWithConfig(BoundConfig.ConfigExampleScrapSpawnWeight.Value, ExampleScrap);
+
+        var ExampleBigPresent = ModAssets.LoadAsset<Item>("ExampleBigPresentDef");
+        ContentHandler.Instance.RegisterScrapWithConfig(BoundConfig.ConfigExampleBigPresentSpawnWeight.Value, ExampleBigPresent);
+
+        var ExampleShovel = ModAssets.LoadAsset<Item>("ExampleShovelDef");
+        ContentHandler.Instance.RegisterShopItemWithConfig(BoundConfig.ConfigEnableExampleShovelScrap.Value, ExampleShovel, null!, BoundConfig.ConfigExampleShovelCost.Value, BoundConfig.ConfigExampleShovelSpawnWeight.Value);
     }
 
     private static void InitializeNetworkBehaviours()

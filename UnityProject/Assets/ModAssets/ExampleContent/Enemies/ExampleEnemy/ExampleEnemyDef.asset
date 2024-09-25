@@ -38,6 +38,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spawningDisabled: 0
+  spawnFromWeeds: 0
   numberSpawnedFalloff:
     serializedVersion: 2
     m_Curve:
@@ -63,24 +64,36 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   useNumberSpawnedFalloff: 0
-  enemyPrefab: {fileID: 7115615282760060981, guid: 1e1fa11ed9aee9bce87f5f5cf5afcabb,
+  spawnInGroupsOf: 0
+  requireNestObjectsToSpawn: 0
+  enemyPrefab: {fileID: 2107284424732260103, guid: 1e1fa11ed9aee9bce87f5f5cf5afcabb,
     type: 3}
   PowerLevel: 1
   MaxCount: 2
   numberSpawned: 2
+  nestsSpawned: 0
   isOutsideEnemy: 0
   isDaytimeEnemy: 0
+  increasedChanceInterior: 0
   normalizedTimeInDayToLeave: 0.5
   stunTimeMultiplier: 4
   doorSpeedMultiplier: 0.25
   stunGameDifficultyMultiplier: 1
   canBeStunned: 1
   canDie: 1
+  canBeDestroyed: 0
   destroyOnDeath: 0
   canSeeThroughFog: 0
+  pushPlayerForce: 0
+  pushPlayerDistance: 0
+  SizeLimit: 0
   timeToPlayAudio: 0
   loudnessMultiplier: 0
   overrideVentSFX: {fileID: 0}
+  nestSpawnPrefab: {fileID: 0}
+  nestSpawnPrefabWidth: 0
+  useMinEnemyThresholdForNest: 0
+  minEnemiesToSpawnNest: 0
   hitBodySFX: {fileID: 0}
   hitEnemyVoiceSFX: {fileID: 8300000, guid: 509a796b32c100191839545e866e8a9c, type: 3}
   deathSFX: {fileID: 0}
