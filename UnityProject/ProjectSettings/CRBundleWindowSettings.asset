@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 53
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ba37b74c3357e42a779e4e104c1dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildOutputPath: F:/Ammar Stuff/ModdingProject/LC-ExampleContent/LC-ExampleEnemy/UnityProject/Assets/ModAssets/ExampleContent/AssetBundles
+  buildOnlyChanged: 1
+  processDependenciesRecursively: 0
+  assetSortOption: 1
+  scaleFactor: 1.1
+  folderColor: {r: 0.8, g: 0.8, b: 1, a: 1}
+  bundleLabelColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
+  bundleValueColor: {r: 0.80784315, g: 1, b: 0.80784315, a: 1}
+  assetNameColor: {r: 0, g: 0.50980395, b: 0.42352942, a: 1}
+  assetSizeColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}

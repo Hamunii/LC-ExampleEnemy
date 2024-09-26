@@ -213,15 +213,31 @@ def main():
          <ManagedDirectory>$(GameDirectory)Lethal Company_Data/Managed/</ManagedDirectory>
       </PropertyGroup>
       
+      <!-- Define Asset Bundles -->
+      <ItemGroup>
+         <AssetBundles Include="../../../UnityProject/Assets/ModAssets/ExampleContent/AssetBundles/*" />
+         <AssetBundles Remove="../../../UnityProject/Assets/ModAssets/ExampleContent/AssetBundles/*.meta" />
+         <AssetBundles Remove="../../../UnityProject/Assets/ModAssets/ExampleContent/AssetBundles/*.manifest" />
+         <AssetBundles Remove="../../../UnityProject/Assets/ModAssets/ExampleContent/AssetBundles/AssetBundles" />
+      </ItemGroup>
+      
       <!-- Our mod files get copied over after NetcodePatcher has processed our DLL -->
       <Target Name="CopyToTestProfile" DependsOnTargets="NetcodePatch" AfterTargets="PostBuildEvent">
+         <!-- Create DEV directory if it doesn't exist -->
          <MakeDir
             Directories="$(PluginsDirectory)$(AssemblyName)-DEV/"
             Condition="!Exists('$(PluginsDirectory)$(AssemblyName)-DEV/')"
          />
+         <!-- Create Assets directory inside DEV if it doesn't exist -->
+         <MakeDir
+            Directories="$(PluginsDirectory)$(AssemblyName)-DEV/Assets/"
+            Condition="!Exists('$(PluginsDirectory)$(AssemblyName)-DEV/Assets/')"
+         />
+         <!-- Copy the main DLL -->
          <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginsDirectory)$(AssemblyName)-DEV/"/>
-         <!-- We will copy the asset bundle named "modassets" over -->
-         <Copy SourceFiles="../../../UnityProject/Assets/ModAssets/ExampleContent/AssetBundles/modassets" DestinationFolder="$(PluginsDirectory)$(AssemblyName)-DEV/"/>
+         <!-- Copy all asset bundles to the Assets folder -->
+         <Copy SourceFiles="@(AssetBundles)"
+               DestinationFolder="$(PluginsDirectory)$(AssemblyName)-DEV/Assets/"/>
          <Exec Command="echo '[csproj.user] Mod files copied to $(PluginsDirectory)$(AssemblyName)-DEV/'" />
       </Target>
    </Project>"""

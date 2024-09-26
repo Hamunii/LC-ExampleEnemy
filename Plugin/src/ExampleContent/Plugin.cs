@@ -13,7 +13,6 @@ public class Plugin : BaseUnityPlugin
 {
     internal static new ManualLogSource Logger = null!;
     internal static PluginConfig BoundConfig { get; private set; } = null!;
-    public static AssetBundle? ModAssets;
 
     private void Awake()
     {
@@ -29,15 +28,23 @@ public class Plugin : BaseUnityPlugin
         // You may want to rename your asset bundle from the AssetBundle Browser in order to avoid an issue with
         // asset bundle identifiers being the same between multiple bundles, allowing the loading of only one bundle from one mod.
         // In that case also remember to change the asset bundle copying code in the csproj.user file.
-        string bundleName = "modassets";
-        ModAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Info.Location), bundleName));
-        if (ModAssets == null) {
+        string enemyBundleName = "enemyassets";
+        var EnemyAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Info.Location), "Assets", enemyBundleName));
+        if (EnemyAssets == null) {
             Logger.LogError($"Failed to load custom assets.");
             return;
         }
 
-        RegisterExampleEnemies(ModAssets);
-        RegisterExampleItems(ModAssets);
+        string itemBundleName = "itemassets";
+        var ItemAssets = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Info.Location), "Assets", itemBundleName));
+        if (ItemAssets == null) {
+            Logger.LogError($"Failed to load custom assets.");
+            return;
+        }
+
+        RegisterExampleEnemies(EnemyAssets);
+        RegisterExampleItems(ItemAssets);
+
         Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
     }
 
